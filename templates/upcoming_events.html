@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ church.name }} - Upcoming Events</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding-top: 120px; /* Adjust this to the height of your fixed header */
+            font-family: 'Arial', sans-serif;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header .location {
+            margin: 0;
+            font-size: 16px;
+        }
+        .event-item {
+            cursor: pointer;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+        .event-item:hover {
+            background-color: #efefef;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        .close-btn {
+            cursor: pointer;
+            float: right;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ church.name }}</h1>
+        <p class="location">{{ church.location }}</p>
+    </div>
+
+    <div id="events-container">
+        {% for event in events %}
+            <div class="event-item" onclick="openPopup(this)"
+                 data-title="{{ event.event_title }}"
+                 data-date="{{ event.date.strftime('%d %B %Y') }}" 
+                 data-description="{{ event.description }}">
+                <div>{{ event.event_title }}</div>
+                <div>{{ event.date.strftime('%d %m %Y') }}</div>  <!-- Updated date format -->
+            </div>
+        {% else %}
+            <p>No upcoming events found.</p>
+        {% endfor %}
+    </div>
+    
+
+    <!-- Popup for event details -->
+    <div id="eventPopup" class="popup">
+        <div class="close-btn" onclick="closePopup()">×</div>
+        <h2 id="popupTitle"></h2>
+        <p id="popupDate"></p>
+        <p id="popupDescription"></p>
+    </div>
+
+    <script>
+        function openPopup(element) {
+            document.getElementById('popupTitle').textContent = element.dataset.title;
+            document.getElementById('popupDate').textContent = element.dataset.date;
+            document.getElementById('popupDescription').textContent = element.dataset.description;
+            document.getElementById('eventPopup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('eventPopup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

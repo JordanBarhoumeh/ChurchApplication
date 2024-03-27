@@ -1,0 +1,56 @@
+<!-- templates/church_main.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ church.name }}</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding-top: 110px; /* Offset for the fixed header, adjust this value based on your header's actual height */
+            font-family: 'Arial', sans-serif;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        h1, .location {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 6vw;
+        }
+        .events-button {
+            display: block;
+            width: 60%; /* Adjust based on your design */
+            margin: 20px auto; /* Center button horizontally with margin */
+            padding: 10px 0;
+            font-size: 4vw;
+            background-color: #007bff; /* Bootstrap primary color for reference */
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px; /* Optional: rounds the corners of the button */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ church.name }}</h1>
+        <p class="location">{{ church.location }}</p>
+    </div>
+    <div style="text-align: center; padding-top: 120px;"> <!-- Adjust padding-top as necessary -->
+        <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="events-button">View Upcoming Events</a>
+    </div>
+</body>
+</html>
