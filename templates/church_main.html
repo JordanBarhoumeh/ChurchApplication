@@ -105,6 +105,17 @@
                     borderColor: '#9e5fff'
                 }
             ]);
+
+            // Next and previous buttons
+            var prevBtn = document.createElement('button');
+            prevBtn.innerHTML = '&lt;';
+            prevBtn.addEventListener('click', function() { calendar.prev(); });
+            document.body.appendChild(prevBtn);
+
+            var nextBtn = document.createElement('button');
+            nextBtn.innerHTML = '&gt;';
+            nextBtn.addEventListener('click', function() { calendar.next(); });
+            document.body.appendChild(nextBtn);
         });
     </script>
 
