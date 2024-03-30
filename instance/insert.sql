@@ -23,28 +23,18 @@
 
 --insert event into Events table
 
--- INSERT INTO events (church_id, event_title, date, description)
--- VALUES (
---     1, 
---     'Test Event 1 SPP', 
---     '2099-01-01', 
---     'Test Event Description SPP - Lorem ipsum dolor sit amet, 
---     consectetur adipiscing elit. Nunc rutrum aliquet diam, 
---     rhoncus rutrum ligula rhoncus sit amet. Sed eleifend ex 
---     id purus tincidunt mollis eget quis purus'
--- );
+INSERT INTO events (church_id, event_title, date, description)
+VALUES (
+    1, 
+    'Test Church Event 1', 
+    '2024-03-31', 
+    'Test Church Event Description - Lorem ipsum dolor sit amet, 
+    consectetur adipiscing elit. Nunc rutrum aliquet diam, 
+    rhoncus rutrum ligula rhoncus sit amet. Sed eleifend ex 
+    id purus tincidunt mollis eget quis purus'
+);
 
--- INSERT INTO events (church_id, event_title, date, description)
--- VALUES (
---     1, 
---     'Test Event 2 SPP', 
---     '2098-01-01', 
---     'Test Event 2 Description SPP - Lorem ipsum dolor sit amet, 
---     consectetur adipiscing elit. Nunc rutrum aliquet diam, 
---     rhoncus rutrum ligula rhoncus sit amet. Sed eleifend ex 
---     id purus tincidunt mollis eget quis purus'
--- );
 
 
 -- Delete events by id
--- DELETE FROM events WHERE id = 3;
+-- DELETE FROM events WHERE id = 4;

@@ -71,12 +71,14 @@
     <!-- Initialization of tui.calendar -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var calendar = new tui.Calendar('#calendar', {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new tui.Calendar(calendarEl, {
                 defaultView: 'month',
-                taskView: false,  // Set to true or ['taskView'] to enable
-                scheduleView: ['time'],  // Set to true or ['time', 'allday'] to enable
-                useCreationPopup: true,
+                taskView: false,
+                scheduleView: ['time'],
+                useCreationPopup: false,
                 useDetailPopup: true,
+                isReadOnly: true,  // Makes the calendar read-only
                 template: {
                     milestone(schedule) {
                         return `<span style="color:red;">${schedule.title}</span>`;
@@ -89,6 +91,17 @@
                     }
                 }
             });
+
+            fetch('/events/{{ church.id }}')  // Replace with the correct route to your events
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(events) {
+                    calendar.createSchedules(events);
+                })
+                .catch(function(error) {
+                    console.error('Error fetching events:', error);
+                });
 
             // Example: Add a schedule (event) to the calendar
             calendar.createSchedules([

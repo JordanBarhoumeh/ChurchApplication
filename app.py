@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask import jsonify
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'a_very_secret_key'
@@ -54,6 +55,20 @@ def upcoming_events(church_id):
     events = Event.query.filter_by(church_id=church_id).order_by(Event.date).all()
     print("Events for church_id", church_id, ":", events)
     return render_template('upcoming_events.html', church=church, events=events)
+
+@app.route('/events/<int:church_id>')
+def get_events(church_id):
+    events = Event.query.filter_by(church_id=church_id).all()
+    return jsonify([{
+        'id': event.id,
+        'title': event.event_title,
+        'start': event.date.isoformat(),
+        'end': event.date.isoformat(),  # You can modify this if you have an end time
+        'category': 'time',  # or 'allday' based on your event type
+        'bgColor': '#9e5fff',  # Customize as needed
+        'dragBgColor': '#9e5fff',
+        'borderColor': '#9e5fff'
+    } for event in events])
 
 
 
