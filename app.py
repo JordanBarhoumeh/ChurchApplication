@@ -8,7 +8,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-#Class for tables
+#check database location, print in Terminal
+print(app.config['SQLALCHEMY_DATABASE_URI'])
+
+#Classes for tables
 class Church(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     code = db.Column(db.String(10), unique=True, nullable=False)
