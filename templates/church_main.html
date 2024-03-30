@@ -11,7 +11,7 @@
         /* Your existing styles */
         body, html {
             margin: 0;
-            padding-top: 110px; /* Adjust this value based on your header's actual height */
+            padding-top: 0px; /* Adjust this value based on your header's actual height */
             font-family: 'Arial', sans-serif;
         }
         .header {
@@ -21,7 +21,7 @@
             width: 100%;
             background-color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 25px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             z-index: 1000;
         }
@@ -44,11 +44,23 @@
             border: none;
             border-radius: 5px; /* Optional: rounds the corners of the button */
             cursor: pointer;
+            text-decoration: none; /* Add this line to remove underline */
         }
+        #current-month {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 110px; /* Adjust to match your fixed header's height */
+            padding: 10px 0; /* Provides some space above and below the text */
+            background-color: #fff; /* Matches the header background */
+            color: #333; /* A darker text color for better readability */
+            border-bottom: 1px solid #eaeaea; /* A subtle border to match your app's style */
+            z-index: 999; /* Ensures it's below the header z-index of 1000 */
+            position: relative; /* Keeps it in the normal flow right below the header */
+        }       
         #calendar {
             max-width: 900px;
             margin: 40px auto;
-            padding-top: 80px; /* Adjust as necessary, ensuring it doesn't overlap with the fixed header */
+            padding-top: 0px; /* Adjust as necessary, ensuring it doesn't overlap with the fixed header */
         }
     </style>
 </head>
@@ -59,6 +71,7 @@
     </div>
 
     <!-- tui.calendar container -->
+    <div id="current-month"></div>
     <div id="calendar"></div>
 
     <!-- tui.calendar dependencies -->
@@ -92,40 +105,58 @@
                 }
             });
 
+            // Function to update the current month display
+            function updateCurrentMonth() {
+                var currentViewDate = calendar.getDate().toDate();
+                var options = { year: 'numeric', month: 'long' };
+                var formattedDate = currentViewDate.toLocaleDateString('en-US', options);
+                console.log('Current month:', formattedDate); // This should log the current month
+                document.getElementById('current-month').innerText = formattedDate;
+            }
+
+
+            // Initially update the current month display
+            updateCurrentMonth();
+
+            // Update the current month display when calendar views change
+            calendar.on('afterRender', updateCurrentMonth);
+
             // Fetch events from the server and add them to the calendar
-        fetch('/events/{{ church.id }}') // Ensure this matches your Flask route
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(events) {
-                // Convert each event into the format expected by TUI Calendar
-                var calendarEvents = events.map(function(event) {
-                    return {
-                        id: event.id.toString(),
-                        calendarId: '1', // Adjust if necessary
-                        title: event.title,
-                        category: event.isAllDay ? 'allday' : 'time',
-                        start: event.start,
-                        end: event.end || event.start,
-                        isAllDay: event.isAllDay,
-                        bgColor: '#9e5fff',
-                        dragBgColor: '#9e5fff',
-                        borderColor: '#9e5fff'
-                    };
+            fetch('/events/{{ church.id }}') // Ensure this matches your Flask route
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(events) {
+                    // Convert each event into the format expected by TUI Calendar
+                    var calendarEvents = events.map(function(event) {
+                        return {
+                            id: event.id.toString(),
+                            calendarId: '1', // Adjust if necessary
+                            title: event.title,
+                            category: event.isAllDay ? 'allday' : 'time',
+                            start: event.start,
+                            end: event.end || event.start,
+                            isAllDay: event.isAllDay,
+                            bgColor: '#9e5fff',
+                            dragBgColor: '#9e5fff',
+                            borderColor: '#9e5fff'
+                        };
+                    });
+                    calendar.createSchedules(calendarEvents);
+                })
+                .catch(function(error) {
+                    console.error('Error fetching events:', error);
                 });
-                calendar.createSchedules(calendarEvents);
-            })
-            .catch(function(error) {
-                console.error('Error fetching events:', error);
-            });
 
             // Access buttons by their IDs
             var prevBtn = document.getElementById('prevBtn');
             var nextBtn = document.getElementById('nextBtn');
 
             // Event listeners for buttons
-            prevBtn.addEventListener('click', function() { calendar.prev(); });
-            nextBtn.addEventListener('click', function() { calendar.next(); });
+            prevBtn.addEventListener('click', function() { calendar.prev() 
+                updateCurrentMonth();; });
+            nextBtn.addEventListener('click', function() { calendar.next()
+                updateCurrentMonth();; });
         });
 </script>
 
