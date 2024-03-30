@@ -69,29 +69,32 @@
         {% for event in events %}
             <div class="event-item" onclick="openPopup(this)"
                  data-title="{{ event.event_title }}"
-                 data-date="{{ event.date.strftime('%d %B %Y') }}" 
+                 data-start-time="{{ event.start_time.strftime('%d %B %Y %H:%M') }}" 
+                 data-end-time="{{ event.end_time.strftime('%d %B %Y %H:%M') }}" 
                  data-description="{{ event.description }}">
                 <div>{{ event.event_title }}</div>
-                <div>{{ event.date.strftime('%d %m %Y') }}</div>  <!-- Updated date format -->
+                <div>Start: {{ event.start_time.strftime('%d %B %Y %H:%M') }}</div> 
+                <div>End: {{ event.end_time.strftime('%d %B %Y %H:%M') }}</div> 
             </div>
         {% else %}
             <p>No upcoming events found.</p>
         {% endfor %}
     </div>
     
-
     <!-- Popup for event details -->
     <div id="eventPopup" class="popup">
         <div class="close-btn" onclick="closePopup()">×</div>
         <h2 id="popupTitle"></h2>
-        <p id="popupDate"></p>
+        <p id="popupStart"></p>
+        <p id="popupEnd"></p>
         <p id="popupDescription"></p>
     </div>
 
     <script>
         function openPopup(element) {
             document.getElementById('popupTitle').textContent = element.dataset.title;
-            document.getElementById('popupDate').textContent = element.dataset.date;
+            document.getElementById('popupStart').textContent = 'Start Time: ' + element.dataset.startTime;
+            document.getElementById('popupEnd').textContent = 'End Time: ' + element.dataset.endTime;
             document.getElementById('popupDescription').textContent = element.dataset.description;
             document.getElementById('eventPopup').style.display = 'block';
         }

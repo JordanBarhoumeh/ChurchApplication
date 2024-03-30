@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask import jsonify
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'a_very_secret_key'
@@ -21,12 +22,14 @@ class Church(db.Model):
 
 
 class Event(db.Model):
-    __tablename__ = 'events'  # Ensure this matches your actual table name
+    __tablename__ = 'events'  # Ensure this matches your table name in the database
     id = db.Column(db.Integer, primary_key=True)
     church_id = db.Column(db.Integer, db.ForeignKey('church.id'), nullable=False)
-    event_title = db.Column(db.String(100), nullable=False)  # Make sure this matches the actual column name
-    date = db.Column(db.DateTime, nullable=False)  # Ensure the column type matches your intended use and table structure
-    description = db.Column(db.Text, nullable=True)
+    event_title = db.Column(db.String(255), nullable=False)
+    start_time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    end_time = db.Column(db.DateTime, default=datetime.utcnow)
+    is_all_day = db.Column(db.Boolean, default=False)
+    description = db.Column(db.Text)
 
     church = db.relationship('Church', backref=db.backref('events', lazy=True))
 
@@ -52,7 +55,8 @@ def church_main(church_id):
 @app.route('/upcoming-events/<int:church_id>')
 def upcoming_events(church_id):
     church = Church.query.get_or_404(church_id)
-    events = Event.query.filter_by(church_id=church_id).order_by(Event.date).all()
+    # Adjust the query to use start_time for ordering
+    events = Event.query.filter_by(church_id=church_id).order_by(Event.start_time).all()
     print("Events for church_id", church_id, ":", events)
     return render_template('upcoming_events.html', church=church, events=events)
 
@@ -62,10 +66,11 @@ def get_events(church_id):
     return jsonify([{
         'id': event.id,
         'title': event.event_title,
-        'start': event.date.isoformat(),
-        'end': event.date.isoformat(),  # You can modify this if you have an end time
-        'category': 'time',  # or 'allday' based on your event type
-        'bgColor': '#9e5fff',  # Customize as needed
+        'start': event.start_time.isoformat(),  # Use start_time instead of date
+        'end': event.end_time.isoformat(),  # Use end_time instead of date
+        'isAllDay': event.is_all_day,
+        'category': 'time',
+        'bgColor': '#9e5fff',
         'dragBgColor': '#9e5fff',
         'borderColor': '#9e5fff'
     } for event in events])
