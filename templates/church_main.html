@@ -119,18 +119,20 @@
                 console.error('Error fetching events:', error);
             });
 
-            // Next and previous buttons
-            var prevBtn = document.createElement('button');
-            prevBtn.innerHTML = '&lt;';
-            prevBtn.addEventListener('click', function() { calendar.prev(); });
-            document.body.appendChild(prevBtn);
+            // Access buttons by their IDs
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
 
-            var nextBtn = document.createElement('button');
-            nextBtn.innerHTML = '&gt;';
+            // Event listeners for buttons
+            prevBtn.addEventListener('click', function() { calendar.prev(); });
             nextBtn.addEventListener('click', function() { calendar.next(); });
-            document.body.appendChild(nextBtn);
         });
 </script>
+
+<div id="calendar-navigation" style="text-align: center; margin-top: 20px;">
+    <button id="prevBtn">&lt; Prev</button>
+    <button id="nextBtn">Next &gt;</button>
+</div>
 
 <div style="text-align: center; padding-top: 120px;"> <!-- Adjust padding-top as necessary -->
     <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="events-button">View Upcoming Events</a>
