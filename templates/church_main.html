@@ -7,118 +7,14 @@
     <link href='https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css' rel='stylesheet' />
     <link href='https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css' rel='stylesheet' />
     <link href='https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css' rel='stylesheet' />
-    <style>
-        :root {
-            --cream-bg: #F4F1EA;
-            --light-gray-bg: #F0EEEB;
-            --navy-accent: #2F3E6F;
-            --burgundy-highlight: #A5383E;
-            --silver-accent: #F0F0F0;
-            --text-color: #333333;
-        }
-        body, html {
-            margin: 0;
-            padding-top: 0px;
-            font-family: 'Arial', sans-serif;
-            background-color: var(--cream-bg);
-            color: var(--text-color);
-        }
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px; /* Fixed height for the header */
-            background-color: var(--navy-accent);
-            text-align: center;
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 1000;
-            color: #fff;
-        }
-        h1, .location {
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            font-size: 6vw;
-            color: #fff; /* Ensure the title stands out against the navy header */
-        }
-        .location {
-            color: var(--silver-accent); /* A touch of elegance for the subtext */
-            font-size: 4vw;
-        }
-        .events-button {
-            display: block;
-            width: 60%;
-            margin: 20px auto;
-            padding: 10px 0;
-            font-size: 4vw;
-            background-color: var(--navy-accent); /* Assuming your button starts with a navy color */
-            color: white;
-            text-align: center;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s ease; /* Smooth transition for the color change */
-        }
-        .events-button:hover, .events-button:active {
-            background-color: var(--burgundy-highlight); /* Change to burgundy when hovered or clicked */
-        }
-        #current-month {
-            text-align: center;
-            font-size: 24px;
-            margin-top: 70px; /* Adjust this to the height of your header, make sure it is enough */
-            padding: 10px 0;
-            background-color: var(--light-gray-bg);
-            color: var(--text-color);
-            border-bottom: 1px solid #eaeaea;
-            width: 100%; /* Ensure full width */
-            box-sizing: border-box; /* Ensure padding doesn't affect width */
-        }
-        #calendar {
-            max-width: 900px;
-            margin: 0px auto; /* Reduced to bring the calendar closer to the month display */
-            padding-top: 0px; /* No additional padding at the top of the calendar */
-        }
-        .logout-button {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: transparent;
-            color: #fff;
-            font-size: 1rem;
-            padding: 10px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-        }
-        .logout-button:hover {
-            color: var(--gold-accent);
-        }
-        @media (max-width: 500px) {
-            .header {
-                height: 50px; /* Smaller header on smaller screens */
-            }
-            body {
-                padding-top: 60px; /* Adjusted padding-top for body/content */
-            }
-            #current-month {
-                margin-top: 10px; /* Adjust accordingly if needed */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="header">
         <h1>{{ church.name }}</h1>
         <p class="location">{{ church.location }}</p>
-        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
     </div>
     
-
     <!-- tui.calendar container -->
     <div id="current-month"></div>
 

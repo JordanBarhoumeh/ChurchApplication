@@ -4,42 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error</title>
-    <style>
-        :root {
-            --cream-bg: #F4F1EA;
-            --light-gray-bg: #F0EEEB;
-            --navy-accent: #2F3E6F;
-            --burgundy-highlight: #A5383E;
-            --gold-accent: #C0A080;
-            --text-color: #333333;
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--cream-bg);
-            color: var(--text-color);
-            font-family: 'Arial', sans-serif;
-        }
-
-        h1 {
-            color: var(--burgundy-highlight);
-            margin-bottom: 20px;
-        }
-
-        p {
-            background-color: var(--light-gray-bg);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid var(--navy-accent);
-            color: var(--text-color);
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Error</h1>
