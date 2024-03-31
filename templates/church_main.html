@@ -81,13 +81,31 @@
             margin: 40px auto;
             padding-top: 0px;
         }
+        .logout-button {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            color: #fff;
+            font-size: 1rem;
+            padding: 10px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        .logout-button:hover {
+            color: var(--gold-accent);
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>{{ church.name }}</h1>
         <p class="location">{{ church.location }}</p>
+        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
     </div>
+    
 
     <!-- tui.calendar container -->
     <div id="current-month"></div>
