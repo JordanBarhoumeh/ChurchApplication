@@ -25,24 +25,25 @@
             top: 0;
             left: 0;
             width: 100%;
+            height: 60px; /* Fixed height for the header */
             background-color: var(--navy-accent);
             text-align: center;
-            padding: 20px 0;
+            padding: 10px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             z-index: 1000;
-            color: #ffffff; /* For contrast against the navy background */
+            color: #fff;
         }
-        .header h1, .header .location {
+        h1, .location {
             margin: 0;
             padding: 0;
-            color: #fff; /* White text for clarity */
         }
-        .header h1 {
-            font-size: 24px;
+        h1 {
+            font-size: 6vw;
+            color: #fff; /* Ensure the title stands out against the navy header */
         }
-        .header .location {
-            font-size: 16px;
-            color: var(--silver-accent); /* Silver color for a subtle highlight */
+        .location {
+            color: var(--silver-accent); /* A touch of elegance for the subtext */
+            font-size: 4vw;
         }
         .event-item {
             cursor: pointer;
@@ -75,6 +76,17 @@
             float: right;
             padding: 0 10px;
             color: var(--navy-accent);
+        }
+        @media (max-width: 500px) {
+            .header {
+                height: 50px; /* Smaller header on smaller screens */
+            }
+            body {
+                padding-top: 60px; /* Adjusted padding-top for body/content */
+            }
+            #current-month {
+                margin-top: 10px; /* Adjust accordingly if needed */
+            }
         }
     </style>
 </head>
