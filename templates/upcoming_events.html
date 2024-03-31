@@ -5,39 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ church.name }} - Upcoming Events</title>
     <style>
+        :root {
+            --cream-bg: #F4F1EA;
+            --light-gray-bg: #F0EEEB;
+            --navy-accent: #2F3E6F;
+            --burgundy-highlight: #A5383E;
+            --gold-accent: #C0A080;
+            --text-color: #333333;
+        }
         body, html {
             margin: 0;
-            padding-top: 120px; /* Adjust this to the height of your fixed header */
+            padding-top: 120px; /* Adjust this to match the height of your fixed header */
             font-family: 'Arial', sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--text-color);
         }
         .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #fff;
+            background-color: var(--navy-accent);
             text-align: center;
-            padding: 10px 0;
+            padding: 20px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             z-index: 1000;
+            color: #ffffff; /* For contrast against the navy background */
+        }
+        .header h1, .header .location {
+            margin: 0;
+            padding: 0;
+            color: #fff; /* White text for clarity */
         }
         .header h1 {
-            margin: 0;
             font-size: 24px;
         }
         .header .location {
-            margin: 0;
             font-size: 16px;
+            color: var(--gold-accent); /* Gold color for a subtle highlight */
         }
         .event-item {
             cursor: pointer;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
+            background-color: var(--light-gray-bg);
+            border: 1px solid var(--navy-accent);
             padding: 10px;
             margin-bottom: 5px;
+            color: var(--text-color); /* Ensuring readability */
+            border-radius: 5px; /* Rounded corners for a modern look */
         }
         .event-item:hover {
-            background-color: #efefef;
+            background-color: #efefef; /* Lighter shade on hover for interactive feel */
         }
         .popup {
             display: none;
@@ -46,16 +63,18 @@
             top: 50%;
             transform: translate(-50%, -50%);
             width: 80%;
-            background-color: white;
+            background-color: var(--cream-bg);
             padding: 20px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--navy-accent);
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 10;
+            color: var(--text-color);
         }
         .close-btn {
             cursor: pointer;
             float: right;
             padding: 0 10px;
+            color: var(--navy-accent);
         }
     </style>
 </head>

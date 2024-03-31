@@ -8,22 +8,32 @@
     <link href='https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css' rel='stylesheet' />
     <link href='https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css' rel='stylesheet' />
     <style>
-        /* Your existing styles */
+        :root {
+            --cream-bg: #F4F1EA;
+            --light-gray-bg: #F0EEEB;
+            --navy-accent: #2F3E6F;
+            --burgundy-highlight: #A5383E;
+            --gold-accent: #C0A080;
+            --text-color: #333333;
+        }
         body, html {
             margin: 0;
-            padding-top: 0px; /* Adjust this value based on your header's actual height */
+            padding-top: 0px;
             font-family: 'Arial', sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--text-color);
         }
         .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #fff;
+            background-color: var(--navy-accent);
             text-align: center;
-            padding: 25px 0;
+            padding: 20px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             z-index: 1000;
+            color: #ffffff; /* For contrast against the navy background */
         }
         h1, .location {
             margin: 0;
@@ -31,36 +41,41 @@
         }
         h1 {
             font-size: 6vw;
+            color: #fff; /* Ensure the title stands out against the navy header */
+        }
+        .location {
+            color: var(--gold-accent); /* A touch of elegance for the subtext */
+            font-size: 4vw;
         }
         .events-button {
             display: block;
-            width: 60%; /* Adjust based on your design */
-            margin: 20px auto; /* Center button horizontally with margin */
+            width: 60%;
+            margin: 20px auto;
             padding: 10px 0;
             font-size: 4vw;
-            background-color: #007bff; /* Bootstrap primary color for reference */
-            color: white;
+            background-color: var(--gold-accent);
+            color: var(--navy-accent);
             text-align: center;
             border: none;
-            border-radius: 5px; /* Optional: rounds the corners of the button */
+            border-radius: 5px;
             cursor: pointer;
-            text-decoration: none; /* Add this line to remove underline */
+            text-decoration: none;
         }
         #current-month {
             text-align: center;
             font-size: 24px;
-            margin-top: 110px; /* Adjust to match your fixed header's height */
-            padding: 10px 0; /* Provides some space above and below the text */
-            background-color: #fff; /* Matches the header background */
-            color: #333; /* A darker text color for better readability */
-            border-bottom: 1px solid #eaeaea; /* A subtle border to match your app's style */
-            z-index: 999; /* Ensures it's below the header z-index of 1000 */
-            position: relative; /* Keeps it in the normal flow right below the header */
-        }       
+            margin-top: 110px;
+            padding: 10px 0;
+            background-color: var(--light-gray-bg);
+            color: var(--text-color);
+            border-bottom: 1px solid #eaeaea;
+            z-index: 999;
+            position: relative;
+        }
         #calendar {
             max-width: 900px;
             margin: 40px auto;
-            padding-top: 0px; /* Adjust as necessary, ensuring it doesn't overlap with the fixed header */
+            padding-top: 0px;
         }
     </style>
 </head>
