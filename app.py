@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask import jsonify
 from datetime import datetime
+from flask import make_response
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'a_very_secret_key'
@@ -36,14 +37,28 @@ class Event(db.Model):
 
 @app.route('/')
 def index():
+    church_code = request.cookies.get('church_code')
+    if church_code:
+        church = Church.query.filter_by(code=church_code).first()
+        if church:
+            return redirect(url_for('church_main', church_id=church.id))
     return render_template('index.html')
+
+@app.route('/logout')
+def logout():
+    response = make_response(redirect(url_for('index')))
+    response.set_cookie('church_code', '', expires=0)  # Clear the cookie
+    return response
+
 
 @app.route('/set_church', methods=['POST'])
 def set_church():
     code = request.form.get('church_code').strip()
     church = Church.query.filter_by(code=code).first()
     if church:
-        return redirect(url_for('church_main', church_id=church.id))
+        response = make_response(redirect(url_for('church_main', church_id=church.id)))
+        response.set_cookie('church_code', code, max_age=60*60*24*30)  # Expires in 30 days
+        return response
     else:
         return render_template('error.html', message='Church code not found. Please try again.')
 
