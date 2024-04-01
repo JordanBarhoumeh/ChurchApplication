@@ -26,18 +26,27 @@
 
 --insert event into Events table
 
+-- INSERT INTO events (church_id, event_title, start_time, end_time, is_all_day, description)
+-- VALUES (1, 
+--     'Test Church Event 1', 
+--     '2024-04-01T18:00:00', 
+--     '2024-04-01T19:00:00', 
+--     0, 
+--     'test event for one hour event on April 1st. 
+--     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+--     Nunc rutrum aliquet diam, rhoncus rutrum ligula rhoncus sit amet. 
+--     Sed eleifend ex id purus tincidunt mollis eget quis purus.');
+
 INSERT INTO events (church_id, event_title, start_time, end_time, is_all_day, description)
 VALUES (1, 
-    'Test Church Event 1', 
-    '2024-04-01T18:00:00', 
-    '2024-04-01T19:00:00', 
+    'Past Test Church Event 1', 
+    '2024-03-31T18:00:00', 
+    '2024-03-31T19:00:00', 
     0, 
-    'test event for one hour event on April 1st. 
+    'test event for one hour event on March 31st. 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Nunc rutrum aliquet diam, rhoncus rutrum ligula rhoncus sit amet. 
     Sed eleifend ex id purus tincidunt mollis eget quis purus.');
-
-
 
 
 -- Delete events by id

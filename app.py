@@ -70,9 +70,8 @@ def church_main(church_id):
 @app.route('/upcoming-events/<int:church_id>')
 def upcoming_events(church_id):
     church = Church.query.get_or_404(church_id)
-    # Adjust the query to use start_time for ordering
-    events = Event.query.filter_by(church_id=church_id).order_by(Event.start_time).all()
-    print("Events for church_id", church_id, ":", events)
+    # Filter events that have a start time greater than the current time
+    events = Event.query.filter(Event.church_id == church_id, Event.start_time > datetime.utcnow()).order_by(Event.start_time).all()
     return render_template('upcoming_events.html', church=church, events=events)
 
 @app.route('/events/<int:church_id>')
