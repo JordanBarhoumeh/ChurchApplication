@@ -7,19 +7,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome</h1>
-    <form action="/set_church" method="post">
-        <input type="text" id="church_code" name="church_code"
-               inputmode="numeric"
-               pattern="[0-9]{5}" title="Enter a five-digit church code"
-               placeholder="Enter Code" maxlength="5" required>
-        <input type="submit" value="Submit">
-    </form>
-    <script>
-        // This script will enforce the numeric input rule
-        document.getElementById('church_code').addEventListener('input', function(e) {
-            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 5); // Replace non-digits and limit to 5
-        });
-    </script>
+    <div class="center-container">
+        <h1 class="index-welcome">Welcome</h1>
+        <form action="/set_church" method="post">
+            <input type="text" id="church_code" name="church_code"
+                   inputmode="numeric"
+                   pattern="[0-9]{5}" title="Enter a five-digit church code"
+                   placeholder="Enter Code" maxlength="5" required>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <!-- Rest of your script and body -->
 </body>
 </html>
