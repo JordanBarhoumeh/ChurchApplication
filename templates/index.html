@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper mobile scaling -->
     <title>Church App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/ios/180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='icons/ios/192.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='icons/ios/512.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
 </head>
 <body>
     <div class="center-container">
