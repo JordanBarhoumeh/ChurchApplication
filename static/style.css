@@ -206,22 +206,24 @@ input[type="submit"] {
     background-color: var(--cream-bg); /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide out the menu */
-    padding-top: 60px; /* Place content 60px from the top */
+    padding-top: 20px; /* Place content 60px from the top */
   }
   
-  /* The close button */
-  .close-btn-nav {
-    font-size: 40px; /* Increase size of the X */
+/* Specific styling for the close button */
+.close-btn-nav {
+    font-size: 40px !important; /* Adjust the size of the X independently */
     cursor: pointer;
     position: absolute;
     top: 10px;
     right: 25px;
+    color: black; /* Or any color you prefer */
   }
   
-  .side-nav a {
+/* Adjust the font size back for navigation links without affecting the close button */
+.side-nav a {
     padding: 10px 15px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 25px; /* Adjust font size for navigation links */
     color: black;
     display: block;
     transition: 0.3s;
@@ -242,11 +244,12 @@ input[type="submit"] {
 }
 
 .nav-header {
-    padding: 10px;
+    padding: 20px;
     text-align: center;
-    border-bottom: 1px solid #ccc; /* Light grey border */
+    border-bottom: 1px solid #ccc;
     font-weight: bold;
-    color: #333; /* Dark text for contrast */
+    font-size: 20px;
+    color: #333; 
   }
 
   .nav-link {
