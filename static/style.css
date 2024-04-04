@@ -78,6 +78,12 @@ h1 {
     color: var(--navy-accent); /* Making the Welcome text the navy color */
 }
 
+
+
+/* -------------------- EVENTS POP UP HANDLING -------------------- */
+
+
+
 /* Error page specific styles */
 .error-message {
     background-color: var(--light-gray-bg);
@@ -188,12 +194,21 @@ input[type="submit"] {
     border: none;
 }
 
+
+
 #events-container {
     max-width: 900px; /* Adjust this value as needed for your design */
     margin: 0 auto; /* This centers the container if it's smaller than the full width */
     padding: 20px; /* Adds space inside the container */
     margin-top: 10px;
 }
+
+
+
+
+/* -------------------- SIDE NAVIGATION HANDLING -------------------- */
+
+
 
 /* The side navigation menu */
 .side-nav {
