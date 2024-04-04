@@ -10,6 +10,18 @@
     <div class="header">
         <h1>{{ church.name }}</h1>
         <p class="location">{{ church.location }}</p>
+
+        <div id="burger-stack" class="burger-stack" onclick="openNav()">&#9776;</div>
+
+            <!-- Slide-out menu -->
+        <div id="slide-out-menu" class="side-nav">
+            <a href="javascript:void(0)" class="close-btn-nav" onclick="closeNav()">&times;</a>
+            <div class="nav-header">PAGES</div>
+            <a href="{{ url_for('church_main', church_id=church.id) }}" class="nav-link">Home</a>
+            <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="nav-link">Upcoming Events</a>
+            <!-- Add other links here -->
+            <!-- More pages... -->
+        </div> 
     </div>
 
     <div id="events-container">
@@ -50,5 +62,8 @@
             document.getElementById('eventPopup').style.display = 'none';
         }
     </script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>
