@@ -12,13 +12,14 @@ function highlightActiveLink() {
 // Call this function when the menu is opened
 function openNav() {
     document.getElementById("slide-out-menu").style.width = "100%";
-    highlightActiveLink();
-    document.getElementById("burger-stack-icon").classList.add('hide-burger');
+    highlightActiveLink(); // Ensure this function is defined or remove this line if not used
+    document.getElementById("burger-stack").style.display = "none"; // Hides the burger icon
 }
 
+// Call this function when the menu is closed
 function closeNav() {
     document.getElementById("slide-out-menu").style.width = "0";
-    document.getElementById("burger-stack-icon").classList.remove('hide-burger');
+    document.getElementById("burger-stack").style.display = "block"; // Shows the burger icon again
 }
 
 document.getElementById("burger-stack").onclick = openNav;

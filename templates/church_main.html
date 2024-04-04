@@ -13,10 +13,9 @@
     <div class="header">
         <h1>{{ church.name }}</h1>
         <p class="location">{{ church.location }}</p>
+        <div id="burger-stack" class="burger-stack" onclick="openNav()">&#9776;</div>
 
-        <div id="burger-stack" class="burger-stack">&#9776;</div> <!-- Burger Icon -->
-
-        <!-- Slide-out menu -->
+            <!-- Slide-out menu -->
         <div id="slide-out-menu" class="side-nav">
             <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
             <div class="nav-header">PAGES</div>
@@ -24,9 +23,9 @@
             <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="nav-link">Upcoming Events</a>
             <!-- Add other links here -->
             <!-- More pages... -->
-        </div>
+        </div> 
+    </div>
 
-    </div>    
     <!-- tui.calendar container -->
     <div id="current-month"></div>
 
