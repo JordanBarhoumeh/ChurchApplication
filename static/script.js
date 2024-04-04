@@ -1,3 +1,5 @@
+/* -------------------- NAV ANIMATION -------------------- */
+
 // Highlight the active link based on the current page
 function highlightActiveLink() {
     var links = document.getElementsByClassName('nav-link');
@@ -23,3 +25,20 @@ function closeNav() {
 }
 
 document.getElementById("burger-stack").onclick = openNav;
+
+
+/* -------------------- EVENT POP UP ANIMATION -------------------- */
+
+function openPopup(element) {
+    document.getElementById('popupTitle').textContent = element.dataset.title;
+    document.getElementById('popupStart').textContent = 'Start Time: ' + element.dataset.startTime;
+    document.getElementById('popupEnd').textContent = 'End Time: ' + element.dataset.endTime;
+    document.getElementById('popupDescription').textContent = element.dataset.description;
+    // Use classList to add the 'show' class
+    document.getElementById('eventPopup').classList.add('show');
+}
+
+function closePopup() {
+    // Use classList to remove the 'show' class
+    document.getElementById('eventPopup').classList.remove('show');
+}

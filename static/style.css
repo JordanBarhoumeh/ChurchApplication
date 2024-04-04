@@ -106,8 +106,34 @@ h1 {
     background-color: #efefef; /* Lighter shade on hover for interactive feel */
 }
 
-.popup {
+/* .popup {
     display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    background-color: var(--cream-bg);
+    padding: 20px;
+    border: 1px solid var(--navy-accent);
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+} */
+
+/* Initial state of the popup */
+.popup {
+    opacity: 0; /* Start fully transparent */
+    transform: translate(-50%, -50%) translateY(-20%); /* Start slightly above its final position */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for both properties */
+    visibility: hidden; /* Use visibility to hide it completely */
+}
+
+/* State of the popup when it's shown */
+.popup.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make sure it's visible */
+
     position: fixed;
     left: 50%;
     top: 50%;
@@ -127,6 +153,11 @@ h1 {
     padding: 0 10px;
     color: var(--navy-accent);
 }
+
+
+
+
+
 
 /* Media queries for responsive adjustments */
 @media (max-width: 500px) {
