@@ -39,14 +39,11 @@
 
 INSERT INTO events (church_id, event_title, start_time, end_time, is_all_day, description)
 VALUES (1, 
-    'Past Test Church Event 1', 
-    '2024-03-31T18:00:00', 
-    '2024-03-31T19:00:00', 
+    'Future Test Church Event', 
+    '2099-01-01T23:00:00', 
+    '2099-01-01T23:59:00', 
     0, 
-    'test event for one hour event on March 31st. 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    Nunc rutrum aliquet diam, rhoncus rutrum ligula rhoncus sit amet. 
-    Sed eleifend ex id purus tincidunt mollis eget quis purus.');
+    'Future Test Event');
 
 
 -- Delete events by id

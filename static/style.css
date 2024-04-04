@@ -115,7 +115,7 @@ h1 {
     z-index: 10;
 }
 
-.close-btn {
+.close-btn-events {
     cursor: pointer;
     float: right;
     padding: 0 10px;
@@ -210,8 +210,8 @@ input[type="submit"] {
   }
   
   /* The close button */
-  .close-btn {
-    font-size: 30px; /* Increase size of the X */
+  .close-btn-nav {
+    font-size: 40px; /* Increase size of the X */
     cursor: pointer;
     position: absolute;
     top: 10px;
@@ -222,7 +222,7 @@ input[type="submit"] {
     padding: 10px 15px;
     text-decoration: none;
     font-size: 25px;
-    color: white;
+    color: black;
     display: block;
     transition: 0.3s;
   }
@@ -235,10 +235,10 @@ input[type="submit"] {
   .burger-stack {
     cursor: pointer;
     position: absolute;
-    font-size: 30px;
+    font-size: 40px;
     z-index: 1001;
     left: 20px; /* Adjust as necessary */
-    transform: translateY(-125%); /* Centers the burger vertically within the header */
+    transform: translateY(-110%); /* Centers the burger vertically within the header */
 }
 
 .nav-header {
