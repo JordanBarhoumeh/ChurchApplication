@@ -41,7 +41,7 @@ def index():
     if church_code:
         church = Church.query.filter_by(code=church_code).first()
         if church:
-            return redirect(url_for('church_main', church_id=church.id))
+            return redirect(url_for('church_home', church_id=church.id))
     return render_template('index.html')
 
 @app.route('/logout')
@@ -56,16 +56,16 @@ def set_church():
     code = request.form.get('church_code').strip()
     church = Church.query.filter_by(code=code).first()
     if church:
-        response = make_response(redirect(url_for('church_main', church_id=church.id)))
+        response = make_response(redirect(url_for('church_home', church_id=church.id)))
         response.set_cookie('church_code', code, max_age=60*60*24*30)  # Expires in 30 days
         return response
     else:
         return render_template('error.html', message='Church code not found. Please try again.')
 
-@app.route('/church_main/<int:church_id>')
-def church_main(church_id):
+@app.route('/church_home/<int:church_id>')
+def church_home(church_id):
     church = Church.query.get_or_404(church_id)
-    return render_template('church_main.html', church=church)
+    return render_template('church_home.html', church=church)
 
 @app.route('/upcoming-events/<int:church_id>')
 def upcoming_events(church_id):
@@ -96,3 +96,4 @@ if __name__ == '__main__':
         db.create_all()
     # app.run(host='192.168.5.129', port=5000, debug=True)
     app.run(host='0.0.0.0', port=5000, debug = True)
+    
