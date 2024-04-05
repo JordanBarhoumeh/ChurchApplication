@@ -18,6 +18,7 @@
             <a href="javascript:void(0)" class="close-btn-nav" onclick="closeNav()">&times;</a>
             <div class="nav-header">PAGES</div>
             <a href="{{ url_for('church_main', church_id=church.id) }}" class="nav-link">Home</a>
+            <a href="{{ url_for('calendar', church_id=church.id) }}" class="nav-link">Calendar</a>
             <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="nav-link">Upcoming Events</a>
             <!-- Add other links here -->
             <!-- More pages... -->

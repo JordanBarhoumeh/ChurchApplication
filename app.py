@@ -67,6 +67,11 @@ def church_main(church_id):
     church = Church.query.get_or_404(church_id)
     return render_template('church_main.html', church=church)
 
+@app.route('/calendar/<int:church_id>')
+def calendar(church_id):
+    church = Church.query.get_or_404(church_id)
+    return render_template('calendar.html', church=church)
+
 @app.route('/upcoming-events/<int:church_id>')
 def upcoming_events(church_id):
     church = Church.query.get_or_404(church_id)

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ church.name }}</title>
+    <link href='https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css' rel='stylesheet' />
+    <link href='https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css' rel='stylesheet' />
+    <link href='https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css' rel='stylesheet' />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>{{ church.name }}</h1>
+        <p class="location">{{ church.location }}</p>
+        <div id="burger-stack" class="burger-stack" onclick="openNav()">&#9776;</div>
+
+            <!-- Slide-out menu -->
+        <div id="slide-out-menu" class="side-nav">
+            <a href="javascript:void(0)" class="close-btn-nav" onclick="closeNav()">&times;</a>
+            <div class="nav-header">PAGES</div>
+            <a href="{{ url_for('church_main', church_id=church.id) }}" class="nav-link">Home</a>
+            <a href="{{ url_for('calendar', church_id=church.id) }}" class="nav-link">Calendar</a>
+            <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="nav-link">Upcoming Events</a>
+            <!-- Add other links here -->
+            <!-- More pages... -->
+        </div> 
+    </div>
+
+    <!-- tui.calendar container -->
+    <div id="current-month"></div>
+
+    <div id="calendar"></div>
+
+    <!-- tui.calendar dependencies -->
+    <script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.dom/v3.0.0/tui-dom.js"></script>
+    <script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+
+    <!-- Initialization of tui.calendar -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new tui.Calendar('#calendar', {
+                defaultView: 'month',
+                taskView: false,
+                scheduleView: ['time'],
+                useCreationPopup: false,
+                useDetailPopup: true,
+                isReadOnly: true,
+                template: {
+                    milestone(schedule) {
+                        return `<span style="color:red;">${schedule.title}</span>`;
+                    },
+                    allday(schedule) {
+                        return `${schedule.title}<i class="fa fa-refresh"></i>`;
+                    },
+                    time(schedule) {
+                        return schedule.title;
+                    }
+                }
+            });
+
+            // Function to update the current month display
+            function updateCurrentMonth() {
+                var currentViewDate = calendar.getDate().toDate();
+                var options = { year: 'numeric', month: 'long' };
+                var formattedDate = currentViewDate.toLocaleDateString('en-US', options);
+                console.log('Current month:', formattedDate); // This should log the current month
+                document.getElementById('current-month').innerText = formattedDate;
+            }
+
+            // Initially update the current month display
+            updateCurrentMonth();
+
+            // Update the current month display when calendar views change
+            calendar.on('afterRender', updateCurrentMonth);
+
+            // Fetch events from the server and add them to the calendar
+            fetch('/events/{{ church.id }}') // Ensure this matches your Flask route
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(events) {
+                    // Convert each event into the format expected by TUI Calendar
+                    var calendarEvents = events.map(function(event) {
+                        return {
+                            id: event.id.toString(),
+                            calendarId: '1', // Adjust if necessary
+                            title: event.title,
+                            category: event.isAllDay ? 'allday' : 'time',
+                            start: event.start,
+                            end: event.end || event.start,
+                            isAllDay: event.isAllDay,
+                            bgColor: '#9e5fff',
+                            dragBgColor: '#9e5fff',
+                            borderColor: '#9e5fff'
+                        };
+                    });
+                    calendar.createSchedules(calendarEvents);
+                })
+                .catch(function(error) {
+                    console.error('Error fetching events:', error);
+                });
+
+            // Access buttons by their IDs
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
+
+            // Event listeners for buttons
+            prevBtn.addEventListener('click', function() { calendar.prev() 
+                updateCurrentMonth();; });
+            nextBtn.addEventListener('click', function() { calendar.next()
+                updateCurrentMonth();; });
+        });
+    </script>
+
+    <div id="calendar-navigation" style="text-align: center; margin-top: 20px;">
+        <button id="prevBtn">&lt; Prev</button>
+        <button id="nextBtn">Next &gt;</button>
+    </div>
+
+    <div style="text-align: center; padding-top: 120px;"> <!-- Adjust padding-top as necessary -->
+        <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="events-button">View Upcoming Events</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
