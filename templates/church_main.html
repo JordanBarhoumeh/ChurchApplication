@@ -8,8 +8,9 @@
 </head>
 <body>
     <div class="header">
-        <h1>{{ church.name }}</h1>
-        <p class="location">{{ church.location }}</p>
+        <h1>Welcome</h1>
+        <p class="location">{{ church.name }}</p>
+
         <div id="burger-stack" class="burger-stack" onclick="openNav()">&#9776;</div>
 
             <!-- Slide-out menu -->
@@ -30,7 +31,6 @@
     </div>
 
     <!-- Burger stack, slide-out menu, and other shared components -->
-
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
