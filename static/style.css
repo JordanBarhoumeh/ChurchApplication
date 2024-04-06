@@ -99,14 +99,18 @@ h1 {
 #installPrompt {
   display: none; /* Hide initially */
   position: fixed;
-  top: 20%; /* Adjust based on your needs */
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 20px;
-  background-color: white; /* Adjust based on your theme */
-  border: 1px solid #ccc;
+  top: 0; /* Position at the top of the viewport */
+  left: 0; /* Align to the left edge */
+  width: 100%; /* Span the full width of the viewport */
+  padding: 10px; /* Adjust the padding as needed */
+  background-color: #f4f1ea; /* Adjust the background color as per your theme */
+  color: #333; /* Text color */
+  text-align: center; /* Center the text/message */
+  border-bottom: 1px solid #ccc; /* Add a border at the bottom */
   z-index: 1000; /* Ensure it's on top */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: adds a shadow for better visibility */
 }
+
 
 
 
