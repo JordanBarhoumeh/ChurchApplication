@@ -1,109 +1,116 @@
 /* Global styles */
 :root {
-    --cream-bg: #F4F1EA;
-    --light-gray-bg: #F0EEEB;
-    --navy-accent: #2F3E6F;
-    --burgundy-highlight: #A5383E;
-    --silver-accent: #F0F0F0;
-    --text-color: #333333;
+  --cream-bg: #f4f1ea;
+  --light-gray-bg: #f0eeeb;
+  --navy-accent: #2f3e6f;
+  --burgundy-highlight: #a5383e;
+  --silver-accent: #f0f0f0;
+  --text-color: #333333;
 }
 
-body, html {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: var(--cream-bg);
-    color: var(--text-color);
+body,
+html {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: var(--cream-bg);
+  color: var(--text-color);
 }
 
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px; /* Fixed height for the header */
-    background-color: var(--navy-accent);
-    text-align: center;
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 1000;
-    color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Fixed height for the header */
+  background-color: var(--navy-accent);
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  color: #fff;
 }
 
-h1, .location {
-    margin: 0;
-    padding: 0;
+h1,
+.location {
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-    font-size: 6vw;
-    color: #fff; /* Ensure the title stands out against the navy header */
+  font-size: 6vw;
+  color: #fff; /* Ensure the title stands out against the navy header */
 }
 
 .location {
-    color: var(--silver-accent); /* A touch of elegance for the subtext */
-    font-size: 4vw;
+  color: var(--silver-accent); /* A touch of elegance for the subtext */
+  font-size: 4vw;
 }
 
-.events-button {
-    display: block;
-    width: 60%;
-    margin: 20px auto;
-    padding: 10px 0;
-    font-size: 4vw;
-    background-color: var(--navy-accent); /* Assuming your button starts with a navy color */
-    color: white;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease; /* Smooth transition for the color change */
+/* -------------------- BUTTONS HANDLING -------------------- */
+
+.move-button {
+  display: block;
+  width: 60%;
+  margin: 20px auto;
+  padding: 10px 0;
+  font-size: 4vw;
+  background-color: var(
+    --navy-accent
+  ); /* Assuming your button starts with a navy color */
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease; /* Smooth transition for the color change */
 }
 
-.events-button:hover, .events-button:active {
-    background-color: var(--burgundy-highlight); /* Change to burgundy when hovered or clicked */
+.move-button:hover,
+.move-button:active {
+  background-color: var(
+    --burgundy-highlight
+  ); /* Change to burgundy when hovered or clicked */
 }
+
+/* -------------------- INDEX INPUT CODE HANDLING -------------------- */
 
 /* Index page specific styles */
 .center-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 75vh; /* This makes sure the container takes the full viewport height */
-    text-align: center; /* Centers text elements */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh; /* This makes sure the container takes the full viewport height */
+  text-align: center; /* Centers text elements */
 }
 
 .index-welcome {
-    color: var(--navy-accent); /* Making the Welcome text the navy color */
+  color: var(--navy-accent); /* Making the Welcome text the navy color */
 }
-
-
 
 /* -------------------- EVENTS POP UP HANDLING -------------------- */
 
-
-
 /* Error page specific styles */
 .error-message {
-    background-color: var(--light-gray-bg);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid var(--navy-accent);
+  background-color: var(--light-gray-bg);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--navy-accent);
 }
 
 /* Upcoming events specific styles */
 .event-item {
-    cursor: pointer;
-    background-color: var(--light-gray-bg);
-    border: 1px solid var(--navy-accent);
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px; /* Rounded corners for a modern look */
+  cursor: pointer;
+  background-color: var(--light-gray-bg);
+  border: 1px solid var(--navy-accent);
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px; /* Rounded corners for a modern look */
 }
 
 .event-item:hover {
-    background-color: #efefef; /* Lighter shade on hover for interactive feel */
+  background-color: #efefef; /* Lighter shade on hover for interactive feel */
 }
 
 /* .popup {
@@ -123,209 +130,198 @@ h1 {
 
 /* Initial state of the popup */
 .popup {
-    opacity: 0; /* Start fully transparent */
-    transform: translate(-50%, -50%) translateY(-20%); /* Start slightly above its final position */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for both properties */
-    visibility: hidden; /* Use visibility to hide it completely */
+  opacity: 0; /* Start fully transparent */
+  transform: translate(-50%, -50%) translateY(-20%); /* Start slightly above its final position */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for both properties */
+  visibility: hidden; /* Use visibility to hide it completely */
 }
 
 /* State of the popup when it's shown */
 .popup.show {
-    opacity: 1; /* Fully visible */
-    visibility: visible; /* Make sure it's visible */
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Make sure it's visible */
 
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    background-color: var(--cream-bg);
-    padding: 20px;
-    border: 1px solid var(--navy-accent);
-    border-radius: 5px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 10;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background-color: var(--cream-bg);
+  padding: 20px;
+  border: 1px solid var(--navy-accent);
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
 .close-btn-events {
-    cursor: pointer;
-    float: right;
-    padding: 0 10px;
-    color: var(--navy-accent);
+  cursor: pointer;
+  float: right;
+  padding: 0 10px;
+  color: var(--navy-accent);
 }
-
-
-
-
-
 
 /* Media queries for responsive adjustments */
 @media (max-width: 500px) {
-    .header {
-        height: 50px; /* Smaller header on smaller screens */
-    }
-    body {
-        padding-top: 60px; /* Adjusted padding-top for body/content */
-    }
-    #current-month {
-        margin-top: 60px; /* Adjusted top margin to ensure visibility below the smaller header */
-    }
+  .header {
+    height: 50px; /* Smaller header on smaller screens */
+  }
+  body {
+    padding-top: 60px; /* Adjusted padding-top for body/content */
+  }
+  #current-month {
+    margin-top: 60px; /* Adjusted top margin to ensure visibility below the smaller header */
+  }
 }
 
 /* Calendar specific styles */
 #current-month {
-    text-align: center;
-    font-size: 24px;
-    margin-top: 10px; /* Adjust to align properly under the header */
-    padding: 10px 0;
-    background-color: var(--light-gray-bg);
-    color: var(--text-color);
-    border-bottom: 1px solid #eaeaea;
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Padding does not affect width */
-    position: relative; /* Not fixed, scrolls with the page */
+  text-align: center;
+  font-size: 24px;
+  margin-top: 10px; /* Adjust to align properly under the header */
+  padding: 10px 0;
+  background-color: var(--light-gray-bg);
+  color: var(--text-color);
+  border-bottom: 1px solid #eaeaea;
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Padding does not affect width */
+  position: relative; /* Not fixed, scrolls with the page */
 }
 
 #calendar {
-    max-width: 900px;
-    margin: 0px auto; /* Align to center */
-    padding-top: 0px; /* No padding on top, spacing managed by month header */
+  max-width: 900px;
+  margin: 0px auto; /* Align to center */
+  padding-top: 0px; /* No padding on top, spacing managed by month header */
 }
 
 form {
-    width: 90%;
-    max-width: 300px;
-    background-color: var(--light-gray-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 300px;
+  background-color: var(--light-gray-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 input[type="text"],
 input[type="submit"] {
-    width: calc(100% - 20px);
-    padding: 15px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    border: 1px solid var(--navy-accent);
-    border-radius: 5px;
+  width: calc(100% - 20px);
+  padding: 15px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid var(--navy-accent);
+  border-radius: 5px;
 }
 
 input[type="text"] {
-    text-align: center;
-    font-size: 1em;
-    background-color: #FFFFFF;
+  text-align: center;
+  font-size: 1em;
+  background-color: #ffffff;
 }
 
 input[type="submit"] {
-    font-size: 4vw;
-    cursor: pointer;
-    background-color: var(--navy-accent);
-    color: #FFFFFF;
-    border: none;
+  font-size: 4vw;
+  cursor: pointer;
+  background-color: var(--navy-accent);
+  color: #ffffff;
+  border: none;
 }
-
-
 
 #events-container {
-    max-width: 900px; /* Adjust this value as needed for your design */
-    margin: 0 auto; /* This centers the container if it's smaller than the full width */
-    padding: 20px; /* Adds space inside the container */
-    margin-top: 10px;
+  max-width: 900px; /* Adjust this value as needed for your design */
+  margin: 0 auto; /* This centers the container if it's smaller than the full width */
+  padding: 20px; /* Adds space inside the container */
+  margin-top: 10px;
 }
-
-
-
 
 /* -------------------- SIDE NAVIGATION HANDLING -------------------- */
 
-
-
 /* The side navigation menu */
 .side-nav {
-    height: 100%; /* Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0;
-    left: 0;
-    background-color: var(--cream-bg); /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in or slide out the menu */
-    padding-top: 20px; /* Place content 60px from the top */
-  }
-  
+  height: 100%; /* Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: var(--cream-bg); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide out the menu */
+  padding-top: 20px; /* Place content 60px from the top */
+}
+
 /* Specific styling for the close button */
 .close-btn-nav {
-    font-size: 40px !important; /* Adjust the size of the X independently */
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    color: black; /* Or any color you prefer */
-  }
-  
+  font-size: 40px !important; /* Adjust the size of the X independently */
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: black; /* Or any color you prefer */
+}
+
 /* Adjust the font size back for navigation links without affecting the close button */
 .side-nav a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 25px; /* Adjust font size for navigation links */
-    color: black;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .side-nav a:hover {
-    color: #f1f1f1;
-  }
-  
-  /* Style the burger icon */
-  .burger-stack {
-    cursor: pointer;
-    position: absolute;
-    font-size: 40px;
-    z-index: 1001;
-    left: 20px; /* Adjust as necessary */
-    transform: translateY(-110%); /* Centers the burger vertically within the header */
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 25px; /* Adjust font size for navigation links */
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.side-nav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style the burger icon */
+.burger-stack {
+  cursor: pointer;
+  position: absolute;
+  font-size: 40px;
+  z-index: 1001;
+  left: 20px; /* Adjust as necessary */
+  transform: translateY(
+    -110%
+  ); /* Centers the burger vertically within the header */
 }
 
 .nav-header {
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-    font-weight: bold;
-    font-size: 20px;
-    color: #333; 
-  }
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  font-size: 20px;
+  color: #333;
+}
 
-  .nav-link {
-    padding: 15px 20px;
-    color: #333; /* Dark text for contrast */
-    display: block;
-    transition: background-color 0.3s;
-  }
+.nav-link {
+  padding: 15px 20px;
+  color: #333; /* Dark text for contrast */
+  display: block;
+  transition: background-color 0.3s;
+}
 
-  .nav-link.active {
-    background-color: var(--navy-accent); /* Highlight color */
-    color: var(--cream-bg);
-  }
+.nav-link.active {
+  background-color: var(--navy-accent); /* Highlight color */
+  color: var(--cream-bg);
+}
 
-  .hide-burger {
-    display: none;
-  }
-
+.hide-burger {
+  display: none;
+}
 
 /* -------------------- IMAGE HANDLING -------------------- */
 
-  .church-image-container {
-    text-align: center; /* Center the image */
-    margin-top: 20px; /* Provide some space between the header and the image */
-    padding-left: 20px;
-    padding-right: 20px;
+.church-image-container {
+  text-align: center; /* Center the image */
+  margin-top: 20px; /* Provide some space between the header and the image */
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .church-image-container img {
-    max-width: 100%; /* Ensure the image is responsive and does not overflow */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 300px; /* Adjust based on your preference */
+  max-width: 100%; /* Ensure the image is responsive and does not overflow */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 300px; /* Adjust based on your preference */
 }

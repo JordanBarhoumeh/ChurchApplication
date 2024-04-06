@@ -1,41 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Church Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
     <div class="header">
-        <h1>Welcome</h1>
-        <p class="location">{{ church.name }}</p>
+      <h1>Welcome</h1>
+      <p class="location">{{ church.name }}</p>
 
-        <div id="burger-stack" class="burger-stack" onclick="openNav()">&#9776;</div>
+      <div id="burger-stack" class="burger-stack" onclick="openNav()">
+        &#9776;
+      </div>
 
-            <!-- Slide-out menu -->
-        <div id="slide-out-menu" class="side-nav">
-            <a href="javascript:void(0)" class="close-btn-nav" onclick="closeNav()">&times;</a>
-            <div class="nav-header">PAGES</div>
-            <a href="{{ url_for('church_main', church_id=church.id) }}" class="nav-link">Home</a>
-            <a href="{{ url_for('calendar', church_id=church.id) }}" class="nav-link">Calendar</a>
-            <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="nav-link">Upcoming Events</a>
-            <!-- Add other links here -->
-            <!-- More pages... -->
-        </div> 
+      <!-- Slide-out menu -->
+      <div id="slide-out-menu" class="side-nav">
+        <a href="javascript:void(0)" class="close-btn-nav" onclick="closeNav()"
+          >&times;</a
+        >
+        <div class="nav-header">PAGES</div>
+        <a
+          href="{{ url_for('church_main', church_id=church.id) }}"
+          class="nav-link"
+          >Home</a
+        >
+        <a
+          href="{{ url_for('calendar', church_id=church.id) }}"
+          class="nav-link"
+          >Calendar</a
+        >
+        <a
+          href="{{ url_for('upcoming_events', church_id=church.id) }}"
+          class="nav-link"
+          >Upcoming Events</a
+        >
+        <!-- Add other links here -->
+        <!-- More pages... -->
+      </div>
     </div>
 
-    <div class="content">
+    <div class="content-container">
+      <div class="content">
         <!-- Content of the church home page goes here -->
         <p>Welcome to our church community!</p>
+      </div>
+
+      <!-- Display church image -->
+      <div class="church-image-container">
+        <img
+          src="{{ url_for('static', filename=church.image_path) }}"
+          alt="Church Image"
+        />
+      </div>
+
+      <div class="content">
+        <!-- Content of the church home page goes here -->
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+        <p>Welcome to our church community!</p>
+      </div>
     </div>
 
-    <!-- Display church image -->
-    <div class="church-image-container">
-        <img src="{{ url_for('static', filename=church.image_path) }}" alt="Church Image">
+    <div style="text-align: center; padding-top: 20px">
+      <a
+        href="{{ url_for('calendar', church_id=church.id) }}"
+        class="move-button"
+        >Calendar</a
+      >
+      <a
+        href="{{ url_for('upcoming_events', church_id=church.id) }}"
+        class="move-button"
+        >Upcoming Events</a
+      >
+      <!-- You can add more buttons here with the same move-button class if needed -->
     </div>
 
     <!-- Burger stack, slide-out menu, and other shared components -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+  </body>
 </html>
