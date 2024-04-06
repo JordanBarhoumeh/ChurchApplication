@@ -59,11 +59,11 @@
 
 -- INSERT INTO events (church_id, event_title, start_time, end_time, is_all_day, description)
 -- VALUES (1, 
---     'Future Test Church Event', 
+--     'Future Test Church Event 2', 
 --     '2099-01-01T23:00:00', 
 --     '2099-01-01T23:59:00', 
 --     0, 
---     'Future Test Event');
+--     'Future Test Event 2');
 
 -- Delete events by id
 -- DELETE FROM events WHERE id = 4;

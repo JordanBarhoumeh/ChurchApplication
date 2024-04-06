@@ -58,9 +58,12 @@
         />
       </div>
 
-    <div id="events-container">
-        <!-- Section for the next event -->
+      <div class="church-info" style="padding: 0px;">
         <h2>Our Next Event</h2>
+      </div>
+
+      <div id="events-container">
+        <!-- Section for the next event -->
         {% if next_event %}
         <div
           class="event-item"
@@ -104,7 +107,7 @@
             element.dataset.description;
           document.getElementById("eventPopup").style.display = "block";
         }
-  
+
         function closePopup() {
           document.getElementById("eventPopup").style.display = "none";
         }
@@ -121,6 +124,9 @@
         href="{{ url_for('upcoming_events', church_id=church.id) }}"
         class="move-button"
         >Upcoming Events</a
+      >
+      <a href="{{ church.instagram }}" target="_blank" class="move-button"
+        >Follow Us on Instagram</a
       >
       <!-- You can add more buttons here with the same move-button class if needed -->
     </div>

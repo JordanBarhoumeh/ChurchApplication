@@ -46,6 +46,10 @@ h1 {
   font-size: 4vw;
 }
 
+.church-info {
+  text-align: center; /* Centers the text inside the church-info container */
+}
+
 /* -------------------- BUTTONS HANDLING -------------------- */
 
 .move-button {
@@ -221,10 +225,6 @@ input[type="submit"] {
   border: none;
 }
 
-.church-info {
-    text-align: center;
-    padding: 20px;
-}
 
 /* -------------------- SIDE NAVIGATION HANDLING -------------------- */
 
