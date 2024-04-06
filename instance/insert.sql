@@ -1,7 +1,7 @@
 -- Delete Table code
+-- DROP TABLE IF EXISTS event;
 -- DROP TABLE IF EXISTS events;
--- DROP TABLE IF EXISTS events;
-
+-- DROP TABLE IF EXISTS church;
 
 -- insert church into Church table
 -- INSERT INTO church (code, name, location)
@@ -23,6 +23,26 @@
 --     FOREIGN KEY (church_id) REFERENCES church(id)
 -- );
 
+-- ADD CHURCH TABLES
+-- CREATE TABLE church (
+--     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     code TEXT NOT NULL UNIQUE,
+--     name TEXT NOT NULL,
+--     location TEXT NOT NULL,
+--     image_path TEXT,
+--     instagram TEXT
+-- );
+
+-- insert church into Church table
+-- INSERT INTO church (id, code, name, location, image_path, instagram)
+-- VALUES (
+--     1, 
+--     '00000', 
+--     'Test Church', 
+--     'Test Location', 
+--     '/static/church_images/placeholder.jpg', 
+--     'https://www.instagram.com/jordanbarhoumeh?igsh=ajR1ZmthZTFkYjVh&utm_source=qr');
+
 
 --insert event into Events table
 
@@ -37,14 +57,14 @@
 --     Nunc rutrum aliquet diam, rhoncus rutrum ligula rhoncus sit amet. 
 --     Sed eleifend ex id purus tincidunt mollis eget quis purus.');
 
-INSERT INTO events (church_id, event_title, start_time, end_time, is_all_day, description)
-VALUES (1, 
-    'Future Test Church Event', 
-    '2099-01-01T23:00:00', 
-    '2099-01-01T23:59:00', 
-    0, 
-    'Future Test Event');
-
+-- INSERT INTO events (church_id, event_title, start_time, end_time, is_all_day, description)
+-- VALUES (1, 
+--     'Future Test Church Event', 
+--     '2099-01-01T23:00:00', 
+--     '2099-01-01T23:59:00', 
+--     0, 
+--     'Future Test Event');
 
 -- Delete events by id
 -- DELETE FROM events WHERE id = 4;
+

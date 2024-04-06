@@ -20,6 +20,9 @@ class Church(db.Model):
     code = db.Column(db.String(10), unique=True, nullable=False)
     name = db.Column(db.String(100), nullable=False)
     location = db.Column(db.String(100), nullable=False)
+    image_path = db.Column(db.String(255), nullable=True)  # Optional image path
+    instagram = db.Column(db.String(255), nullable=True)  # Optional Instagram link
+
 
 
 class Events(db.Model):
