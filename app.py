@@ -68,7 +68,8 @@ def set_church():
 @app.route('/church_main/<int:church_id>')
 def church_main(church_id):
     church = Church.query.get_or_404(church_id)
-    return render_template('church_main.html', church=church)
+    next_event = Event.query.filter(Event.church_id == church_id, Event.start_time > datetime.utcnow()).order_by(Event.start_time).first()
+    return render_template('church_main.html', church=church, next_event=next_event)
 
 @app.route('/calendar/<int:church_id>')
 def calendar(church_id):

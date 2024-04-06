@@ -91,6 +91,13 @@ h1 {
 
 /* -------------------- EVENTS POP UP HANDLING -------------------- */
 
+#events-container {
+    max-width: 900px; /* Adjust this value as needed for your design */
+    margin: 0 auto; /* This centers the container if it's smaller than the full width */
+    padding: 20px; /* Adds space inside the container */
+    margin-top: 10px;
+  }
+
 /* Error page specific styles */
 .error-message {
   background-color: var(--light-gray-bg);
@@ -227,11 +234,9 @@ input[type="submit"] {
   border: none;
 }
 
-#events-container {
-  max-width: 900px; /* Adjust this value as needed for your design */
-  margin: 0 auto; /* This centers the container if it's smaller than the full width */
-  padding: 20px; /* Adds space inside the container */
-  margin-top: 10px;
+.church-info {
+    text-align: center;
+    padding: 20px;
 }
 
 /* -------------------- SIDE NAVIGATION HANDLING -------------------- */

@@ -36,9 +36,13 @@ function openPopup(element) {
     document.getElementById('popupDescription').textContent = element.dataset.description;
     // Use classList to add the 'show' class
     document.getElementById('eventPopup').classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
+
 }
 
 function closePopup() {
     // Use classList to remove the 'show' class
     document.getElementById('eventPopup').classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling on the body
+
 }

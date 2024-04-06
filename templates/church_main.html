@@ -58,32 +58,31 @@
         />
       </div>
 
-      <div class="content">
-        <!-- Content of the church home page goes here -->
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
-        <p>Welcome to our church community!</p>
+      <div class="church-info">
+        <h2>Our Next Event</h2>
+        {% if next_event %}
+          <div id="next-event-item" class="event-item">
+            <div>{{ next_event.event_title }}</div>
+            <div>Start: {{ next_event.start_time.strftime('%d %B %Y %I:%M %p') }}</div>
+            <div>End: {{ next_event.end_time.strftime('%d %B %Y %I:%M %p') }}</div>
+          </div>
+        {% else %}
+          <p>Stay Tuned</p>
+        {% endif %}
       </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var nextEventItem = document.getElementById('next-event-item');
+          if (nextEventItem) {
+            nextEventItem.addEventListener('click', function() {
+              window.location.href = "{{ url_for('upcoming_events', church_id=next_event.church_id) }}";
+            });
+          }
+        });
+      </script>
+      
+      
+    
     </div>
 
     <div style="text-align: center; padding-top: 20px">
