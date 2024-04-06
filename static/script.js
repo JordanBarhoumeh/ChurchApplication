@@ -50,3 +50,17 @@ function closePopup() {
     document.body.style.overflow = ''; // Restore scrolling on the body
 
 }
+
+
+
+
+function showInstallPrompt() {
+    // Assuming your prompt is initially hidden, this will make it visible
+    document.getElementById('installPrompt').style.display = 'block';
+}
+
+function hideInstallPrompt() {
+    document.getElementById('installPrompt').style.display = 'none';
+}
+
+

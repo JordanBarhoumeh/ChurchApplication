@@ -93,6 +93,23 @@ h1 {
   color: var(--navy-accent); /* Making the Welcome text the navy color */
 }
 
+/* -------------------- INSTAL PROMPT HANDLING -------------------- */
+
+
+#installPrompt {
+  display: none; /* Hide initially */
+  position: fixed;
+  top: 20%; /* Adjust based on your needs */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  background-color: white; /* Adjust based on your theme */
+  border: 1px solid #ccc;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+
+
 /* -------------------- EVENTS POP UP HANDLING -------------------- */
 
 #events-container {

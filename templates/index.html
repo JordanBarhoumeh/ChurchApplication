@@ -17,16 +17,23 @@
 
 </head>
 <body>
+    <div id="installPrompt" class="install-prompt">
+        Add this app to your home screen for a better experience.
+        <button onclick="hideInstallPrompt()">Dismiss</button>
+    </div>
+    
     <div class="center-container">
         <h1 class="index-welcome">Welcome</h1>
         <form action="/set_church" method="post">
             <input type="text" id="church_code" name="church_code"
                    inputmode="numeric"
                    pattern="[0-9]{5}" title="Enter a five-digit church code"
-                   placeholder="Enter Code" maxlength="5" required>
+                   placeholder="Enter Code" maxlength="5" required
+                   onclick="showInstallPrompt()">
             <input type="submit" value="Submit">
         </form>
     </div>
     <!-- Rest of your script and body -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
