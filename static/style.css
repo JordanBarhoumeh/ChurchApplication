@@ -137,6 +137,8 @@ h1 {
 
 /* Initial state of the popup */
 .popup {
+    display: none;
+    position: fixed;
   opacity: 0; /* Start fully transparent */
   transform: translate(-50%, -50%) translateY(-20%); /* Start slightly above its final position */
   transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for both properties */
@@ -145,6 +147,7 @@ h1 {
 
 /* State of the popup when it's shown */
 .popup.show {
+    display: block;
   opacity: 1; /* Fully visible */
   visibility: visible; /* Make sure it's visible */
 
