@@ -313,3 +313,19 @@ input[type="submit"] {
   .hide-burger {
     display: none;
   }
+
+
+/* -------------------- IMAGE HANDLING -------------------- */
+
+  .church-image-container {
+    text-align: center; /* Center the image */
+    margin-top: 20px; /* Provide some space between the header and the image */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.church-image-container img {
+    max-width: 100%; /* Ensure the image is responsive and does not overflow */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 300px; /* Adjust based on your preference */
+}

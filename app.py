@@ -25,7 +25,7 @@ class Church(db.Model):
 
 
 
-class Events(db.Model):
+class Event(db.Model):
     __tablename__ = 'events'  # Ensure this matches your table name in the database
     id = db.Column(db.Integer, primary_key=True)
     church_id = db.Column(db.Integer, db.ForeignKey('church.id'), nullable=False)

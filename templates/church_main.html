@@ -30,6 +30,11 @@
         <p>Welcome to our church community!</p>
     </div>
 
+    <!-- Display church image -->
+    <div class="church-image-container">
+        <img src="{{ url_for('static', filename=church.image_path) }}" alt="Church Image">
+    </div>
+
     <!-- Burger stack, slide-out menu, and other shared components -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

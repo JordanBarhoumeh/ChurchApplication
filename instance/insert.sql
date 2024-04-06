@@ -40,7 +40,7 @@
 --     '00000', 
 --     'Test Church', 
 --     'Test Location', 
---     '/static/church_images/placeholder.jpg', 
+--     '/church_images/placeholder.jpg', 
 --     'https://www.instagram.com/jordanbarhoumeh?igsh=ajR1ZmthZTFkYjVh&utm_source=qr');
 
 
@@ -68,3 +68,4 @@
 -- Delete events by id
 -- DELETE FROM events WHERE id = 4;
 
+-- DELETE FROM church WHERE id = 1;
