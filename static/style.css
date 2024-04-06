@@ -281,15 +281,14 @@ input[type="submit"] {
 
 /* Style the burger icon */
 .burger-stack {
-  cursor: pointer;
-  position: absolute;
-  font-size: 40px;
-  z-index: 1001;
-  left: 20px; /* Adjust as necessary */
-  transform: translateY(
-    -110%
-  ); /* Centers the burger vertically within the header */
-}
+    cursor: pointer;
+    position: absolute;
+    font-size: 40px;
+    z-index: 1001;
+    left: 20px; /* Adjust as necessary for horizontal positioning */
+    top: 50%; /* Move the top edge of the icon to the center of its container */
+    transform: translateY(-50%); /* Shift the icon up by half its height to center it vertically */
+  }
 
 .nav-header {
   padding: 20px;
