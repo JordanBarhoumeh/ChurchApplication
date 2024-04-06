@@ -120,8 +120,9 @@ h1 {
   background-color: #efefef; /* Lighter shade on hover for interactive feel */
 }
 
-/* .popup {
-    display: none;
+/* Initial state of the popup */
+.popup {
+    display: none; /* Initially hidden */
     position: fixed;
     left: 50%;
     top: 50%;
@@ -133,36 +134,19 @@ h1 {
     border-radius: 5px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 10;
-} */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s; /* Add transition for opacity and delay hiding */
+  }
 
-/* Initial state of the popup */
-.popup {
-    display: none;
-    position: fixed;
-  opacity: 0; /* Start fully transparent */
-  transform: translate(-50%, -50%) translateY(-20%); /* Start slightly above its final position */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for both properties */
-  visibility: hidden; /* Use visibility to hide it completely */
-}
 
 /* State of the popup when it's shown */
 .popup.show {
     display: block;
-  opacity: 1; /* Fully visible */
-  visibility: visible; /* Make sure it's visible */
-
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  background-color: var(--cream-bg);
-  padding: 20px;
-  border: 1px solid var(--navy-accent);
-  border-radius: 5px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-}
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s; /* Ensure the visibility transitions immediately when showing */
+  }
 
 .close-btn-events {
   cursor: pointer;

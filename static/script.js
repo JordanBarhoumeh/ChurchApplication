@@ -35,7 +35,11 @@ function openPopup(element) {
     document.getElementById('popupEnd').textContent = 'End Time: ' + element.dataset.endTime;
     document.getElementById('popupDescription').textContent = element.dataset.description;
     // Use classList to add the 'show' class
-    document.getElementById('eventPopup').classList.add('show');
+    const popup = document.getElementById('eventPopup');
+    popup.style.display = 'block'; // Ensure it's block to start (if you're using display for showing/hiding)
+    requestAnimationFrame(() => {
+        popup.classList.add('show');
+    });    
     document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
 
 }
