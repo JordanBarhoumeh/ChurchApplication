@@ -274,6 +274,11 @@ input[type="submit"] {
   color: #f1f1f1;
 }
 
+
+/* -------------------- BURGER STACK HANDLING -------------------- */
+
+
+
 /* Style the burger icon */
 .burger-stack {
   cursor: pointer;
