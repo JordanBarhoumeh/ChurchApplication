@@ -52,6 +52,7 @@ function closePopup() {
 }
 
 
+/* -------------------- ADD TO HOMESCREEN POP UP ANIMATION -------------------- */
 
 
 function showInstallPrompt() {

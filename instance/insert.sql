@@ -43,6 +43,16 @@
 --     '/church_images/placeholder.jpg', 
 --     'https://www.instagram.com/jordanbarhoumeh?igsh=ajR1ZmthZTFkYjVh&utm_source=qr');
 
+-- INSERT INTO church (id, code, name, location, image_path, instagram)
+-- VALUES (
+--     2, 
+--     '00001', 
+--     'Saints Peter and Paul', 
+--     'Doonside', 
+--     '/church_images/spp.jpg', 
+--     'https://www.instagram.com/saints_peterandpaul?igsh=bmtueXFucWN3dnVz');
+
+
 
 --insert event into Events table
 
