@@ -341,3 +341,12 @@ input[type="submit"] {
   height: auto; /* Maintain aspect ratio */
   max-height: 300px; /* Adjust based on your preference */
 }
+
+/* -------------------- SERVICE BOOK APPEARANCE HANDLING -------------------- */
+
+.service-title {
+  text-align: center;
+  font-size: 24px; /* or any size you prefer */
+  margin-top: 20px; /* Adjust based on your layout */
+  color: var(--navy-accent); /* Using a CSS variable for color, adjust as needed */
+}

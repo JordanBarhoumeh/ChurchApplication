@@ -98,6 +98,12 @@ def get_events(church_id):
         'borderColor': '#9e5fff'
     } for event in events])
 
+@app.route('/service_books/<int:church_id>')
+def service_books(church_id):
+    church = Church.query.get_or_404(church_id)
+    return render_template('service_books.html', church=church)
+
+
 
 
 if __name__ == '__main__':

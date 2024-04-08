@@ -39,6 +39,11 @@
           class="nav-link"
           >Upcoming Events</a
         >
+        <a
+        href="{{ url_for('service_books', church_id=church.id) }}"
+        class="nav-link"
+        >Service Books</a
+        >
         <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
         <!-- Add other links here -->
         <!-- More pages... -->

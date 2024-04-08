@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Books - {{ church.name }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <!-- Keep the header consistent across the app -->
+      <h1>Service Books</h1>
+      <p class="location">{{ church.name }}</p>
+    </div>
+
+    <div class="service-title">
+      <!-- "Holy Pascha" section under "Service Books" -->
+      <h2>Holy Pascha</h2>
+    </div>
+
+    <div class="content">
+      <!-- Detailed content about "Holy Pascha" goes here -->
+      <p>
+        Content about Holy Pascha and relevant service books. This section can
+        detail the importance of Holy Pascha within the liturgical year,
+        associated traditions, and any specific readings or hymns that are
+        featured in the service books for this period.
+      </p>
+    </div>
+
+    <!-- Your navigation script -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
