@@ -11,24 +11,206 @@
   </head>
   <body>
     <div class="header">
-      <!-- Keep the header consistent across the app -->
+      <div id="burger-stack" class="burger-stack" onclick="openNav()">
+        &#9776;
+      </div>
       <h1>Service Books</h1>
       <p class="location">{{ church.name }}</p>
     </div>
 
-    <div class="service-title">
-      <!-- "Holy Pascha" section under "Service Books" -->
-      <h2>Holy Pascha</h2>
+    <!-- Slide-out menu -->
+    <div id="slide-out-menu" class="side-nav">
+      <a href="javascript:void(0)" class="close-btn-nav" onclick="closeNav()"
+        >&times;</a
+      >
+      <div class="nav-header">PAGES</div>
+      <a
+        href="{{ url_for('church_main', church_id=church.id) }}"
+        class="nav-link"
+        >Home</a
+      >
+      <a
+      href="{{ url_for('calendar', church_id=church.id) }}"
+      class="nav-link"
+      >Calendar</a
+      >
+      <a
+        href="{{ url_for('upcoming_events', church_id=church.id) }}"
+        class="nav-link"
+        >Upcoming Events</a
+      >
+      <a
+        href="{{ url_for('service_books', church_id=church.id) }}"
+        class="nav-link active"
+        >Service Books</a
+      >
+      <!-- Add logout link if needed -->
+      <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
     </div>
 
-    <div class="content">
-      <!-- Detailed content about "Holy Pascha" goes here -->
-      <p>
-        Content about Holy Pascha and relevant service books. This section can
-        detail the importance of Holy Pascha within the liturgical year,
-        associated traditions, and any specific readings or hymns that are
-        featured in the service books for this period.
-      </p>
+    <div class="service-books-container">
+      <h2 style="text-align: center; margin-top: 20px; color: #2f3e6f">
+        Holy Pascha
+      </h2>
+      <!-- Holy Monday -->
+      <div class="day-container">
+        <h3 style="text-align: center">Holy Monday</h3>
+        <div
+          class="buttons-container"
+          style="display: flex; justify-content: center; gap: 20px"
+        >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_monday/english.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >English</a
+          >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_monday/arabic.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >Arabic</a
+          >
+        </div>
+      </div>
+      <div class="day-container">
+        <h3 style="text-align: center">Holy Tuesday</h3>
+        <div
+          class="buttons-container"
+          style="display: flex; justify-content: center; gap: 20px"
+        >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_tuesday/english.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >English</a
+          >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_tuesday/arabic.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >Arabic</a
+          >
+        </div>
+      </div>
+      <div class="day-container">
+        <h3 style="text-align: center">Holy Wednesday</h3>
+        <div
+          class="buttons-container"
+          style="display: flex; justify-content: center; gap: 20px"
+        >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_wednesday/english.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >English</a
+          >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_wednesday/arabic.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >Arabic</a
+          >
+        </div>
+      </div>
+      <div class="day-container">
+        <h3 style="text-align: center">Holy Thursday</h3>
+        <div
+          class="buttons-container"
+          style="display: flex; justify-content: center; gap: 20px"
+        >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_thursday/english.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >English</a
+          >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_thursday/arabic.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >Arabic</a
+          >
+        </div>
+      </div>
+      <div class="day-container">
+        <h3 style="text-align: center">Holy Friday</h3>
+        <div
+          class="buttons-container"
+          style="display: flex; justify-content: center; gap: 20px"
+        >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_friday/english.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >English</a
+          >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_friday/arabic.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >Arabic</a
+          >
+        </div>
+      </div>
+      <div class="day-container">
+        <h3 style="text-align: center">Holy Saturday</h3>
+        <div
+          class="buttons-container"
+          style="display: flex; justify-content: center; gap: 20px"
+        >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_saturday/english.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >English</a
+          >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/holy_saturday/arabic.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >Arabic</a
+          >
+        </div>
+      </div>
+      <div class="day-container">
+        <h3 style="text-align: center">Palm Sunday</h3>
+        <div
+          class="buttons-container"
+          style="display: flex; justify-content: center; gap: 20px"
+        >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/palm_sunday/morning_english.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >English</a
+          >
+          <a
+            href="{{ url_for('static', filename='service_books/holy_pascha/palm_sunday/morning_arabic.pdf') }}"
+            class="move-button"
+            target="_blank"
+            >Arabic</a
+          >
+        </div>
+        <div
+        class="buttons-container"
+        style="display: flex; justify-content: center; gap: 20px"
+      >
+        <a
+          href="{{ url_for('static', filename='service_books/holy_pascha/palm_sunday/evening_english.pdf') }}"
+          class="move-button"
+          target="_blank"
+          >English</a
+        >
+        <a
+          href="{{ url_for('static', filename='service_books/holy_pascha/palm_sunday/evening_arabic.pdf') }}"
+          class="move-button"
+          target="_blank"
+          >Arabic</a
+        >
+      </div>
+      </div>
+      <!-- Repeat for other days -->
     </div>
 
     <!-- Your navigation script -->

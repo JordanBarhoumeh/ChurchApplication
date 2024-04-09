@@ -52,7 +52,7 @@ h1 {
 
 /* -------------------- BUTTONS HANDLING -------------------- */
 
-.move-button {
+.move-button, .move-button:visited, .move-button:focus {
   display: block;
   width: 60%;
   margin: 20px auto;
@@ -254,7 +254,7 @@ input[type="submit"] {
   height: 100%; /* Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 1010; /* Stay on top */
   top: 0;
   left: 0;
   background-color: var(--cream-bg); /* Black*/
@@ -280,6 +280,7 @@ input[type="submit"] {
   font-size: 25px; /* Adjust font size for navigation links */
   color: black;
   display: block;
+  text-align: center;
   transition: 0.3s;
 }
 
@@ -342,11 +343,23 @@ input[type="submit"] {
   max-height: 300px; /* Adjust based on your preference */
 }
 
-/* -------------------- SERVICE BOOK APPEARANCE HANDLING -------------------- */
+/* -------------------- SERVICE BOOK PAGE APPEARANCE HANDLING -------------------- */
 
-.service-title {
-  text-align: center;
-  font-size: 24px; /* or any size you prefer */
-  margin-top: 20px; /* Adjust based on your layout */
-  color: var(--navy-accent); /* Using a CSS variable for color, adjust as needed */
+.service-books-container {
+  width: 90%;
+  margin: auto;
+  padding-top: 20px;
 }
+
+.day-container {
+  margin-bottom: 20px;
+}
+
+.buttons-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+
+

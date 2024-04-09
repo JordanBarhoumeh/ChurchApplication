@@ -26,6 +26,16 @@ function closeNav() {
 
 document.getElementById("burger-stack").onclick = openNav;
 
+document.addEventListener("DOMContentLoaded", resetButtonStyles);
+window.addEventListener("focus", resetButtonStyles);
+
+function resetButtonStyles() {
+  var buttons = document.querySelectorAll('.move-button');
+  buttons.forEach(function(button) {
+    button.style.backgroundColor = 'var(--navy-accent)'; // Reset to navy color
+  });
+}
+
 
 /* -------------------- EVENT POP UP ANIMATION -------------------- */
 
