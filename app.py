@@ -7,7 +7,7 @@ from flask import make_response
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'a_very_secret_key'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///church_app.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://jordanbarhoumeh:naS56Ser@jordanbarhoumeh.mysql.pythonanywhere-services.com/jordanbarhoumeh$default'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://jordanbarhoumeh:a.Zt8!jSHTsN3a@@jordanbarhoumeh.mysql.pythonanywhere-services.com/jordanbarhoumeh$default'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
