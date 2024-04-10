@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Trinity Apps</title>
-    <link rel="stylesheet" href="style.css"> <!-- Ensure you have a style.css file -->
-    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="stylesheet" href="style.css" />
+    <!-- Ensure you have a style.css file -->
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='manifest.json') }}"
+    />
 
     <!-- Web App Manifest -->
-    <link rel="manifest" href="/manifest.json">
-
-</head>
-<body>
+    <link rel="manifest" href="/manifest.json" />
+  </head>
+  <body>
     <header>
-        <h1>Welcome to Trinity Apps</h1>
+      <h1>Welcome to Trinity Apps</h1>
     </header>
     <main>
-        <p>This app acts as a landing page for your church, its events, and other exciting features.</p>
-        <p>To use the app, add it to your homescreen. Then, open it and enter the code provided by your church.</p>
-        <p>Experience a seamless way to stay connected with your church community, access event schedules, read service books, and even participate in discussions or groups. Don't forget to check out the option to contribute or donate directly through the app, making it easier than ever to support your church's missions and activities.</p>
+      <p>
+        This app acts as a landing page for your church, its events, and other
+        exciting features.
+      </p>
+      <p>
+        To use the app, add it to your homescreen. Then, open it and enter the
+        code provided by your church.
+      </p>
+      <p>
+        Experience a seamless way to stay connected with your church community,
+        access event schedules, read service books, and even participate in
+        discussions or groups. Don't forget to check out the option to
+        contribute or donate directly through the app, making it easier than
+        ever to support your church's missions and activities.
+      </p>
     </main>
-    <footer>
-        <button onclick="location.href='index.html'">Get Started</button>
-    </footer>
     <script>
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            // App is launched from the homescreen
-            window.location.href = 'index.html';
-        }
+      if (window.matchMedia("(display-mode: standalone)").matches) {
+        window.location.href = "/index"; // Use the route to index, not the file directly
+      }
     </script>
-</body>
+  </body>
 </html>

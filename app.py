@@ -39,14 +39,14 @@ class Event(db.Model):
     church = db.relationship('Church', backref=db.backref('events', lazy=True))
 
 
-@app.route('/')
+@app.route('/index')
 def index():
     church_code = request.cookies.get('church_code')
     if church_code:
         church = Church.query.filter_by(code=church_code).first()
         if church:
             return redirect(url_for('church_main', church_id=church.id))
-    return render_template('welcome.html')
+    return render_template('index.html')
 
 @app.route('/logout')
 def logout():
@@ -103,6 +103,11 @@ def get_events(church_id):
 def service_books(church_id):
     church = Church.query.get_or_404(church_id)
     return render_template('service_books.html', church=church)
+
+@app.route('/')
+def home():
+    return render_template('welcome.html')
+
 
 
 
