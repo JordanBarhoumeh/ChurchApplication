@@ -45,7 +45,8 @@
     },
     {
       "src": "icons/windows11/Wide310x150Logo.scale-100.png",
-      "sizes": "310x150"
+      "sizes": "310x150",
+      "purpose" : "maskable"
     },
     {
       "src": "icons/windows11/Wide310x150Logo.scale-125.png",
@@ -445,11 +446,19 @@
     },
     {
       "src": "icons/ios/512.png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "icons/ios/1024.png",
       "sizes": "1024x1024"
     }
-  ]
+  ],
+
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "start_url": "/",
+  "display": "standalone"
+
 }
