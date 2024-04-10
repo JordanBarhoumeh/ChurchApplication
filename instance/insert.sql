@@ -25,7 +25,7 @@
 
 -- ADD CHURCH TABLES
 -- CREATE TABLE church (
---     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     id INTEGER PRIMARY KEY,
 --     code TEXT NOT NULL UNIQUE,
 --     name TEXT NOT NULL,
 --     location TEXT NOT NULL,
