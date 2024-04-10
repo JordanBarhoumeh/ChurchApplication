@@ -46,7 +46,7 @@ def index():
         church = Church.query.filter_by(code=church_code).first()
         if church:
             return redirect(url_for('church_main', church_id=church.id))
-    return render_template('index.html')
+    return render_template('welcome.html')
 
 @app.route('/logout')
 def logout():
