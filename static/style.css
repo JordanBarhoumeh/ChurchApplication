@@ -81,11 +81,9 @@ h1 {
   position: fixed;
   left: 50%;
   bottom: 20px;
-  transform: translateX(-50%);
   /* Add your button styling here */
   display: block;
   width: 60%;
-  margin: 20px auto;
   padding: 10px 0;
   font-size: 4vw;
   background-color: var(
