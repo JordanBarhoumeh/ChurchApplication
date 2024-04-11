@@ -85,7 +85,6 @@ h1 {
   /* Add your button styling here */
   display: block;
   width: 60%;
-  margin: 20px auto;
   font-size: 4vw;
   background-color: var(
     --navy-accent
