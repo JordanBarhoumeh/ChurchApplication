@@ -76,7 +76,3 @@ function hideInstallPrompt() {
 
 /* -------------------- AUTO REDIRECT POP UP ANIMATION -------------------- */
 
-
-if (window.matchMedia('(display-mode: standalone)').matches) {
-    window.location.href = '/index';  // Use the route to index, not the file directly
-}
