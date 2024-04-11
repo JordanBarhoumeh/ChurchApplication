@@ -77,24 +77,6 @@ h1 {
   ); /* Change to burgundy when hovered or clicked */
 }
 
-.bottom-fixed-button {
-  bottom: 20px;
-  display: block;
-  width: 60%;
-  margin: 20px auto;
-  font-size: 4vw;
-  background-color: var(
-    --navy-accent
-  ); /* Assuming your button starts with a navy color */
-  color: white;
-  text-align: center;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease; /* Smooth transition for the color change */
-}
-
 /* -------------------- INDEX INPUT CODE HANDLING -------------------- */
 
 /* Index page specific styles */
@@ -377,7 +359,3 @@ input[type="submit"] {
   text-align: center;
   margin-top: 10px;
 }
-
-
-
-

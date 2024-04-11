@@ -73,6 +73,3 @@ function showInstallPrompt() {
 function hideInstallPrompt() {
     document.getElementById('installPrompt').style.display = 'none';
 }
-
-/* -------------------- AUTO REDIRECT POP UP ANIMATION -------------------- */
-
