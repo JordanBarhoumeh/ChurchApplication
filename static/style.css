@@ -395,16 +395,6 @@ input[type="submit"] {
   text-align: center;
 }
 
-.hamburger .bar, .hamburger:after, .hamburger:before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 5px;
-  background-color: #fff;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
 .hamburger.is-active:before {
   transform: rotate(-45deg) translate(-8px, 6px);
 }
@@ -457,10 +447,20 @@ input[type="submit"] {
   z-index: 1001; /* Ensures it appears above other content */
 }
 
+.hamburger .bar, .hamburger:after, .hamburger:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: var(--silver-accent);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
 .hamburger .bar {
   display: block;
   width: 30px;
-  height: 3px;
+  height: 5px;
   background-color: #fff;
   margin: 5px 0;
   transition: all 0.3s ease;
