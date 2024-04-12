@@ -77,12 +77,12 @@ function hideInstallPrompt() {
 
 /* -------------------- NEW BURGER MENU ANIMATION -------------------- */
 
-const hamMenu = document.querySelector('.ham-menu');
-
-const offScreenMenu = document. querySelector('.off-screen-menu');
-
-
-hamMenu.addEventListener('click', () => {
-    hamMenu.classList.toggle('active');
-    offScreenMenu.classList.toggle('active');
-})
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.mobile-nav');
+  
+    hamburger.addEventListener('click', function () {
+      this.classList.toggle('is-active');
+      mobileNav.classList.toggle('is-active');
+    });
+  });

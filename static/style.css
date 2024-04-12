@@ -383,71 +383,61 @@ input[type="submit"] {
 /* -------------------- NEW HAMBURGER HANDLING -------------------- */
 
 
-.off-screen-menu {
-  background-color: var(--navy-accent);
-  height: 100vh;
-  width: 100%;
-  max-width: 450px;
-  position: fixed;
-  top: 0;
-  right: -450px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 3rem;
-  transition: 0.3s ease;
-}
-
-.off-screen-menu:active {
-  right: 0;
-}
-
-nav {
-  padding: 1rem;
-  display: flex;
-  background-color: var(--navy-accent);
-}
-
-.ham-menu {
-  height: 50px;
-  width: 50px;
-  margin-left: auto;
+.hamburger {
   position: relative;
-  z-index: 1200;
+  display: block;
+  width: 35px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
 }
 
-.ham-menu span {
+.hamburger .bar, .hamburger:after, .hamburger:before {
+  content: "";
+  display: block;
+  width: 100%;
   height: 5px;
-  width: 100%;
-  background-color: var(--silver-accent);
-  border-radius: 25px;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.3s ease;
+  background-color: #fff;
+  margin: 6px 0;
+  transition: 0.4s;
 }
 
-.ham-menu span:nth-child(1) {
-  top: 25%;
+.hamburger.is-active:before {
+  transform: rotate(-45deg) translate(-8px, 6px);
 }
 
-.ham-menu span:nth-child(3) {
-  top: 75%;
+.hamburger.is-active:after {
+  transform: rotate(45deg) translate(-9px, -8px);
 }
 
-.ham-menu.active span:nth-child(1) {
-  top: 50%;
-  transform: translate(-50%, -50%) rotate (45deg);
-}
-
-.ham-menu.active span:nth-child(2) {
+.hamburger.is-active .bar {
   opacity: 0;
 }
 
-.ham-menu.active span:nth-child(3) {
-  top: 50%;
-  transform: translate(-50%, 50%) rotate(-45deg);
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Start hidden to the left */
+  width: 100%;
+  height: 100%;
+  background-color: var(--cream-bg);
+  transition: left 0.4s;
+  padding-top: 60px; /* Adjust padding to avoid overlap with the header */
+}
+
+.mobile-nav.is-active {
+  left: 0; /* Slide in from the left */
+}
+
+.mobile-nav a {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  color: var(--navy-accent);
+  text-decoration: none;
+}
+
+.mobile-nav a:hover {
+  background-color: var(--burgundy-highlight);
 }
