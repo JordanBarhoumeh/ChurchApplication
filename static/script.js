@@ -52,3 +52,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
   
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get current page URL
+    var currentPage = window.location.pathname.split("/").pop();
+  
+    // Get all nav links
+    var navLinks = document.querySelectorAll('.mobile-nav a');
+  
+    // Loop through each nav link and add 'active' class to the current page link
+    navLinks.forEach(function(link) {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  });
+  
