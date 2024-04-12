@@ -377,3 +377,30 @@ input[type="submit"] {
   text-align: center;
   margin-top: 10px;
 }
+
+
+
+/* -------------------- NEW HAMBURGER HANDLING -------------------- */
+
+
+.hamburger {
+  display: block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+
+  appearance: none;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.hamburger .bar, .hamburger:after, .hamburger:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: var(--cream-bg);
+  margin: 6px 0px;
+  transition: 0.4s;
+}
