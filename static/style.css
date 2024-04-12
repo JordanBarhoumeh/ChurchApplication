@@ -413,7 +413,7 @@ input[type="submit"] {
   transform: rotate(45deg) translate(-9px, -8px);
 }
 
-.hamburger.is-active:after .bar {
+.hamburger.is-active .bar {
   opacity: 0;
 }
 
