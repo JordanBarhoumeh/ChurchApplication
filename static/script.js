@@ -1,8 +1,3 @@
-/* -------------------- NAV ANIMATION -------------------- */
-
-
-
-
 /* -------------------- EVENT POP UP ANIMATION -------------------- */
 
 function openPopup(element) {

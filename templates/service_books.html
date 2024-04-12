@@ -12,42 +12,20 @@
   </head>
   <body>
     <div class="header">
-      <div id="burger-stack" class="burger-stack" onclick="openNav()">
-        &#9776;
-      </div>
       <h1>Service Books</h1>
       <p class="location">{{ church.name }}</p>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <div class="bar"></div>
+      </button>
     </div>
 
-    <!-- Slide-out menu -->
-    <div id="slide-out-menu" class="side-nav">
-      <a href="javascript:void(0)" class="close-btn-nav" onclick="closeNav()"
-        >&times;</a
-      >
-      <div class="nav-header">PAGES</div>
-      <a
-        href="{{ url_for('church_main', church_id=church.id) }}"
-        class="nav-link"
-        >Home</a
-      >
-      <a
-      href="{{ url_for('calendar', church_id=church.id) }}"
-      class="nav-link"
-      >Calendar</a
-      >
-      <a
-        href="{{ url_for('upcoming_events', church_id=church.id) }}"
-        class="nav-link"
-        >Upcoming Events</a
-      >
-      <a
-        href="{{ url_for('service_books', church_id=church.id) }}"
-        class="nav-link active"
-        >Service Books</a
-      >
-      <!-- Add logout link if needed -->
-      <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
-    </div>
+    <nav class="mobile-nav">
+      <a href="{{ url_for('church_main', church_id=church.id) }}">Home</a>
+      <a href="{{ url_for('calendar', church_id=church.id) }}">Calendar</a>
+      <a href="{{ url_for('upcoming_events', church_id=church.id) }}">Upcoming Events</a>
+      <a href="{{ url_for('service_books', church_id=church.id) }}">Service Books</a>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
 
     <div class="service-books-container">
       <h2 style="text-align: center; margin-top: 20px; color: #2f3e6f">
