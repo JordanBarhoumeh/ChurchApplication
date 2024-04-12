@@ -24,13 +24,15 @@ html {
   height: 60px; /* Fixed height for the header */
   background-color: var(--navy-accent);
   display: flex;
-  justify-content: space-between; /* Align items on both ends */
-  align-items: center; /* Center items vertically */
-  padding: 0 20px; /* Horizontal padding */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   color: #fff;
+  flex-direction: column; /* Stack children vertically */
 }
+
 
 
 h1,
@@ -386,13 +388,17 @@ input[type="submit"] {
 /* -------------------- NEW HAMBURGER HANDLING -------------------- */
 
 
+/* Place hamburger menu to the left */
 .hamburger {
   position: absolute;
-  right: 20px; /* Adjust based on your design needs */
+  left: 10px; /* Adjust based on preference */
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1001;
-  cursor: pointer;
+}
+
+/* Ensure text alignment remains central if preferred */
+.header h1, .header .location {
+  text-align: center;
 }
 
 .hamburger .bar, .hamburger:after, .hamburger:before {
