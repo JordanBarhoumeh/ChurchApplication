@@ -81,8 +81,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.querySelector('.hamburger');
     const mobileNav = document.querySelector('.mobile-nav');
   
-    hamburger.addEventListener('click', function () {
-      this.classList.toggle('is-active');
-      mobileNav.classList.toggle('is-active');
-    });
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('is-active');
+        mobileNav.classList.toggle('is-active');
+      });
+    } else {
+      console.log('Hamburger or mobile-nav elements are not found.');
+    }
   });
+  
