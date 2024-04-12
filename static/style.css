@@ -415,6 +415,7 @@ nav {
   width: 50px;
   margin-left: auto;
   position: relative;
+  z-index: 1200;
 }
 
 .ham-menu span {
