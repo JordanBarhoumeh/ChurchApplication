@@ -388,40 +388,9 @@ input[type="submit"] {
 /* -------------------- NEW HAMBURGER HANDLING -------------------- */
 
 
-/* Place hamburger menu to the left */
-.hamburger {
-  position: absolute;
-  left: 10px; /* Adjust based on preference */
-  top: 50%;
-  transform: translateY(-50%);
-}
 
-/* Ensure text alignment remains central if preferred */
-.header h1, .header .location {
-  text-align: center;
-}
 
-.hamburger .bar, .hamburger:after, .hamburger:before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 5px;
-  background-color: #fff;
-  margin: 6px 0;
-  transition: 0.4s;
-}
 
-.hamburger.is-active:before {
-  transform: rotate(-45deg) translate(-8px, 6px);
-}
-
-.hamburger.is-active:after {
-  transform: rotate(45deg) translate(-9px, -8px);
-}
-
-.hamburger.is-active .bar {
-  opacity: 0;
-}
 
 .mobile-nav {
   position: fixed;
@@ -448,4 +417,60 @@ input[type="submit"] {
 
 .mobile-nav a:hover {
   background-color: var(--burgundy-highlight);
+}
+
+
+.hamburger {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001; /* Ensures it appears above other content */
+}
+
+.hamburger .bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger.is-active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--navy-accent);
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Additional styling to ensure the hamburger and header text alignment */
+.header h1 {
+  margin: 0 auto; /* Centers the header title */
 }
