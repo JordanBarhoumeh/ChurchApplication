@@ -423,7 +423,7 @@ input[type="submit"] {
   left: 100%;
   width: 100%;
   display: block;
-  z-index: 1002;
+  z-index: 1100;
   background-color: var(--cream-bg);
   padding-top: 120px;
   transition: 0.4s;
