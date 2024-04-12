@@ -420,7 +420,7 @@ input[type="submit"] {
 .mobile-nav {
   position: fixed;
   top: 0;
-  left: 100%;
+  right: 100%;
   width: 100%;
   display: block;
   z-index: 1100;
@@ -430,7 +430,7 @@ input[type="submit"] {
 }
 
 .mobile-nav.is-active {
-  left: 0; 
+  right: 0; 
 }
 
 .mobile-nav a {
