@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import jsonify
 from datetime import datetime
 from flask import make_response
+import os
+from pywebpush import webpush, WebPushException
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'a_very_secret_key'
@@ -107,6 +109,44 @@ def service_books(church_id):
 @app.route('/')
 def home():
     return render_template('welcome.html')
+
+
+
+
+
+
+
+
+
+# Store this in a database in production
+SUBSCRIPTIONS = []
+
+@app.route('/api/save-subscription/', methods=['POST'])
+def save_subscription():
+    subscription_info = request.json
+    SUBSCRIPTIONS.append(subscription_info)
+    return jsonify({}), 200
+
+@app.route('/api/send-notification/', methods=['POST'])
+def send_notification():
+    message = "Hello, World!"
+    for sub in SUBSCRIPTIONS:
+        try:
+            webpush(
+                subscription_info=sub,
+                data=message,
+                vapid_private_key=os.getenv('VAPID_PRIVATE_KEY'),
+                vapid_claims={"sub": "mailto:your-email@example.com"}
+            )
+        except WebPushException as e:
+            print(f"Web push failed: {e}")
+            return jsonify({'error': 'Failed to send notification'}), 500
+    return jsonify({'success': True}), 200
+
+
+
+
+
 
 
 
