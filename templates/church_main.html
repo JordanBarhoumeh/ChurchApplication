@@ -15,7 +15,6 @@
     />
   </head>
   <body>
-
     <div class="header">
       <h1>Welcome</h1>
       <p class="location">{{ church.name }}</p>
@@ -25,14 +24,28 @@
     </div>
 
     <nav class="mobile-nav">
-      <a href="{{ url_for('church_main', church_id=church.id) }}" class="move-button">Home</a>
-      <a href="{{ url_for('calendar', church_id=church.id) }}" class="move-button">Calendar</a>
-      <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="move-button">Upcoming Events</a>
-      <a href="{{ url_for('service_books', church_id=church.id) }}" class="move-button">Service Books</a>
+      <a
+        href="{{ url_for('church_main', church_id=church.id) }}"
+        class="move-button"
+        >Home</a
+      >
+      <a
+        href="{{ url_for('calendar', church_id=church.id) }}"
+        class="move-button"
+        >Calendar</a
+      >
+      <a
+        href="{{ url_for('upcoming_events', church_id=church.id) }}"
+        class="move-button"
+        >Upcoming Events</a
+      >
+      <a
+        href="{{ url_for('service_books', church_id=church.id) }}"
+        class="move-button"
+        >Service Books</a
+      >
       <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
     </nav>
-
-
 
     <div class="content-container">
       <div class="content">
@@ -104,27 +117,29 @@
       </script>
     </div>
 
-    <div style="text-align: center; padding-top: 20px">
-      <a
-        href="{{ url_for('calendar', church_id=church.id) }}"
-        class="move-button"
-        >Calendar</a
-      >
-      <a
-        href="{{ url_for('upcoming_events', church_id=church.id) }}"
-        class="move-button"
-        >Upcoming Events</a
-      >
-      <a
-        href="{{ url_for('service_books', church_id=church.id) }}"
-        class="move-button"
-        >Service Books</a
-      >
-      <a href="{{ church.instagram }}" target="_blank" class="move-button"
-        >Follow Us on Instagram</a
-      >
-      <!-- You can add more buttons here with the same move-button class if needed -->
-    </div>
+    <footer>
+      <div style="text-align: center; padding-top: 20px">
+        <a
+          href="{{ url_for('calendar', church_id=church.id) }}"
+          class="move-button"
+          >Calendar</a
+        >
+        <a
+          href="{{ url_for('upcoming_events', church_id=church.id) }}"
+          class="move-button"
+          >Upcoming Events</a
+        >
+        <a
+          href="{{ url_for('service_books', church_id=church.id) }}"
+          class="move-button"
+          >Service Books</a
+        >
+        <a href="{{ church.instagram }}" target="_blank" class="move-button"
+          >Follow Us on Instagram</a
+        >
+        <!-- You can add more buttons here with the same move-button class if needed -->
+      </div>
+    </footer>
 
     <!-- Burger stack, slide-out menu, and other shared components -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>

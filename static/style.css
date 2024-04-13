@@ -461,3 +461,16 @@ input[type="submit"] {
 .header h1 {
   margin: 0 auto; /* Centers the header title */
 }
+
+/* -------------------- FOOTER FOR BUTTONS HANDLING -------------------- */
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--cream-bg); /* Use the navy accent color you have */
+  text-align: center;
+  padding: 10px 0; /* Add padding as needed */
+  z-index: 100; /* Ensure it's above other elements */
+}
