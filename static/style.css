@@ -474,3 +474,9 @@ input[type="submit"] {
   padding: 10px 0; /* Add padding as needed */
   z-index: 100; /* Ensure it's above other elements */
 }
+
+
+.content {
+  min-height: calc(100vh - 120px); /* Adjust the 120px based on your header and footer height */
+  /* Other styles */
+}
