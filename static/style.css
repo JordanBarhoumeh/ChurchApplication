@@ -465,7 +465,7 @@ input[type="submit"] {
 /* -------------------- FOOTER FOR BUTTONS HANDLING -------------------- */
 
 .content {
-  min-height: calc(100vh - 120px); /* Adjust 120px to account for header and footer height */
+  min-height: calc(100vh - 60px); /* Adjust 120px to account for header and footer height */
   /* Your existing styles for content */
 }
 

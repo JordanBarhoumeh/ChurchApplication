@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <title>{{ church.name }} - Upcoming Events</title>
     <link
       rel="stylesheet"
@@ -11,7 +14,6 @@
     />
   </head>
   <body>
-    <div class="content">
     <div class="header">
       <h1>{{ church.name }}</h1>
       <p class="location">{{ church.location }}</p>
@@ -21,58 +23,75 @@
     </div>
 
     <nav class="mobile-nav">
-      <a href="{{ url_for('church_main', church_id=church.id) }}" class="move-button">Home</a>
-      <a href="{{ url_for('calendar', church_id=church.id) }}" class="move-button">Calendar</a>
-      <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="move-button">Upcoming Events</a>
-      <a href="{{ url_for('service_books', church_id=church.id) }}" class="move-button">Service Books</a>
+      <a
+        href="{{ url_for('church_main', church_id=church.id) }}"
+        class="move-button"
+        >Home</a
+      >
+      <a
+        href="{{ url_for('calendar', church_id=church.id) }}"
+        class="move-button"
+        >Calendar</a
+      >
+      <a
+        href="{{ url_for('upcoming_events', church_id=church.id) }}"
+        class="move-button"
+        >Upcoming Events</a
+      >
+      <a
+        href="{{ url_for('service_books', church_id=church.id) }}"
+        class="move-button"
+        >Service Books</a
+      >
       <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
     </nav>
 
-    <div id="events-container">
-      {% for event in events %}
-      <div
-        class="event-item"
-        onclick="openPopup(this)"
-        data-title="{{ event.event_title }}"
-        data-start-time="{{ event.start_time.strftime('%d %B %Y %I:%M %p') }}"
-        data-end-time="{{ event.end_time.strftime('%d %B %Y %I:%M %p') }}"
-        data-description="{{ event.description }}"
-      >
-        <div>{{ event.event_title }}</div>
-        <div>Start: {{ event.start_time.strftime('%d %B %Y %I:%M %p') }}</div>
-        <div>End: {{ event.end_time.strftime('%d %B %Y %I:%M %p') }}</div>
+    <div class="content">
+      <div id="events-container">
+        {% for event in events %}
+        <div
+          class="event-item"
+          onclick="openPopup(this)"
+          data-title="{{ event.event_title }}"
+          data-start-time="{{ event.start_time.strftime('%d %B %Y %I:%M %p') }}"
+          data-end-time="{{ event.end_time.strftime('%d %B %Y %I:%M %p') }}"
+          data-description="{{ event.description }}"
+        >
+          <div>{{ event.event_title }}</div>
+          <div>Start: {{ event.start_time.strftime('%d %B %Y %I:%M %p') }}</div>
+          <div>End: {{ event.end_time.strftime('%d %B %Y %I:%M %p') }}</div>
+        </div>
+        {% else %}
+        <p>No upcoming events found.</p>
+        {% endfor %}
       </div>
-      {% else %}
-      <p>No upcoming events found.</p>
-      {% endfor %}
-    </div>
 
-    <!-- Popup for event details -->
-    <div id="eventPopup" class="popup">
-      <div class="close-btn-events" onclick="closePopup()">×</div>
-      <h2 id="popupTitle"></h2>
-      <p id="popupStart"></p>
-      <p id="popupEnd"></p>
-      <p id="popupDescription"></p>
-    </div>
+      <!-- Popup for event details -->
+      <div id="eventPopup" class="popup">
+        <div class="close-btn-events" onclick="closePopup()">×</div>
+        <h2 id="popupTitle"></h2>
+        <p id="popupStart"></p>
+        <p id="popupEnd"></p>
+        <p id="popupDescription"></p>
+      </div>
 
-    <script>
-      function openPopup(element) {
-        document.getElementById("popupTitle").textContent =
-          element.dataset.title;
-        document.getElementById("popupStart").textContent =
-          "Start Time: " + element.dataset.startTime;
-        document.getElementById("popupEnd").textContent =
-          "End Time: " + element.dataset.endTime;
-        document.getElementById("popupDescription").textContent =
-          element.dataset.description;
-        document.getElementById("eventPopup").style.display = "block";
-      }
+      <script>
+        function openPopup(element) {
+          document.getElementById("popupTitle").textContent =
+            element.dataset.title;
+          document.getElementById("popupStart").textContent =
+            "Start Time: " + element.dataset.startTime;
+          document.getElementById("popupEnd").textContent =
+            "End Time: " + element.dataset.endTime;
+          document.getElementById("popupDescription").textContent =
+            element.dataset.description;
+          document.getElementById("eventPopup").style.display = "block";
+        }
 
-      function closePopup() {
-        document.getElementById("eventPopup").style.display = "none";
-      }
-    </script>
+        function closePopup() {
+          document.getElementById("eventPopup").style.display = "none";
+        }
+      </script>
     </div>
 
     <div class="footer" style="text-align: center; padding-top: 20px">
