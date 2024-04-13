@@ -465,14 +465,29 @@ input[type="submit"] {
 /* -------------------- FOOTER FOR BUTTONS HANDLING -------------------- */
 
 .footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: var(--cream-bg); /* Use the navy accent color you have */
   text-align: center;
-  padding: 10px 0; /* Add padding as needed */
-  z-index: 100; /* Ensure it's above other elements */
+}
+
+.footer .move-button {
+  display: block;
+  width: 60%;
+  margin: 20px auto;
+  padding: 10px 0;
+  font-size: 4vw;
+  background-color: var(
+    --navy-accent
+  ); /* Assuming your button starts with a navy color */
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease; /* Smooth transition for the color change */
 }
 
 
