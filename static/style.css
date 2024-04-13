@@ -450,3 +450,12 @@ input[type="submit"] {
 .header h1 {
   margin: 0 auto; /* Centers the header title */
 }
+
+
+
+
+
+
+.welcome-message {
+  padding-top: 20px;  /* Adjust the value to the amount of space you want */
+}
