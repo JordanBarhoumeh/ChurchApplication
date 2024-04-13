@@ -14,14 +14,6 @@ html {
   font-family: "Arial", sans-serif;
   background-color: var(--cream-bg);
   color: var(--text-color);
-  position: relative;
-  padding: 0;
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
 }
 
 .header {
@@ -40,8 +32,6 @@ body {
   color: #fff;
   flex-direction: column; /* Stack children vertically */
 }
-
-
 
 h1,
 .location {
@@ -65,7 +55,9 @@ h1 {
 
 /* -------------------- BUTTONS HANDLING -------------------- */
 
-.move-button, .move-button:visited, .move-button:focus {
+.move-button,
+.move-button:visited,
+.move-button:focus {
   display: block;
   width: 60%;
   margin: 20px auto;
@@ -126,7 +118,6 @@ h1 {
 
 /* -------------------- INSTAL PROMPT HANDLING -------------------- */
 
-
 #installPrompt {
   display: none; /* Hide initially */
   position: fixed;
@@ -139,20 +130,17 @@ h1 {
   text-align: center; /* Center the text/message */
   border-bottom: 1px solid #ccc; /* Add a border at the bottom */
   z-index: 1000; /* Ensure it's on top */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: adds a shadow for better visibility */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for better visibility */
 }
-
-
-
 
 /* -------------------- EVENTS POP UP HANDLING -------------------- */
 
 #events-container {
-    max-width: 900px; /* Adjust this value as needed for your design */
-    margin: 0 auto; /* This centers the container if it's smaller than the full width */
-    padding: 10px; /* Adds space inside the container */
-    margin-top: 10px;
-  }
+  max-width: 900px; /* Adjust this value as needed for your design */
+  margin: 0 auto; /* This centers the container if it's smaller than the full width */
+  padding: 10px; /* Adds space inside the container */
+  margin-top: 10px;
+}
 
 /* Error page specific styles */
 .error-message {
@@ -178,31 +166,30 @@ h1 {
 
 /* Initial state of the popup */
 .popup {
-    display: none; /* Initially hidden */
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    background-color: var(--cream-bg);
-    padding: 20px;
-    border: 1px solid var(--navy-accent);
-    border-radius: 5px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 10;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0s linear 0.5s; /* Add transition for opacity and delay hiding */
-  }
-
+  display: none; /* Initially hidden */
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background-color: var(--cream-bg);
+  padding: 20px;
+  border: 1px solid var(--navy-accent);
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s; /* Add transition for opacity and delay hiding */
+}
 
 /* State of the popup when it's shown */
 .popup.show {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    transition-delay: 0s; /* Ensure the visibility transitions immediately when showing */
-  }
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s; /* Ensure the visibility transitions immediately when showing */
+}
 
 .close-btn-events {
   cursor: pointer;
@@ -277,9 +264,6 @@ input[type="submit"] {
   border: none;
 }
 
-
-
-
 /* -------------------- BURGER STACK HANDLING -------------------- */
 
 /* Style the burger icon */
@@ -352,15 +336,11 @@ input[type="submit"] {
   margin-top: 10px;
 }
 
-
-
 /* -------------------- NEW HAMBURGER HANDLING -------------------- */
 
-
-
-
 /* Ensure text alignment remains central if preferred */
-.header h1, .header .location {
+.header h1,
+.header .location {
   text-align: center;
 }
 
@@ -404,7 +384,6 @@ input[type="submit"] {
   background-color: var(--burgundy-highlight);
 }
 
-
 .hamburger {
   cursor: pointer;
   background: transparent;
@@ -417,7 +396,9 @@ input[type="submit"] {
   z-index: 1001; /* Ensures it appears above other content */
 }
 
-.hamburger .bar, .hamburger:after, .hamburger:before {
+.hamburger .bar,
+.hamburger:after,
+.hamburger:before {
   content: "";
   display: block;
   width: 100%;
@@ -468,25 +449,4 @@ input[type="submit"] {
 /* Additional styling to ensure the hamburger and header text alignment */
 .header h1 {
   margin: 0 auto; /* Centers the header title */
-}
-
-/* -------------------- FOOTER FOR BUTTONS HANDLING -------------------- */
-
-.content {
-  min-height: calc(100vh - 120px); /* Adjust 120px to account for header and footer height */
-  padding-bottom: 0px 20px;
-  flex: 1 0 auto;
-
-  /* Your existing styles for content */
-}
-
-
-.footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 60px; /* Set a fixed height for the footer */
-  flex-shrink: 0; /* Prevent the footer from shrinking */
-  /* Other styles... */
 }
