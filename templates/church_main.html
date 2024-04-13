@@ -51,92 +51,92 @@
       <div class="content">
         <!-- Content of the church home page goes here -->
         <p>Welcome to our church community!</p>
-      </div>
 
-      <!-- Display church image -->
-      <div class="church-image-container">
-        <img
-          src="{{ url_for('static', filename=church.image_path) }}"
-          alt="Church Image"
-        />
-      </div>
-
-      <div class="church-info" style="padding: 0px">
-        <h2>Our Next Event</h2>
-      </div>
-
-      <div id="events-container">
-        <!-- Section for the next event -->
-        {% if next_event %}
-        <div
-          class="event-item"
-          onclick="openPopup(this)"
-          data-title="{{ next_event.event_title }}"
-          data-start-time="{{ next_event.start_time.strftime('%d %B %Y %I:%M %p') }}"
-          data-end-time="{{ next_event.end_time.strftime('%d %B %Y %I:%M %p') }}"
-          data-description="{{ next_event.description }}"
-        >
-          <div>{{ next_event.event_title }}</div>
-          <div>
-            Start: {{ next_event.start_time.strftime('%d %B %Y %I:%M %p') }}
-          </div>
-          <div>
-            End: {{ next_event.end_time.strftime('%d %B %Y %I:%M %p') }}
-          </div>
+        <!-- Display church image -->
+        <div class="church-image-container">
+          <img
+            src="{{ url_for('static', filename=church.image_path) }}"
+            alt="Church Image"
+          />
         </div>
-        {% else %}
-        <p>Stay Tuned</p>
-        {% endif %}
+
+        <div class="church-info" style="padding: 0px">
+          <h2>Our Next Event</h2>
+        </div>
+
+        <div id="events-container">
+          <!-- Section for the next event -->
+          {% if next_event %}
+          <div
+            class="event-item"
+            onclick="openPopup(this)"
+            data-title="{{ next_event.event_title }}"
+            data-start-time="{{ next_event.start_time.strftime('%d %B %Y %I:%M %p') }}"
+            data-end-time="{{ next_event.end_time.strftime('%d %B %Y %I:%M %p') }}"
+            data-description="{{ next_event.description }}"
+          >
+            <div>{{ next_event.event_title }}</div>
+            <div>
+              Start: {{ next_event.start_time.strftime('%d %B %Y %I:%M %p') }}
+            </div>
+            <div>
+              End: {{ next_event.end_time.strftime('%d %B %Y %I:%M %p') }}
+            </div>
+          </div>
+          {% else %}
+          <p>Stay Tuned</p>
+          {% endif %}
+        </div>
+
+        <!-- Popup for event details -->
+        <div id="eventPopup" class="popup">
+          <div class="close-btn-events" onclick="closePopup()">×</div>
+          <h2 id="popupTitle"></h2>
+          <p id="popupStart"></p>
+          <p id="popupEnd"></p>
+          <p id="popupDescription"></p>
+        </div>
+
+        <script>
+          function openPopup(element) {
+            document.getElementById("popupTitle").textContent =
+              element.dataset.title;
+            document.getElementById("popupStart").textContent =
+              "Start Time: " + element.dataset.startTime;
+            document.getElementById("popupEnd").textContent =
+              "End Time: " + element.dataset.endTime;
+            document.getElementById("popupDescription").textContent =
+              element.dataset.description;
+            document.getElementById("eventPopup").style.display = "block";
+          }
+
+          function closePopup() {
+            document.getElementById("eventPopup").style.display = "none";
+          }
+        </script>
       </div>
 
-      <!-- Popup for event details -->
-      <div id="eventPopup" class="popup">
-        <div class="close-btn-events" onclick="closePopup()">×</div>
-        <h2 id="popupTitle"></h2>
-        <p id="popupStart"></p>
-        <p id="popupEnd"></p>
-        <p id="popupDescription"></p>
+      <div style="text-align: center; padding-top: 20px">
+        <a
+          href="{{ url_for('calendar', church_id=church.id) }}"
+          class="move-button"
+          >Calendar</a
+        >
+        <a
+          href="{{ url_for('upcoming_events', church_id=church.id) }}"
+          class="move-button"
+          >Upcoming Events</a
+        >
+        <a
+          href="{{ url_for('service_books', church_id=church.id) }}"
+          class="move-button"
+          >Service Books</a
+        >
+        <a href="{{ church.instagram }}" target="_blank" class="move-button"
+          >Follow Us on Instagram</a
+        >
+        <!-- You can add more buttons here with the same move-button class if needed -->
       </div>
-
-      <script>
-        function openPopup(element) {
-          document.getElementById("popupTitle").textContent =
-            element.dataset.title;
-          document.getElementById("popupStart").textContent =
-            "Start Time: " + element.dataset.startTime;
-          document.getElementById("popupEnd").textContent =
-            "End Time: " + element.dataset.endTime;
-          document.getElementById("popupDescription").textContent =
-            element.dataset.description;
-          document.getElementById("eventPopup").style.display = "block";
-        }
-
-        function closePopup() {
-          document.getElementById("eventPopup").style.display = "none";
-        }
-      </script>
-    </div>
-
-    <div style="text-align: center; padding-top: 20px">
-      <a
-        href="{{ url_for('calendar', church_id=church.id) }}"
-        class="move-button"
-        >Calendar</a
-      >
-      <a
-        href="{{ url_for('upcoming_events', church_id=church.id) }}"
-        class="move-button"
-        >Upcoming Events</a
-      >
-      <a
-        href="{{ url_for('service_books', church_id=church.id) }}"
-        class="move-button"
-        >Service Books</a
-      >
-      <a href="{{ church.instagram }}" target="_blank" class="move-button"
-        >Follow Us on Instagram</a
-      >
-      <!-- You can add more buttons here with the same move-button class if needed -->
     </div>
 
     <!-- Burger stack, slide-out menu, and other shared components -->
