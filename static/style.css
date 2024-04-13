@@ -464,3 +464,13 @@ input[type="submit"] {
 
 /* -------------------- FOOTER FOR BUTTONS HANDLING -------------------- */
 
+.content {
+  min-height: calc(100vh - 120px); /* Adjust 120px to account for header and footer height */
+  /* Your existing styles for content */
+}
+
+.footer {
+  text-align: center;
+  padding-top: 20px;
+  /* No fixed position, so it naturally sits at the bottom of the content */
+}
