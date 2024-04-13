@@ -469,11 +469,15 @@ input[type="submit"] {
 
 .content {
   min-height: calc(100vh - 60px); /* Adjust 120px to account for header and footer height */
+  padding-bottom: 60px;
   /* Your existing styles for content */
 }
 
 .footer {
-  text-align: center;
-  padding-top: 20px;
-  /* No fixed position, so it naturally sits at the bottom of the content */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set a fixed height for the footer */
+  /* Other styles... */
 }
