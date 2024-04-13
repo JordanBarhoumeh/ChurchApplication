@@ -14,7 +14,6 @@
     />
   </head>
   <body>
-    <div class="content">
       <div class="header">
         <h1>{{ church.name }}</h1>
         <p class="location">{{ church.location }}</p>
@@ -92,9 +91,8 @@
           document.getElementById("eventPopup").style.display = "none";
         }
       </script>
-    </div>
 
-    <div class="footer" style="text-align: center; padding-top: 20px">
+    <div style="text-align: center; padding-top: 20px">
       <a
         href="{{ url_for('church_main', church_id=church.id) }}"
         class="move-button"
