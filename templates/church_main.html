@@ -45,13 +45,6 @@
         class="move-button"
         >Service Books</a
       >
-
-      
-      {% if church.id == 1 %}
-      <a href="{{ url_for('admin_settings', church_id=church.id) }}" class="move-button">Admin Settings</a>
-      {% endif %}
-
-
       <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
     </nav>
 
