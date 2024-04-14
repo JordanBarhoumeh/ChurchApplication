@@ -116,9 +116,8 @@ def settings(church_id):
 
 @app.route('/admin_settings/<int:church_id>')
 def admin_settings(church_id):
-    # Your function logic here
-    return render_template('admin_settings.html')
-
+    church = Church.query.get_or_404(church_id)  # Make sure this retrieves the Church object
+    return render_template('admin_settings.html', church=church)
 
 
 # if __name__ == '__main__':
