@@ -6,13 +6,17 @@
   --burgundy-highlight: #a5383e;
   --silver-accent: #f0f0f0;
   --text-color: #333333;
+
+  --background: #f4f1ea;
+  --header: #600020;
+  --button: #b08d57;
 }
 
 body,
 html {
   margin: 0;
   font-family: "Arial", sans-serif;
-  background-color: var(--cream-bg);
+  background-color: var(--background);
   color: var(--text-color);
 }
 
@@ -22,7 +26,7 @@ html {
   left: 0;
   width: 100%;
   height: 60px; /* Fixed height for the header */
-  background-color: var(--navy-accent);
+  background-color: var(--header);
   display: flex;
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
@@ -64,7 +68,7 @@ h1 {
   padding: 10px 0;
   font-size: 4vw;
   background-color: var(
-    --navy-accent
+    --button
   ); /* Assuming your button starts with a navy color */
   color: white;
   text-align: center;
@@ -89,7 +93,7 @@ h1 {
   margin: 20px auto;
   font-size: 4vw;
   background-color: var(
-    --navy-accent
+    --button
   ); /* Assuming your button starts with a navy color */
   color: white;
   text-align: center;
@@ -113,7 +117,7 @@ h1 {
 }
 
 .index-welcome {
-  color: var(--navy-accent); /* Making the Welcome text the navy color */
+  color: var(--button); /* Making the Welcome text the navy color */
 }
 
 
@@ -150,14 +154,14 @@ h1 {
   background-color: var(--light-gray-bg);
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid var(--navy-accent);
+  border: 1px solid var(--button);
 }
 
 /* Upcoming events specific styles */
 .event-item {
   cursor: pointer;
   background-color: var(--light-gray-bg);
-  border: 1px solid var(--navy-accent);
+  border: 1px solid var(--button);
   padding: 10px;
   margin-bottom: 5px;
   border-radius: 5px; /* Rounded corners for a modern look */
@@ -175,9 +179,9 @@ h1 {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
-  background-color: var(--cream-bg);
+  background-color: var(--background);
   padding: 20px;
-  border: 1px solid var(--navy-accent);
+  border: 1px solid var(--button);
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 10;
@@ -198,7 +202,7 @@ h1 {
   cursor: pointer;
   float: right;
   padding: 0 10px;
-  color: var(--navy-accent);
+  color: var(--button);
 }
 
 /* Media queries for responsive adjustments */
@@ -249,7 +253,7 @@ input[type="submit"] {
   padding: 15px;
   margin-bottom: 15px;
   box-sizing: border-box;
-  border: 1px solid var(--navy-accent);
+  border: 1px solid var(--button);
   border-radius: 5px;
 }
 
@@ -262,7 +266,7 @@ input[type="text"] {
 input[type="submit"] {
   font-size: 4vw;
   cursor: pointer;
-  background-color: var(--navy-accent);
+  background-color: var(--button);
   color: #ffffff;
   border: none;
 }
@@ -299,8 +303,8 @@ input[type="submit"] {
 }
 
 .nav-link.active {
-  background-color: var(--navy-accent); /* Highlight color */
-  color: var(--cream-bg);
+  background-color: var(--header); /* Highlight color */
+  color: var(--background);
 }
 
 .hide-burger {
@@ -438,7 +442,7 @@ input[type="submit"] {
   left: 0;
   width: 100%;
   height: 60px;
-  background-color: var(--navy-accent);
+  background-color: var(--background);
   text-align: center;
   padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
