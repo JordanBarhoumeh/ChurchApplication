@@ -9,6 +9,36 @@
 <body>
     <div class="header">
         <h1>Admin Settings</h1>
+        <button class="hamburger" aria-label="Toggle navigation">
+            <div class="bar"></div>
+          </button>
+        </div>
+    
+        <nav class="mobile-nav">
+          <a
+            href="{{ url_for('church_main', church_id=church.id) }}"
+            class="move-button"
+            >Home</a
+          >
+          <a
+            href="{{ url_for('calendar', church_id=church.id) }}"
+            class="move-button"
+            >Calendar</a
+          >
+          <a
+            href="{{ url_for('upcoming_events', church_id=church.id) }}"
+            class="move-button"
+            >Upcoming Events</a
+          >
+          <a
+            href="{{ url_for('service_books', church_id=church.id) }}"
+            class="move-button"
+            >Service Books</a
+          >
+          <a href="{{ url_for('settings', church_id=church.id) }}" class="move-button">Settings</a> <!-- New Settings Button -->
+    
+          <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
+        </nav>
     </div>
 
     <div class="content-container">
