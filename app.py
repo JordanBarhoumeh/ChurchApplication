@@ -1,10 +1,8 @@
-from flask import Flask, jsonify, request, render_template, redirect, url_for, session, redirect, request, flash
+from flask import Flask, jsonify, request, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask import jsonify
 from datetime import datetime
 from flask import make_response
-import bcrypt
-
 
 
 app = Flask(__name__)
@@ -26,14 +24,6 @@ class Church(db.Model):
     location = db.Column(db.String(100), nullable=False)
     image_path = db.Column(db.String(255), nullable=True)  # Optional image path
     instagram = db.Column(db.String(255), nullable=True)  # Optional Instagram link
-    admin_password = db.Column(db.String(255), nullable=True)  # Ensure this line is included
-
-    
-    def set_password(self, password):
-        self.admin_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-
-    def check_password(self, password):
-        return bcrypt.checkpw(password.encode('utf-8'), self.admin_password.encode('utf-8'))
 
 
 
@@ -118,44 +108,6 @@ def service_books(church_id):
 @app.route('/')
 def home():
     return render_template('welcome.html')
-
-@app.route('/settings/<int:church_id>')
-def settings(church_id):
-    church = Church.query.get_or_404(church_id)
-    return render_template('settings.html', church=church)
-
-@app.route('/admin_settings/<int:church_id>')
-def admin_settings(church_id):
-    church = Church.query.get_or_404(church_id)  # Make sure this retrieves the Church object
-    return render_template('admin_settings.html', church=church)
-
-@app.route('/verify_admin_password/<int:church_id>', methods=['POST'])
-def verify_admin_password(church_id):
-    church = Church.query.get_or_404(church_id)
-    password = request.form.get('admin_password')
-    if church.check_password(password):
-        session['is_admin'] = True  # Set session variable
-        flash("Password verified successfully.")  # Success message
-        return redirect(url_for('admin_settings', church_id=church_id))
-    else:
-        flash("Password verification failed.")  # Error message
-        return redirect(url_for('admin_settings', church_id=church_id))
-
-
-def check_password(stored_password, provided_password):
-    # Ensure both are bytes, or both are str, before comparing
-    if isinstance(stored_password, str):
-        stored_password = stored_password.encode('utf-8')
-    if isinstance(provided_password, str):
-        provided_password = provided_password.encode('utf-8')
-
-    return bcrypt.checkpw(provided_password, stored_password)
-
-def hash_password(password):
-    salt = bcrypt.gensalt()
-    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
-    return hashed_password.decode('utf-8')
-
 
 
 
