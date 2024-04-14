@@ -142,6 +142,22 @@ def verify_admin_password(church_id):
         return redirect(url_for('admin_settings', church_id=church_id))
 
 
+def check_password(stored_password, provided_password):
+    # Ensure both are bytes, or both are str, before comparing
+    if isinstance(stored_password, str):
+        stored_password = stored_password.encode('utf-8')
+    if isinstance(provided_password, str):
+        provided_password = provided_password.encode('utf-8')
+
+    return bcrypt.checkpw(provided_password, stored_password)
+
+def hash_password(password):
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed_password.decode('utf-8')
+
+
+
 
 # if __name__ == '__main__':
 #     with app.app_context():
