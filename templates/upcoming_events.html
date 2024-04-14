@@ -61,7 +61,8 @@
         <div>
           Start: 
           {% if event.is_all_day %}
-            {{ event.start_time.strftime('%d %B %Y %I:%M %p') }} All Day
+            {{ event.start_time.strftime('%d %B %Y %I:%M %p') }} 
+            All Day
           {% else %}
             {{ event.start_time.strftime('%d %B %Y %I:%M %p') }}
           {% endif %}
