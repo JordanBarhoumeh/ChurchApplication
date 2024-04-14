@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="header">
+        <h1>Settings</h1>
+    </div>
+
+    <div class="content-container">
+        <div class="content">
+            <p>Configure your user and admin settings from here.</p>
+        </div>
+
+        <a href="{{ url_for('church_main', church_id=church.id) }}" class="move-button">Home</a>
+        <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -105,6 +105,12 @@ def service_books(church_id):
     church = Church.query.get_or_404(church_id)
     return render_template('service_books.html', church=church)
 
+@app.route('/settings/<int:church_id>')
+def settings(church_id):
+    church = Church.query.get_or_404(church_id)
+    return render_template('settings.html', church=church)
+
+
 @app.route('/')
 def home():
     return render_template('welcome.html')
