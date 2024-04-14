@@ -2,24 +2,27 @@
 
 function openPopup(element) {
   document.getElementById('popupTitle').textContent = element.dataset.title;
-  
+
+  // Check if the event is an all-day event
   if (element.dataset.allDay === 'true') {
+      // If it is an all-day event, show only the start date and indicate "All Day"
       document.getElementById('popupStart').textContent = 'Date: ' + element.dataset.startTime + ' (All Day)';
-      document.getElementById('popupEnd').textContent = ''; // Hide the end time for all-day events
+      document.getElementById('popupEnd').textContent = ''; // Clear the end time
   } else {
+      // If it is not an all-day event, show both start and end times
       document.getElementById('popupStart').textContent = 'Start Time: ' + element.dataset.startTime;
       document.getElementById('popupEnd').textContent = 'End Time: ' + element.dataset.endTime;
   }
-  
+
   document.getElementById('popupDescription').textContent = element.dataset.description;
   
   // Use classList to add the 'show' class
   const popup = document.getElementById('eventPopup');
-  popup.style.display = 'block'; // Ensure it's block to start (if you're using display for showing/hiding)
+  popup.style.display = 'block';
   requestAnimationFrame(() => {
       popup.classList.add('show');
   });
-  
+
   document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
 }
 

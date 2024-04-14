@@ -55,8 +55,8 @@
         data-start-time="{{ event.start_time.strftime('%d %B %Y') }}"
         data-end-time="{{ event.end_time.strftime('%d %B %Y %I:%M %p') }}"
         data-description="{{ event.description }}"
-        data-all-day="{{ event.is_all_day }}"
-      >
+        data-all-day="{{ 'true' if event.is_all_day else 'false' }}" 
+        >
         <div>{{ event.event_title }}</div>
         <div>
           Start: 
