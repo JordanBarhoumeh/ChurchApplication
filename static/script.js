@@ -1,19 +1,24 @@
 /* -------------------- EVENT POP UP ANIMATION -------------------- */
 
 function openPopup(element) {
-    document.getElementById('popupTitle').textContent = element.dataset.title;
-    document.getElementById('popupStart').textContent = 'Start Time: ' + element.dataset.startTime;
-    document.getElementById('popupEnd').textContent = 'End Time: ' + element.dataset.endTime;
-    document.getElementById('popupDescription').textContent = element.dataset.description;
-    // Use classList to add the 'show' class
-    const popup = document.getElementById('eventPopup');
-    popup.style.display = 'block'; // Ensure it's block to start (if you're using display for showing/hiding)
-    requestAnimationFrame(() => {
-        popup.classList.add('show');
-    });    
-    document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
+  document.getElementById("popupTitle").textContent =
+    element.dataset.title;
 
+  if (element.dataset.allDay === 'true') {
+    document.getElementById("popupStart").textContent =
+      "Date: " + element.dataset.startTime + " (All Day)";
+    document.getElementById("popupEnd").textContent = "";  // Clear end time
+  } else {
+    document.getElementById("popupStart").textContent =
+      "Start Time: " + element.dataset.startTime;
+    document.getElementById("popupEnd").textContent =
+      "End Time: " + element.dataset.endTime;
+  }
+  document.getElementById("popupDescription").textContent =
+    element.dataset.description;
+  document.getElementById("eventPopup").style.display = "block";
 }
+
 
 function closePopup() {
     // Use classList to remove the 'show' class
