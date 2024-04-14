@@ -10,16 +10,14 @@
     <div class="header">
         <h1>User Settings</h1>
     </div>
-    <nav class="mobile-nav">
-        <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
-        <a href="{{ url_for('admin_settings', church_id=church.id) }}" class="move-button">Admin Settings</a>
-    </nav>
 
     <!-- Additional content can go here -->
     <div class="content-container">
         <div class="content">
             <p>Manage your account settings and administrative options.</p>
         </div>
+        <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
+        <a href="{{ url_for('admin_settings', church_id=church.id) }}" class="move-button">Admin Settings</a>
     </div>
 
     <!-- Include JavaScript -->
