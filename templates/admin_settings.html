@@ -8,6 +8,45 @@
 
     <h1>Admin Settings for {{ church.name }}</h1>
     <!-- Your admin settings form and functionality go here -->
+    <!-- Add this form inside your admin_settings.html -->
+
+    <!-- Password Verification Form -->
+<form method="post" action="{{ url_for('verify_admin_password', church_id=church.id) }}">
+    <input type="password" name="admin_password" placeholder="Enter Admin Password" required>
+    <input type="submit" value="Verify">
+</form>
+<!-- Password Verification Form -->
+{% if not password_verified %}
+<form method="post" action="{{ url_for('verify_admin_password', church_id=church.id) }}">
+    <input type="password" name="admin_password" placeholder="Enter Admin Password" required>
+    <input type="submit" value="Verify">
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</form>
+{% else %}
+<!-- Content to show only if the password is verified -->
+<div id="admin-content">
+    <!-- All your admin settings content goes here -->
+</div>
+{% endif %}
+
+
+<!-- Content to show only if the password is verified -->
+<div id="admin-content" style="display: none;">
+    <!-- All your admin settings content goes here -->
+    <form method="post" action="{{ url_for('add_event') }}">
+        <input type="hidden" name="church_id" value="{{ church.id }}">  <!-- Hidden field for church ID -->
+        <input type="text" name="event_title" placeholder="Event Title" required>
+        <input type="datetime-local" name="start_time" required>
+        <input type="datetime-local" name="end_time" required>
+        <textarea name="description" placeholder="Event Description"></textarea>
+        <input type="submit" value="Add Event">
+    </form>
+    
+</div>
+
+
 
     <!-- ... Any shared layout, like footers or scripts ... -->
 </body>

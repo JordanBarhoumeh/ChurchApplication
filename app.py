@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import jsonify
 from datetime import datetime
 from flask import make_response
+import bcrypt
 
 
 app = Flask(__name__)
@@ -24,6 +25,56 @@ class Church(db.Model):
     location = db.Column(db.String(100), nullable=False)
     image_path = db.Column(db.String(255), nullable=True)  # Optional image path
     instagram = db.Column(db.String(255), nullable=True)  # Optional Instagram link
+    # existing fields...
+    admin_password = db.Column(db.String(255), nullable=True)  # Add this line
+
+    def set_password(self, password):
+        self.admin_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+
+    def check_password(self, password):
+        return bcrypt.checkpw(password.encode('utf-8'), self.admin_password.encode('utf-8'))
+
+
+@app.route('/add_event', methods=['POST'])
+def add_event():
+    if not current_user or not current_user.is_authenticated:
+        return redirect(url_for('login'))
+
+    event_title = request.form.get('event_title')
+    start_time = request.form.get('start_time')
+    end_time = request.form.get('end_time')
+    description = request.form.get('description')
+    church_id = request.form.get('church_id')  # Ensure church_id is passed as hidden field
+
+    new_event = Event(
+        church_id=church_id,
+        event_title=event_title,
+        start_time=datetime.strptime(start_time, '%Y-%m-%dT%H:%M'),
+        end_time=datetime.strptime(end_time, '%Y-%m-%dT%H:%M'),
+        description=description
+    )
+    db.session.add(new_event)
+    db.session.commit()
+    
+    return redirect(url_for('admin_settings', church_id=church_id))
+
+
+@app.route('/verify_admin_password/<int:church_id>', methods=['POST'])
+def verify_admin_password(church_id):
+    church = Church.query.get_or_404(church_id)
+    admin_password = request.form['admin_password']
+
+    if church.check_password(admin_password):
+        # If password is correct, render the admin settings with content shown
+        return render_template('admin_settings.html', church=church, password_verified=True)
+    else:
+        # If password is incorrect, maybe add a message and redirect or re-render the page
+        return render_template('admin_settings.html', church=church, error="Incorrect password")
+
+
+
+
+
 
 
 
