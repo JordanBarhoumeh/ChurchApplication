@@ -27,4 +27,23 @@
 
             <div class="form-group">
                 <label for="end_time">End Time:</label>
-                <input type="datetime-local" id="end_time" name="end_time" require
+                <input type="datetime-local" id="end_time" name="end_time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="is_all_day">All Day Event:</label>
+                <input type="checkbox" id="is_all_day" name="is_all_day">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+
+            <input type="submit" value="Add Event">
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
