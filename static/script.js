@@ -68,3 +68,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* -------------------- NOTI MANAGING -------------------- */
 
+
+document.getElementById('enableNotifications').addEventListener('click', function() {
+    if ('Notification' in window) {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                console.log('Notification permission granted.');
+                // You might want to save this information to your server or locally
+            } else {
+                console.log('Notification permission denied.');
+            }
+        });
+    } else {
+        alert('This browser does not support notifications.');
+    }
+});
