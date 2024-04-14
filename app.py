@@ -105,6 +105,20 @@ def service_books(church_id):
     church = Church.query.get_or_404(church_id)
     return render_template('service_books.html', church=church)
 
+
+@app.route('/admin_settings/<int:church_id>')
+def admin_settings(church_id):
+    # You would likely want to add some form of access control here
+    # to ensure that only authorized users can view the admin settings page.
+    church = Church.query.get_or_404(church_id)
+    if church_id == 1:  # Or check for a specific admin role or user authentication
+        return render_template('admin_settings.html', church=church)
+    else:
+        return redirect(url_for('church_main', church_id=church_id))
+
+
+
+
 @app.route('/')
 def home():
     return render_template('welcome.html')
