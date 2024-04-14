@@ -45,6 +45,8 @@
         class="move-button"
         >Service Books</a
       >
+      <a href="{{ url_for('settings', church_id=church.id) }}" class="move-button">Settings</a> <!-- Settings Button -->
+
       <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
     </nav>
 
