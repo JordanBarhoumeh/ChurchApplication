@@ -24,6 +24,8 @@ class Church(db.Model):
     location = db.Column(db.String(100), nullable=False)
     image_path = db.Column(db.String(255), nullable=True)  # Optional image path
     instagram = db.Column(db.String(255), nullable=True)  # Optional Instagram link
+    admin_password = db.Column(db.String(255), nullable=True)  # Ensure this line is added
+
 
 
 
