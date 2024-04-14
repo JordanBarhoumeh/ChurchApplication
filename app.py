@@ -132,6 +132,21 @@ def admin_settings(church_id):
     # You would likely pass some data to the template for rendering
     return render_template('admin_settings.html', church=church)
 
+@app.route('/add_event/<int:church_id>', methods=['POST'])
+def add_event(church_id):
+    church = Church.query.get_or_404(church_id)
+    new_event = Event(
+        church_id=church.id,
+        event_title=request.form['event_title'],
+        start_time=request.form['start_time'],
+        end_time=request.form['end_time'],
+        is_all_day='is_all_day' in request.form,  # This checks if the checkbox is ticked
+        description=request.form['description']
+    )
+    db.session.add(new_event)
+    db.session.commit()
+    flash('Event added successfully!')
+    return redirect(url_for('admin_settings', church_id=church_id))
 
 
 @app.route('/')
