@@ -1,78 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin Settings</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
     <div class="header">
-        <h1>Admin Settings</h1>
-        <button class="hamburger" aria-label="Toggle navigation">
-            <div class="bar"></div>
-          </button>
+      <h1>Admin Settings</h1>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <div class="bar"></div>
+      </button>
     </div>
-    
-        <nav class="mobile-nav">
-          <a
-            href="{{ url_for('church_main', church_id=church.id) }}"
-            class="move-button"
-            >Home</a
-          >
-          <a
-            href="{{ url_for('calendar', church_id=church.id) }}"
-            class="move-button"
-            >Calendar</a
-          >
-          <a
-            href="{{ url_for('upcoming_events', church_id=church.id) }}"
-            class="move-button"
-            >Upcoming Events</a
-          >
-          <a
-            href="{{ url_for('service_books', church_id=church.id) }}"
-            class="move-button"
-            >Service Books</a
-          >
-          <a href="{{ url_for('settings', church_id=church.id) }}" class="move-button">Settings</a> <!-- New Settings Button -->
-    
-          <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
-        </nav>
-    
+
+    <nav class="mobile-nav">
+      <a
+        href="{{ url_for('church_main', church_id=church.id) }}"
+        class="move-button"
+        >Home</a
+      >
+      <a
+        href="{{ url_for('calendar', church_id=church.id) }}"
+        class="move-button"
+        >Calendar</a
+      >
+      <a
+        href="{{ url_for('upcoming_events', church_id=church.id) }}"
+        class="move-button"
+        >Upcoming Events</a
+      >
+      <a
+        href="{{ url_for('service_books', church_id=church.id) }}"
+        class="move-button"
+        >Service Books</a
+      >
+      <a
+        href="{{ url_for('settings', church_id=church.id) }}"
+        class="move-button"
+        >Settings</a
+      >
+      <!-- New Settings Button -->
+
+      <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
+    </nav>
+
     <div class="content-container">
-        <!-- Event creation form -->
+      <!-- Event creation form -->
+      <div class="center-container">
         <h2>Add New Event</h2>
-        <form action="{{ url_for('add_event', church_id=church.id) }}" method="post">
-            <div class="form-group">
-                <label for="event_title">Event Title:</label>
-                <input type="text" id="event_title" name="event_title" required>
-            </div>
+        <form
+          action="{{ url_for('add_event', church_id=church.id) }}"
+          method="post"
+        >
+          <div class="form-group">
+            <label for="event_title">Event Title:</label>
+            <input type="text" id="event_title" name="event_title" required />
+          </div>
 
-            <div class="form-group">
-                <label for="start_time">Start Time:</label>
-                <input type="datetime-local" id="start_time" name="start_time" required>
-            </div>
+          <div class="form-group">
+            <label for="start_time">Start Time:</label>
+            <input
+              type="datetime-local"
+              id="start_time"
+              name="start_time"
+              required
+            />
+          </div>
 
-            <div class="form-group">
-                <label for="end_time">End Time:</label>
-                <input type="datetime-local" id="end_time" name="end_time" required>
-            </div>
+          <div class="form-group">
+            <label for="end_time">End Time:</label>
+            <input
+              type="datetime-local"
+              id="end_time"
+              name="end_time"
+              required
+            />
+          </div>
 
-            <div class="form-group">
-                <label for="is_all_day">All Day Event:</label>
-                <input type="checkbox" id="is_all_day" name="is_all_day">
-            </div>
+          <div class="form-group">
+            <label for="is_all_day">All Day Event:</label>
+            <input type="checkbox" id="is_all_day" name="is_all_day" />
+          </div>
 
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description" name="description"></textarea>
-            </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+          </div>
 
-            <input type="submit" value="Add Event">
+          <input type="submit" value="Add Event" />
         </form>
+      </div>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+  </body>
 </html>
