@@ -52,7 +52,7 @@
         class="event-item"
         onclick="openPopup(this)"
         data-title="{{ event.event_title }}"
-        data-start-time="{{ event.start_time.strftime('%d %B %Y') }}"
+        data-start-time="{{ event.start_time.strftime('%d %B %Y %I:%M %p') }}"
         data-end-time="{{ event.end_time.strftime('%d %B %Y %I:%M %p') }}"
         data-description="{{ event.description }}"
         data-all-day="{{ 'true' if event.is_all_day else 'false' }}" 
@@ -61,8 +61,7 @@
         <div>
           Start: 
           {% if event.is_all_day %}
-            {{ event.start_time.strftime('%d %B %Y %I:%M %p') }} 
-            All Day
+            {{ event.start_time.strftime('%d %B %Y %I:%M %p') }} All Day
           {% else %}
             {{ event.start_time.strftime('%d %B %Y %I:%M %p') }}
           {% endif %}

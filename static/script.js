@@ -6,8 +6,8 @@ function openPopup(element) {
   // Check if the event is an all-day event
   if (element.dataset.allDay === 'true') {
       // If it is an all-day event, show only the start date and indicate "All Day"
-      document.getElementById('popupStart').textContent = 'Date: ' + element.dataset.startTime + ' (All Day)';
-      document.getElementById('popupEnd').textContent = ''; // Clear the end time
+      document.getElementById('popupStart').textContent = 'Date: ' + element.dataset.startTime;
+      document.getElementById('popupEnd').textContent = '(All Day)'; 
   } else {
       // If it is not an all-day event, show both start and end times
       document.getElementById('popupStart').textContent = 'Start Time: ' + element.dataset.startTime;
