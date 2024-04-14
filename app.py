@@ -109,6 +109,12 @@ def service_books(church_id):
 def home():
     return render_template('welcome.html')
 
+@app.route('/settings/<int:church_id>')
+def settings(church_id):
+    church = Church.query.get_or_404(church_id)
+    return render_template('settings.html', church=church)
+
+
 
 
 # if __name__ == '__main__':
