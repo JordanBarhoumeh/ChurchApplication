@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Admin Check</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="center-container">
+        <h1>Admin Verification</h1>
+        <form action="{{ url_for('verify_admin_password', church_id=church_id) }}" method="post">
+            <input type="text" name="admin_password" placeholder="Enter Admin Code" required>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

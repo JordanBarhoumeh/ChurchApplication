@@ -110,6 +110,20 @@ def settings(church_id):
     church = Church.query.get_or_404(church_id)
     return render_template('settings.html', church=church)
 
+@app.route('/admin_check/<int:church_id>')
+def admin_check(church_id):
+    return render_template('admin_check.html', church_id=church_id)
+
+@app.route('/verify_admin_password/<int:church_id>', methods=['POST'])
+def verify_admin_password(church_id):
+    admin_password = request.form['admin_password']
+    church = Church.query.get_or_404(church_id)
+    if church.admin_password == admin_password:  # Direct comparison, no hashing since it's a code
+        return redirect(url_for('admin_settings', church_id=church_id))
+    else:
+        return redirect(url_for('error'))  # Assuming you have an error.html or similar handler
+
+
 
 @app.route('/')
 def home():
