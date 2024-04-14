@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import jsonify
 from datetime import datetime
 from flask import make_response
+import bcrypt
+
 
 
 app = Flask(__name__)
@@ -24,6 +26,12 @@ class Church(db.Model):
     location = db.Column(db.String(100), nullable=False)
     image_path = db.Column(db.String(255), nullable=True)  # Optional image path
     instagram = db.Column(db.String(255), nullable=True)  # Optional Instagram link
+    
+    def set_password(self, password):
+        self.admin_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+
+    def check_password(self, password):
+        return bcrypt.checkpw(password.encode('utf-8'), self.admin_password.encode('utf-8'))
 
 
 
