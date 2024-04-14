@@ -125,6 +125,13 @@ def verify_admin_password(church_id):
     else:
         return redirect(url_for('error'))  # Assuming you have an error.html or similar handler
 
+@app.route('/admin_settings/<int:church_id>')
+def admin_settings(church_id):
+    # Assuming there's a method to fetch a church based on the given church_id
+    church = Church.query.get_or_404(church_id)
+    # You would likely pass some data to the template for rendering
+    return render_template('admin_settings.html', church=church)
+
 
 
 @app.route('/')
