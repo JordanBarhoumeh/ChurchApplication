@@ -119,6 +119,19 @@ def admin_settings(church_id):
     church = Church.query.get_or_404(church_id)  # Make sure this retrieves the Church object
     return render_template('admin_settings.html', church=church)
 
+@app.route('/verify_admin_password/<int:church_id>', methods=['POST'])
+def verify_admin_password(church_id):
+    church = Church.query.get_or_404(church_id)
+    password = request.form.get('admin_password')
+    if church.check_password(password):
+        # Password verification success logic, e.g., setting session variable
+        session['is_admin'] = True
+        return redirect(url_for('admin_settings', church_id=church_id))
+    else:
+        # Failure logic
+        flash("Password verification failed.")
+        return redirect(url_for('admin_settings', church_id=church_id))
+
 
 # if __name__ == '__main__':
 #     with app.app_context():
