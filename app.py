@@ -37,10 +37,9 @@ class Event(db.Model):
 def index():
     return render_template('index.html')
 
-@app.route('/set_church', methods=['POST'])
-def set_church():
-    church_code = request.form.get('church_code')
-    church = Church.query.filter_by(code=church_code).first()
+@app.route('/church_main/<int:church_id>')
+def church_main(church_id):
+    church = Church.query.get_or_404(church_id)
     if church:
         return redirect(url_for('church_main', church_id=church.id))
     else:
