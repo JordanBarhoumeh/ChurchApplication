@@ -58,9 +58,6 @@
         data-all-day="{{ 'true' if event.is_all_day else 'false' }}" 
         >
         <div>{{ event.event_title }}</div>
-        {% for event in events %}
-        <div class="event-item">
-          <div>{{ event.event_title }}</div>
           <div>Start: {{ event.start_time.strftime('%d %B %Y %I:%M %p') }}</div>
           {% if event.is_all_day %}
             <div>All day event</div>
