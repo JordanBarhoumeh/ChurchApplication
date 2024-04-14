@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template, redirect, url_for
+from flask import Flask, jsonify, request, render_template, redirect, url_for, session, redirect, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask import jsonify
 from datetime import datetime
@@ -124,13 +124,13 @@ def verify_admin_password(church_id):
     church = Church.query.get_or_404(church_id)
     password = request.form.get('admin_password')
     if church.check_password(password):
-        # Password verification success logic, e.g., setting session variable
-        session['is_admin'] = True
+        session['is_admin'] = True  # Set session variable
+        flash("Password verified successfully.")  # Success message
         return redirect(url_for('admin_settings', church_id=church_id))
     else:
-        # Failure logic
-        flash("Password verification failed.")
+        flash("Password verification failed.")  # Error message
         return redirect(url_for('admin_settings', church_id=church_id))
+
 
 
 # if __name__ == '__main__':
