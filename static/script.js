@@ -24,6 +24,8 @@ function openPopup(element) {
   });
 
   document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
+  document.body.style.position = 'fixed'; // Add this line
+
 }
 
 
@@ -31,6 +33,7 @@ function closePopup() {
     // Use classList to remove the 'show' class
     document.getElementById('eventPopup').classList.remove('show');
     document.body.style.overflow = ''; // Restore scrolling on the body
+    document.body.style.position = ''; // Reset the position style
 
 }
 
