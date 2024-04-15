@@ -36,6 +36,10 @@ html {
   color: #fff;
   flex-direction: column; /* Stack children vertically */
   background-color: #5C0029; /* Same color as the desired status bar color */
+  padding-top: constant(safe-area-inset-top); /* for iOS 11.0 */
+  padding-top: env(safe-area-inset-top); /* for iOS 11.2 */
+  padding-top: env(safe-area-inset-top, 20px); /* Fallback for browsers that don't support env */
+
 }
 
 h1,
