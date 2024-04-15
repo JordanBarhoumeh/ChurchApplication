@@ -149,6 +149,17 @@ def add_event(church_id):
     return redirect(url_for('admin_settings', church_id=church_id))
 
 
+@app.route('/delete-event/<int:event_id>', methods=['POST'])
+def delete_event(event_id):
+    event_to_delete = Event.query.get_or_404(event_id)
+    db.session.delete(event_to_delete)
+    db.session.commit()
+    return jsonify({'success': 'Event deleted'}), 200
+
+
+
+
+
 @app.route('/')
 def home():
     return render_template('welcome.html')
