@@ -129,8 +129,8 @@ def verify_admin_password(church_id):
 def admin_settings(church_id):
     # Assuming there's a method to fetch a church based on the given church_id
     church = Church.query.get_or_404(church_id)
-    # You would likely pass some data to the template for rendering
-    return render_template('admin_settings.html', church=church)
+    upcoming_events = Event.query.filter(Event.start_time > datetime.utcnow()).all()
+    return render_template('admin_settings.html', upcoming_events=upcoming_events, church=church)
 
 @app.route('/add_event/<int:church_id>', methods=['POST'])
 def add_event(church_id):
