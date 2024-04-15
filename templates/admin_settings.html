@@ -96,16 +96,17 @@
       </div>
     </div>
 
-    <!-- List of Upcoming Events for Deletion -->
     <div class="upcoming-events-list">
-      {% for event in upcoming_events %}
-      <div class="event-item">
-        <span>{{ event.title }} on {{ event.start_time }}</span>
-        <!-- Delete Button -->
-        <button class="delete-button" data-event-id="{{ event.id }}">Delete</button>
-    </div>
-      {% endfor %}
-    </div>
+        {% for event in upcoming_events %}
+        <div class="event-item">
+          <span>{{ event.title }} on {{ event.start_time.strftime('%Y-%m-%d %H:%M') }}</span>
+          <button class="delete-button" data-event-id="{{ event.id }}">Delete</button>
+        </div>
+        {% else %}
+        <p>No upcoming events found.</p>
+        {% endfor %}
+      </div>
+      
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
