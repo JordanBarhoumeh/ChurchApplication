@@ -16,7 +16,7 @@ body,
 html {
   margin: 0;
   font-family: "Arial", sans-serif;
-  background-color: var(--background);
+  background-color: var(--header);
   color: var(--text-color);
   overflow-x: hidden; /* Prevents horizontal scrolling if content overflows */
 }
