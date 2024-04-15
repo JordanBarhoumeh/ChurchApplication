@@ -456,8 +456,8 @@
     }
   ],
 
-  "background_color": "#2f3e6f",
-  "theme_color": "#ffffff",
+  "background_color": "#5C0029",
+  "theme_color": "#5C0029",
   "start_url": "/",
   "display": "standalone"
 
