@@ -151,12 +151,11 @@ def add_event(church_id):
 
 @app.route('/delete-event/<int:event_id>', methods=['POST'])
 def delete_event(event_id):
-    # Add authentication and authorization checks here
     event = Event.query.get_or_404(event_id)
     db.session.delete(event)
     db.session.commit()
-    # Return a simple success response
     return jsonify({'success': 'Event deleted'}), 200
+
 
 
 
