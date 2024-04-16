@@ -159,7 +159,6 @@ def delete_event(event_id):
     db.session.commit()
     return jsonify({'success': 'Event deleted'}), 200
 
-csrf.exempt(delete_event)
 
 
 
