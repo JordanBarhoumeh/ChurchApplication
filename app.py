@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import jsonify
 from datetime import datetime
 from flask import make_response
-from flask_wtf.csrf import CSRFProtect
 
 
 app = Flask(__name__)
@@ -11,8 +10,6 @@ app.config['SECRET_KEY'] = 'a_very_secret_key'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/jordanbarhoumeh/ChurchApplication/instance/church_app.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://jordanbarhoumeh:dbpass2002@jordanbarhoumeh.mysql.pythonanywhere-services.com/jordanbarhoumeh$default'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-csrf = CSRFProtect(app)
-
 
 db = SQLAlchemy(app)
 
@@ -154,11 +151,10 @@ def add_event(church_id):
 
 @app.route('/delete-event/<int:event_id>', methods=['POST'])
 def delete_event(event_id):
-    event = Event.query.get_or_404(event_id)
-    db.session.delete(event)
+    event_to_delete = Event.query.get_or_404(event_id)
+    db.session.delete(event_to_delete)
     db.session.commit()
     return jsonify({'success': 'Event deleted'}), 200
-
 
 
 
@@ -175,4 +171,3 @@ def home():
 #         db.create_all()
 #     # app.run(host='192.168.5.129', port=5000, debug=True)
 #     app.run(host='0.0.0.0', port=5000, debug = True)
-
