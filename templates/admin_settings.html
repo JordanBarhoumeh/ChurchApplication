@@ -98,14 +98,17 @@
 
     <div class="upcoming-events-list">
         {% for event in upcoming_events %}
-        <div class="event-item">
+        <!-- Add data-event-id attribute to event-item div -->
+        <div class="event-item" data-event-id="{{ event.id }}">
           <span>{{ event.title }} on {{ event.start_time.strftime('%Y-%m-%d %H:%M') }}</span>
+          <!-- Button retains data-event-id attribute -->
           <button class="delete-button" data-event-id="{{ event.id }}">Delete</button>
         </div>
         {% else %}
         <p>No upcoming events found.</p>
         {% endfor %}
       </div>
+      
       
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
