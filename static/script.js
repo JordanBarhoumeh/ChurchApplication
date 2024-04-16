@@ -91,6 +91,17 @@ document.getElementById('enableNotifications').addEventListener('click', functio
 
 /* --------------------  -------------------- */
 
+document.addEventListener('DOMContentLoaded', function() {
+  const deleteButtons = document.querySelectorAll('.delete-button');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const eventId = this.getAttribute('data-event-id');
+      deleteEvent(eventId);
+    });
+  });
+});
+
+
 function deleteEvent(eventId) {
   if (!confirm('Are you sure you want to delete this event?')) return;
 
