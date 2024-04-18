@@ -52,62 +52,51 @@
       <!-- Event creation form -->
       <div class="center-container">
         <h2>Add New Event</h2>
-        <form
-          action="{{ url_for('add_event', church_id=church.id) }}"
-          method="post"
-        >
-          <div class="form-group">
-            <label for="event_title">Event Title:</label>
-            <input type="text" id="event_title" name="event_title" required />
-          </div>
+        <div>
+          <form
+            action="{{ url_for('add_event', church_id=church.id) }}"
+            method="post"
+          >
+            <div class="form-group">
+              <label for="event_title">Event Title:</label>
+              <input type="text" id="event_title" name="event_title" required />
+            </div>
 
-          <div class="form-group">
-            <label for="start_time">Start Time:</label>
-            <input
-              type="datetime-local"
-              id="start_time"
-              name="start_time"
-              required
-            />
-          </div>
+            <div class="form-group">
+              <label for="start_time">Start Time:</label>
+              <input
+                type="datetime-local"
+                id="start_time"
+                name="start_time"
+                required
+              />
+            </div>
 
-          <div class="form-group">
-            <label for="end_time">End Time:</label>
-            <input
-              type="datetime-local"
-              id="end_time"
-              name="end_time"
-              required
-            />
-          </div>
+            <div class="form-group">
+              <label for="end_time">End Time:</label>
+              <input
+                type="datetime-local"
+                id="end_time"
+                name="end_time"
+                required
+              />
+            </div>
 
-          <div class="form-group">
-            <label for="is_all_day">All Day Event:</label>
-            <input type="checkbox" id="is_all_day" name="is_all_day" />
-          </div>
+            <div class="form-group">
+              <label for="is_all_day">All Day Event:</label>
+              <input type="checkbox" id="is_all_day" name="is_all_day" />
+            </div>
 
-          <div class="form-group">
-            <label for="description">Description:</label>
-            <textarea id="description" name="description"></textarea>
-          </div>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea id="description" name="description"></textarea>
+            </div>
 
-          <input type="submit" value="Add Event" />
-        </form>
+            <input type="submit" value="Add Event" />
+          </form>
+        </div>
       </div>
     </div>
-
-    <div class="upcoming-events-list">
-        {% for event in upcoming_events %}
-        <div class="event-item">
-          <span>{{ event.title }} on {{ event.start_time.strftime('%Y-%m-%d %H:%M') }}</span>
-          <button class="delete-button" data-event-id="{{ event.id }}">Delete</button>
-        </div>
-        {% else %}
-        <p>No upcoming events found.</p>
-        {% endfor %}
-      </div>
-      
-
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>

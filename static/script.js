@@ -91,33 +91,3 @@ document.getElementById('enableNotifications').addEventListener('click', functio
 
 /* --------------------  -------------------- */
 
-// Add an event listener to your buttons when the document loads
-document.addEventListener('DOMContentLoaded', function () {
-  const deleteButtons = document.querySelectorAll('.delete-button');
-  deleteButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      const eventId = this.dataset.eventId;
-      deleteEvent(eventId);
-    });
-  });
-});
-
-
-function deleteEvent(eventId) {
-  if (confirm('Are you sure you want to delete this event?')) {
-    fetch('/delete-event/' + eventId, {
-      method: 'POST',
-      // Include any necessary headers, credentials, etc.
-    }).then(response => {
-      if (response.ok) {
-        alert('Event deleted successfully!');
-        // Remove the event element from the DOM or refresh the page
-      } else {
-        alert('Error deleting event. Please try again.');
-      }
-    }).catch(error => {
-      console.error('Error:', error);
-      alert('An error occurred. Please try again.');
-    });
-  }
-}
