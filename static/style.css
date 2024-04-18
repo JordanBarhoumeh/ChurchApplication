@@ -463,3 +463,24 @@ input[type="submit"] {
 }
 
 
+.center-container-events {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh; /* This makes sure the container takes the full viewport height */
+  text-align: center; /* Centers text elements */
+}
+
+/* Align text inside the inputs and textareas to the left */
+.form-container-events input,
+.form-container-events textarea {
+  text-align: left; /* Align the text to the left */
+}
+
+/* Ensure labels are also aligned to the left if needed */
+.form-container-events label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px; /* Adjust spacing as needed */
+}
