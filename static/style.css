@@ -470,7 +470,6 @@ input[type="submit"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   height: 75vh; /* This makes sure the container takes the full viewport height */
 }
 
