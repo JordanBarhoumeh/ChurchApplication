@@ -463,24 +463,27 @@ input[type="submit"] {
 }
 
 
+/* -------------------- ADD EVENT HANDLING -------------------- */
+
+
 .center-container-events {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 75vh; /* This makes sure the container takes the full viewport height */
-  text-align: center; /* Centers text elements */
 }
 
 /* Align text inside the inputs and textareas to the left */
-.form-container-events input,
-.form-container-events textarea {
+.center-container-events input,
+.center-container-events textarea,
+.center-container-events label {
   text-align: left; /* Align the text to the left */
+  align-self: flex-start; /* Aligns items to the start of the flex container */
 }
 
-/* Ensure labels are also aligned to the left if needed */
-.form-container-events label {
+/* Adjusted from .form-container-events to .center-container-events */
+.center-container-events label {
   display: block;
-  text-align: left;
   margin-bottom: 5px; /* Adjust spacing as needed */
 }
