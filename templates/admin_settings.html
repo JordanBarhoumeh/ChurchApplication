@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Settings</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
     <div class="header">
         <h1>Admin Settings</h1>
-        <button class="hamburger" aria-label="Toggle navigation">
-            <div class="bar"></div>
-        </button>
+        <!-- Your navigation toggle button -->
     </div>
 
     <!-- Navigation and other elements would go here... -->
@@ -45,10 +43,11 @@
         <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
       </nav>
 
-    <div class="form-container">
+    <!-- Centered form area -->
+    <div class="centered-form-area">
         <h2>Add New Event</h2>
         <form action="{{ url_for('add_event', church_id=church.id) }}" method="post" class="event-form">
-            <!-- Form groups would go here -->
+            <!-- Form fields go here -->
             <div class="form-group">
                 <label for="event_title">Event Title:</label>
                 <input type="text" id="event_title" name="event_title" required />
@@ -86,6 +85,7 @@
         </form>
     </div>
 
+    <!-- Your scripts -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
