@@ -466,51 +466,77 @@ input[type="submit"] {
 /* -------------------- ADD EVENT HANDLING -------------------- */
 
 
-.content-container-events {
+/* Flex container to center the form in the middle of the screen */
+.form-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  min-height: 100vh; /* This ensures that the form is always in the center of the viewport */
+  padding: 20px; /* Padding around the container */
+  background-color: #f8f8f8; /* Light background color for the form area */
 }
 
-.center-container-events {
-  width: 100%; /* Set to the desired width */
-  max-width: 500px; /* Set a max-width if you want to limit how wide it can stretch on larger screens */
-}
-
+/* Styles for the form */
 .event-form {
-  display: flex;
-  flex-direction: column;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Full width */
+  max-width: 500px; /* Maximum width of the form */
+  margin: 0 auto; /* Centering the form in the container */
 }
 
+/* Form field group styles */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Spacing between form groups */
 }
 
+/* Label styles */
 .form-group label {
   display: block;
-  margin-bottom: 5px;
-  text-align: left;
+  margin-bottom: 5px; /* Spacing between label and input field */
+  font-weight: bold; /* Make the label text a little bolder */
 }
 
-.form-group input,
+/* Input field styles */
+.form-group input[type="text"],
+.form-group input[type="datetime-local"],
 .form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 100%; /* Full width of the parent container */
+  padding: 10px; /* Padding inside the input fields */
+  border: 1px solid #ddd; /* Border color for the inputs */
+  border-radius: 4px; /* Rounded corners for the inputs */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-.form-group input[type="submit"] {
-  background-color: goldenrod;
+/* Styles for textarea */
+.form-group textarea {
+  height: 100px; /* Set a fixed height for the textarea */
+  resize: vertical; /* Allow vertical resizing of the textarea */
+}
+
+/* Styles for the submit button */
+.event-form input[type="submit"] {
+  background-color: #5C47E0; /* Button background color */
   color: white;
-  border: none;
   padding: 10px 20px;
-  cursor: pointer;
+  border: none;
   border-radius: 4px;
-  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px; /* Larger font size for the button */
+  width: 100%; /* Full width button */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-.form-group input[type="submit"]:hover {
-  background-color: darkgoldenrod;
+/* Button hover effect */
+.event-form input[type="submit"]:hover {
+  background-color: #6B58D6; /* Slightly lighter purple color on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .event-form {
+      width: 90%; /* Smaller width on mobile to ensure it doesn't touch the viewport edges */
+  }
 }
