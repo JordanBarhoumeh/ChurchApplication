@@ -466,24 +466,51 @@ input[type="submit"] {
 /* -------------------- ADD EVENT HANDLING -------------------- */
 
 
+content-container-events {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
 .center-container-events {
+  width: 100%; /* Set to the desired width */
+  max-width: 500px; /* Set a max-width if you want to limit how wide it can stretch on larger screens */
+}
+
+.event-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 75vh; /* This makes sure the container takes the full viewport height */
 }
 
-/* Align text inside the inputs and textareas to the left */
-.form-group input,
-.form-group textarea {
-  text-align: left; /* Align the text to the left */
-  align-self: flex-start; /* Aligns items to the start of the flex container */
+.form-group {
+  margin-bottom: 20px;
 }
 
-/* Ensure labels are also aligned to the left and override other styles */
 .form-group label {
   display: block;
-  text-align: left !important; /* Add !important to ensure it overrides other styles */
-  align-self: flex-start; /* Aligns items to the start of the flex container */
-  margin-bottom: 5px; /* Adjust spacing as needed */
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group input[type="submit"] {
+  background-color: goldenrod;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: darkgoldenrod;
 }
