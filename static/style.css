@@ -474,14 +474,14 @@ input[type="submit"] {
 }
 
 /* Align text inside the inputs and textareas to the left */
-.center-container-events input,
-.center-container-events textarea {
+.form-group input,
+.form-group textarea {
   text-align: left; /* Align the text to the left */
   align-self: flex-start; /* Aligns items to the start of the flex container */
 }
 
 /* Ensure labels are also aligned to the left and override other styles */
-.center-container-events label {
+.form-group label {
   display: block;
   text-align: left !important; /* Add !important to ensure it overrides other styles */
   align-self: flex-start; /* Aligns items to the start of the flex container */
