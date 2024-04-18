@@ -475,14 +475,15 @@ input[type="submit"] {
 
 /* Align text inside the inputs and textareas to the left */
 .center-container-events input,
-.center-container-events textarea,
-.center-container-events label {
+.center-container-events textarea {
   text-align: left; /* Align the text to the left */
   align-self: flex-start; /* Aligns items to the start of the flex container */
 }
 
-/* Adjusted from .form-container-events to .center-container-events */
+/* Ensure labels are also aligned to the left and override other styles */
 .center-container-events label {
   display: block;
+  text-align: left !important; /* Add !important to ensure it overrides other styles */
+  align-self: flex-start; /* Aligns items to the start of the flex container */
   margin-bottom: 5px; /* Adjust spacing as needed */
 }
