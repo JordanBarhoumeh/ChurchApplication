@@ -534,9 +534,3 @@ input[type="submit"] {
   background-color: #6B58D6; /* Slightly lighter purple color on hover */
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .event-form {
-      width: 90%; /* Smaller width on mobile to ensure it doesn't touch the viewport edges */
-  }
-}
