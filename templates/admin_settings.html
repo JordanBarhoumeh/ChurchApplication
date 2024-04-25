@@ -87,7 +87,9 @@
 
 
     <div>
-        <h1>Upcoming Events for {{ church.name }}</h1>
+        <div class="church-info" style="padding: 0px">
+            <h2>Our Next Event</h2>
+        </div>
         {% if upcoming_events %}
             {% for event in upcoming_events %}
             <div class="event">
