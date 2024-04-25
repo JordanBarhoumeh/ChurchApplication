@@ -125,12 +125,13 @@ def verify_admin_password(church_id):
     else:
         return redirect(url_for('error'))  # Assuming you have an error.html or similar handler
 
+
 @app.route('/admin_settings/<int:church_id>')
 def admin_settings(church_id):
-    # Assuming there's a method to fetch a church based on the given church_id
-    church = Church.query.get_or_404(church_id)
-    upcoming_events = Event.query.filter(Event.start_time > datetime.utcnow()).all()
+    church = Church.query.get_or_404(church_id)  # Fetch the church or 404 if not found
+    upcoming_events = Event.query.filter(Event.church_id == church_id, Event.start_time > datetime.utcnow()).all()
     return render_template('admin_settings.html', upcoming_events=upcoming_events, church=church)
+
 
 @app.route('/add_event/<int:church_id>', methods=['POST'])
 def add_event(church_id):
