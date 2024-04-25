@@ -467,12 +467,9 @@ input[type="submit"] {
 
 
 .centered-form-area {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: var(--background);  /* Changed from #fff to transparent */
-  border-radius: 10px;
-  box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
