@@ -467,9 +467,10 @@ input[type="submit"] {
 
 
 .centered-form-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;  /* Centers horizontally */
+  align-items: center;  /* Centers vertically */
+  min-height: 100vh;  /* Takes at least full viewport height */
 }
 
 
