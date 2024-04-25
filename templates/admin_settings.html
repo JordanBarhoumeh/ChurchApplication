@@ -44,8 +44,10 @@
       </nav>
 
     <!-- Centered form area -->
-    <div class="centered-form-area">
-        <h2>Add New Event</h2>
+    <div>
+        <div class="church-info" style="padding: 0px">
+            <h2>Add New Event</h2>
+        </div>
         <form action="{{ url_for('add_event', church_id=church.id) }}" method="post" class="event-form">
             <!-- Form fields go here -->
             <div class="form-group">
@@ -88,7 +90,7 @@
 
     <div>
         <div class="church-info" style="padding: 0px">
-            <h2>Our Next Event</h2>
+            <h2>Manage Upcoming Events</h2>
         </div>
         {% if upcoming_events %}
             {% for event in upcoming_events %}
