@@ -470,6 +470,9 @@ input[type="submit"] {
   max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
+  background: transparent;  /* Changed from #fff to transparent */
+  border-radius: 10px;
+  box-shadow: none;
 }
 
 
