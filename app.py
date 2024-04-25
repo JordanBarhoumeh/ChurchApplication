@@ -154,7 +154,6 @@ def add_event(church_id):
 
 
 
-
 @app.route('/')
 def home():
     return render_template('welcome.html')
