@@ -156,10 +156,12 @@ def add_event(church_id):
 @app.route('/delete_event/<int:event_id>', methods=['POST'])
 def delete_event(event_id):
     event = Event.query.get_or_404(event_id)
+    church_id = event.church_id  # Capture the church_id before deleting the event
     db.session.delete(event)
     db.session.commit()
     flash('Event deleted successfully!')
-    return redirect(url_for('admin_settings'))  # Redirect back to the admin settings or appropriate page
+    return redirect(url_for('admin_settings', church_id=church_id))
+
 
 
 
