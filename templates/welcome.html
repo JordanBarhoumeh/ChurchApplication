@@ -1,73 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Welcome to Trinity Apps</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
 
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="/manifest.json">
-  </head>
-
-
-  <div class="unsupported-device-message">
-    This app doesn't support your current device.
-  </div>
-
-
-  
-  <body style="background-color: var(--cream-bg); color: black">
-    <style>
-      p {
-        padding-left: 20px; /* Adjust as needed */
-        padding-right: 20px; /* Adjust as needed */
-      }
-    </style>
-
-    <div class="header">
-      <h1>Welcome to Trinity Apps</h1>
-      <p class="location">By Jordan Barhoumeh</p>
+    <!-- Embedded styles moved to an external CSS file for cleaner code -->
+</head>
+<body style="background-color: var(--cream-bg); color: black">
+    <!-- Display message for unsupported devices -->
+    <div class="unsupported-device-message">
+        This app doesn't support your current device.
     </div>
 
+    <!-- Main content container -->
+    <div class="content">
+        <header class="header">
+            <h1>Welcome to Trinity Apps</h1>
+            <p class="location">By Jordan Barhoumeh</p>
+        </header>
+
+        <!-- Description paragraphs -->
         <p>
-          This app acts as a landing page for your church, its events, and other
-          exciting features.
+            This app acts as a landing page for your church, its events, and other exciting features.
         </p>
         <p>
-          Experience a seamless way to stay connected with your church
-          community, access event schedules and read service books. Don't 
-          forget to check out the various sections, inlcuding the interactive
-          calendar, and await more exciting features that are coming soon.
+            Experience a seamless way to stay connected with your church community, 
+            access event schedules and read service books. Don't forget to check out 
+            the various sections, including the interactive calendar, and await more 
+            exciting features that are coming soon.
         </p>
         <p>
-          To use the app, add it to your homescreen. Then, open it and enter the
-          code provided by your church.
+            To use the app, add it to your homescreen. Then, open it and enter the 
+            code provided by your church.
         </p>
         <p style="margin-bottom: 40px;">
-          Alternatively, press the button below to continue to the web version.
+            Alternatively, press the button below to continue to the web version.
         </p>
 
-      </main>
+        <!-- App entry button -->
+        <div>
+            <a href="{{ url_for('index') }}" class="move-button">Enter the App</a>
+        </div>
 
-      <div>
-        <a href="{{ url_for('index') }}" class="move-button">Enter the App</a>
-      </div>
+        <p style="margin-top: 40px;">
+            Having any issues with the app? Let me know below!
+        </p>
 
-      <p style="margin-top: 40px;">
-        Having any issues with the app? Let me know below!
-      </p>
+        <!-- Contact link -->
+        <div>
+            <a href="https://www.linkedin.com/in/jordan-barhoumeh/" class="move-button">Contact Me</a>
+        </div>
+    </div>
 
-      <div>
-        <a href="https://www.linkedin.com/in/jordan-barhoumeh/" class="move-button">Contact Me</a>
-      </div>
+    <!-- External Scripts -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script src="{{ url_for('static', filename='redirect.js') }}"></script>
-  </body>
+</body>
 </html>
-
