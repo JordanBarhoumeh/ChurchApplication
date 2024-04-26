@@ -515,32 +515,33 @@ input[type="submit"] {
 
 /* -------------------- UNSUPPORTED DEVICE HANDLING -------------------- */
 
+/* General style for the message, hidden by default */
 .unsupported-device-message {
-  display: none;
+  display: none;  /* Hide by default */
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #333; /* Dark background for the message */
-  color: #fff; /* White text color */
-  font-size: 20px; /* Larger text for better visibility */
-  z-index: 1000; /* Make sure it's on top of other content */
+  background-color: #333;  /* Dark background for better visibility */
+  color: #fff;  /* White text for contrast */
+  font-size: 20px;
+  z-index: 1000;
 
-  /* Centering the text inside the div */
+  /* Flexbox to center content */
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  text-align: center; /* Ensure text is centered if it wraps */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-/* Show the message on screens wider than 590px */
+/* Specific media query for devices wider than 591px */
 @media (min-width: 591px) {
   .unsupported-device-message {
-      display: flex; /* Enable flexbox to center the content */
+      display: flex;  /* Use flexbox to center the content inside the div */
   }
   body *:not(.unsupported-device-message) {
-      display: none; /* Hide all other content */
+      display: none;  /* Hide all other content */
   }
 }
 
