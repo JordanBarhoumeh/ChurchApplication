@@ -56,14 +56,20 @@ def logout():
 
 @app.route('/set_church', methods=['POST'])
 def set_church():
-    code = request.form.get('church_code').strip()
-    church = Church.query.filter_by(code=code).first()
-    if church:
-        response = make_response(redirect(url_for('church_main', church_id=church.id)))
-        response.set_cookie('church_code', code, max_age=60*60*24*30)  # Expires in 30 days
-        return response
+    church_id = request.form.get('church_id')
+    if church_id:
+        church = Church.query.filter_by(id=church_id).first()
+        if church:
+            response = make_response(redirect(url_for('church_main', church_id=church.id)))
+            # Set a cookie with the church_id, expiring in 30 days
+            response.set_cookie('church_id', church_id, max_age=60*60*24*30)  # Expires in 30 days
+            return response
+        else:
+            return render_template('error.html', message='Church not found. Please try again.')
     else:
-        return render_template('error.html', message='Church code not found. Please try again.')
+        return render_template('error.html', message='Please select a church.')
+
+    
 
 @app.route('/church_main/<int:church_id>')
 def church_main(church_id):
