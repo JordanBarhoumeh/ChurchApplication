@@ -319,7 +319,6 @@ input[type="submit"] {
 
 .church-image-container {
   text-align: center; /* Center the image */
-  margin-top: 40px; /* Provide some space between the header and the image */
   padding-left: 20px;
   padding-right: 20px;
 }
