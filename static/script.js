@@ -5,7 +5,7 @@ function openPopup(element) {
 
   // Check if the event is an all-day event
   if (element.dataset.allDay === 'true') {
-      // If it is an all-day event, show only the start date and indicate "All Day"
+      // If it is an all-day event, only show the start date and indicate "All Day"
       document.getElementById('popupStart').textContent = 'Start Date: ' + element.dataset.startTime;
       document.getElementById('popupEnd').textContent = 'All day event';
   } else {
@@ -16,22 +16,35 @@ function openPopup(element) {
 
   document.getElementById('popupDescription').textContent = element.dataset.description;
 
-  // Show the popup with animation
-  const popup = document.getElementById('eventPopup');
+  // Handle the display of the overlay and popup
   const overlay = document.getElementById('overlay');
-  overlay.classList.add('show');
-  popup.classList.add('show');
+  const popup = document.getElementById('eventPopup');
+  overlay.style.display = 'block'; // First make the overlay block to start opacity transition
+  popup.style.display = 'block'; // Ensure popup is also set to block
+
+  setTimeout(() => {
+      overlay.classList.add('show');
+      popup.classList.add('show');
+  }, 10); // Timeout to ensure CSS detects 'display: block' before starting opacity transitions
+
   document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
 }
 
 function closePopup() {
-  // Hide the popup with animation
-  const popup = document.getElementById('eventPopup');
   const overlay = document.getElementById('overlay');
-  popup.classList.remove('show');
+  const popup = document.getElementById('eventPopup');
+
   overlay.classList.remove('show');
+  popup.classList.remove('show');
+
+  setTimeout(() => {
+      overlay.style.display = 'none'; // Hide overlay after transition
+      popup.style.display = 'none'; // Hide popup after transition
+  }, 500); // Delay matches transition time
+
   document.body.style.overflow = ''; // Allow scrolling on the body
 }
+
 
 
 

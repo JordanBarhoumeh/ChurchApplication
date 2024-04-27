@@ -175,9 +175,28 @@ h1 {
   background-color: #efefef; /* Lighter shade on hover for interactive feel */
 }
 
-/* Initial state of the popup */
+/* Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 1050; /* Ensure it's above most content but below the popup */
+  opacity: 0; /* Start with hidden */
+  transition: opacity 0.5s ease;
+}
+
+.overlay.show {
+  display: block;
+  opacity: 1; /* Fully visible when shown */
+}
+
+/* Popup */
 .popup {
-  display: none; /* Initially hidden */
+  display: none;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -188,35 +207,15 @@ h1 {
   border: 1px solid var(--button);
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 100;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0s linear 0.5s; /* Add transition for opacity and delay hiding */
+  z-index: 1100; /* Above the overlay */
+  opacity: 0; /* Start with hidden */
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* State of the popup when it's shown */
 .popup.show {
   display: block;
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0s; /* Ensure the visibility transitions immediately when showing */
-}
-
-/* Overlay that fills the entire screen */
-.overlay {
-  display: none; /* Initially hidden */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  z-index: 9; /* Lower than popup but higher than other content */
-}
-
-/* Show the overlay when popup is active */
-.overlay.show {
-  display: block;
+  opacity: 1; /* Fully visible */
+  transform: translate(-50%, -50%); /* Centered translation */
 }
 
 
