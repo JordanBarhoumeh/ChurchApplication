@@ -27,17 +27,14 @@
     <!-- Main Content Container -->
     <div class="center-container">
         <h1 class="index-welcome">Welcome</h1>
-        
-        <!-- Church Selection Form -->
         <form action="/set_church" method="post">
-            <select id="church_id" name="church_id" required>
-                <option style="width: 100%-20px; padding: 15px;"
-                value="">Select your church</option>
+            <select id="church_id" name="church_id" required style="width: 100%;">
+                <option value="">Select your church</option>
                 {% for church in churches %}
                 <option value="{{ church.id }}">{{ church.name }}</option>
                 {% endfor %}
             </select>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" style="width: 100%;">
         </form>
     </div>
 
