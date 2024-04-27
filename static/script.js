@@ -38,19 +38,6 @@ function closePopup() {
 }
 
 
-/* -------------------- ADD TO HOMESCREEN POP UP ANIMATION -------------------- */
-
-
-function showInstallPrompt() {
-  // Assuming your prompt is initially hidden, this will make it visible
-  document.getElementById('installPrompt').style.display = 'block';
-}
-
-function hideInstallPrompt() {
-  document.getElementById('installPrompt').style.display = 'none';
-}
-
-
 /* -------------------- NEW BURGER MENU ANIMATION -------------------- */
 
 document.addEventListener('DOMContentLoaded', function () {
