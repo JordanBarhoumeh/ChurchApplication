@@ -5,37 +5,32 @@ function openPopup(element) {
 
   // Check if the event is an all-day event
   if (element.dataset.allDay === 'true') {
-    // If it is an all-day event, show only the start date and indicate "All Day"
-    document.getElementById('popupStart').textContent = 'Start Time: ' + element.dataset.startTime;
-    document.getElementById('popupEnd').textContent = 'All day event';
+      // If it is an all-day event, show only the start date and indicate "All Day"
+      document.getElementById('popupStart').textContent = 'Start Date: ' + element.dataset.startTime;
+      document.getElementById('popupEnd').textContent = 'All day event';
   } else {
-    // If it is not an all-day event, show both start and end times
-    document.getElementById('popupStart').textContent = 'Start Time: ' + element.dataset.startTime;
-    document.getElementById('popupEnd').textContent = 'End Time: ' + element.dataset.endTime;
+      // If it is not an all-day event, show both start and end times
+      document.getElementById('popupStart').textContent = 'Start Time: ' + element.dataset.startTime;
+      document.getElementById('popupEnd').textContent = 'End Time: ' + element.dataset.endTime;
   }
 
   document.getElementById('popupDescription').textContent = element.dataset.description;
 
-  // Use classList to add the 'show' class
-  const popup = document.getElementById('eventPopup');
-  popup.style.display = 'block';
-  requestAnimationFrame(() => {
-    popup.classList.add('show');
-  });
-
+  // Show the popup and overlay
+  document.getElementById('overlay').classList.add('show');
+  document.getElementById('eventPopup').classList.add('show');
   document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
-  document.body.style.position = 'fixed'; // Add this line
-
+  document.body.style.position = 'fixed'; // Add this line to ensure fixed position
 }
-
 
 function closePopup() {
-  // Use classList to remove the 'show' class
+  // Hide the popup and overlay
+  document.getElementById('overlay').classList.remove('show');
   document.getElementById('eventPopup').classList.remove('show');
-  document.body.style.overflow = ''; // Restore scrolling on the body
+  document.body.style.overflow = ''; // Allow scrolling on the body
   document.body.style.position = ''; // Reset the position style
-
 }
+
 
 
 /* -------------------- NEW BURGER MENU ANIMATION -------------------- */

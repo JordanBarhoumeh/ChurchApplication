@@ -72,12 +72,14 @@
     
 
     <!-- Popup for event details -->
-    <div id="eventPopup" class="popup">
-      <div class="close-btn-events" onclick="closePopup()">×</div>
-      <h2 id="popupTitle"></h2>
-      <p id="popupStart"></p>
-      <p id="popupEnd"></p>
-      <p id="popupDescription"></p>
+    <div id="overlay" class="overlay">
+      <div id="eventPopup" class="popup">
+        <div class="close-btn-events" onclick="closePopup()">×</div>
+        <h2 id="popupTitle"></h2>
+        <p id="popupStart"></p>
+        <p id="popupEnd"></p>
+        <p id="popupDescription"></p>
+      </div>
     </div>
 
     <script>
