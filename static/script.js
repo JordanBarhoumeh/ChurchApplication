@@ -2,30 +2,27 @@
 
 function openPopup(element) {
   document.getElementById('popupTitle').textContent = element.dataset.title;
-
-  // Check if the event is an all-day event
   if (element.dataset.allDay === 'true') {
-      // If it is an all-day event, only show the start date and indicate "All Day"
       document.getElementById('popupStart').textContent = 'Start Date: ' + element.dataset.startTime;
       document.getElementById('popupEnd').textContent = 'All day event';
   } else {
-      // If it is not an all-day event, show both start and end times
       document.getElementById('popupStart').textContent = 'Start Time: ' + element.dataset.startTime;
       document.getElementById('popupEnd').textContent = 'End Time: ' + element.dataset.endTime;
   }
-
   document.getElementById('popupDescription').textContent = element.dataset.description;
 
-  // Handle the display of the overlay and popup
   const overlay = document.getElementById('overlay');
   const popup = document.getElementById('eventPopup');
-  overlay.style.display = 'block'; // First make the overlay block to start opacity transition
-  popup.style.display = 'block'; // Ensure popup is also set to block
 
+  // Ensure overlay and popup are displayed before adding 'show' class
+  overlay.style.display = 'block';
+  popup.style.display = 'block';
+
+  // Delay the addition of 'show' class slightly to trigger transition
   setTimeout(() => {
       overlay.classList.add('show');
       popup.classList.add('show');
-  }, 10); // Timeout to ensure CSS detects 'display: block' before starting opacity transitions
+  }, 10);
 
   document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
 }
@@ -34,16 +31,18 @@ function closePopup() {
   const overlay = document.getElementById('overlay');
   const popup = document.getElementById('eventPopup');
 
+  // Remove 'show' class first to trigger opacity transition
   overlay.classList.remove('show');
   popup.classList.remove('show');
 
   setTimeout(() => {
-      overlay.style.display = 'none'; // Hide overlay after transition
-      popup.style.display = 'none'; // Hide popup after transition
-  }, 500); // Delay matches transition time
+      overlay.style.display = 'none'; // Hide after transition
+      popup.style.display = 'none'; // Hide after transition
+  }, 500); // Delay should match transition duration
 
   document.body.style.overflow = ''; // Allow scrolling on the body
 }
+
 
 
 

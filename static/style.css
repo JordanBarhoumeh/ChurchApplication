@@ -184,8 +184,7 @@ h1 {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  z-index: 1050; /* Ensure it's above most content but below the popup */
-  opacity: 0; /* Start with hidden */
+  z-index: 1040; /* Ensure it's above most content but below the popup */
   transition: opacity 0.5s ease;
 }
 
