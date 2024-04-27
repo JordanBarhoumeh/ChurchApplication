@@ -48,15 +48,15 @@
         class="move-button"
         >Service Books</a
       >
-      <a href="{{ url_for('settings', church_id=church.id) }}" class="move-button">Settings</a> <!-- New Settings Button -->
+      <a href="{{ url_for('settings', church_id=church.id) }}" class="move-button">Settings</a> <!-- Settings Button -->
 
-      <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
+      <a href="{{ url_for('logout') }}" class="move-button">Select Church</a>
     </nav>
 
     <div class="content-container">
       <div class="content">
         <!-- Content of the church home page goes here -->
-        <p>Welcome to our church community!</p>
+        <p style="margin-left: 10px; margin-right: 10px; margin-top: 30px;">Welcome to our church community!</p>
 
         <!-- Display church image -->
         <div class="church-image-container">
