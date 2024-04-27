@@ -536,7 +536,7 @@ input[type="submit"] {
 }
 
 /* Specific media query for devices wider than 591px */
-@media (min-width: 591px) {
+@media (min-width: 501px) {
   .unsupported-device-message {
       display: flex;  /* Use flexbox to center the content inside the div */
   }
