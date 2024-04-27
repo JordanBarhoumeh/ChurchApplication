@@ -31,7 +31,8 @@
         <!-- Church Selection Form -->
         <form action="/set_church" method="post">
             <select id="church_id" name="church_id" required>
-                <option value="">Select your church</option>
+                <option style="width: 100%-20px; padding: 15px;"
+                value="">Select your church</option>
                 {% for church in churches %}
                 <option value="{{ church.id }}">{{ church.name }}</option>
                 {% endfor %}
