@@ -16,20 +16,23 @@ function openPopup(element) {
 
   document.getElementById('popupDescription').textContent = element.dataset.description;
 
-  // Show the popup and overlay
-  document.getElementById('overlay').classList.add('show');
-  document.getElementById('eventPopup').classList.add('show');
+  // Show the popup with animation
+  const popup = document.getElementById('eventPopup');
+  const overlay = document.getElementById('overlay');
+  overlay.classList.add('show');
+  popup.classList.add('show');
   document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
-  document.body.style.position = 'fixed'; // Add this line to ensure fixed position
 }
 
 function closePopup() {
-  // Hide the popup and overlay
-  document.getElementById('overlay').classList.remove('show');
-  document.getElementById('eventPopup').classList.remove('show');
+  // Hide the popup with animation
+  const popup = document.getElementById('eventPopup');
+  const overlay = document.getElementById('overlay');
+  popup.classList.remove('show');
+  overlay.classList.remove('show');
   document.body.style.overflow = ''; // Allow scrolling on the body
-  document.body.style.position = ''; // Reset the position style
 }
+
 
 
 
