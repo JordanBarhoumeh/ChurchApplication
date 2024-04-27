@@ -44,12 +44,8 @@ class Event(db.Model):
 
 @app.route('/index')
 def index():
-    church_code = request.cookies.get('church_code')
-    if church_code:
-        church = Church.query.filter_by(code=church_code).first()
-        if church:
-            return redirect(url_for('church_main', church_id=church.id))
-    return render_template('index.html')
+    churches = Church.query.all()  # Retrieve all church records
+    return render_template('index.html', churches=churches)
 
 @app.route('/logout')
 def logout():

@@ -3,39 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-\
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Church App</title>
+    
+    <!-- Stylesheet Links -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
-
+    
+    <!-- Favicon and App Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/ios/180.png') }}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='icons/ios/192.png') }}">
     <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='icons/ios/512.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
-
+    
     <!-- Web App Manifest -->
-    <link rel="manifest" href="/manifest.json">
-
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
 </head>
 <body>
+    <!-- Install Prompt for PWA -->
     <div id="installPrompt" class="install-prompt">
         Add this app to your home screen for a better experience.
         <button onclick="hideInstallPrompt()">Dismiss</button>
     </div>
     
+    <!-- Main Content Container -->
     <div class="center-container">
         <h1 class="index-welcome">Welcome</h1>
+        
+        <!-- Church Selection Form -->
         <form action="/set_church" method="post">
-            <input type="text" id="church_code" name="church_code"
-                   inputmode="numeric"
-                   pattern="[0-9]{5}" title="Enter a five-digit church code"
-                   placeholder="Enter Code" maxlength="5" required
-                   onclick="showInstallPrompt()">
+            <label for="church_id">Select Your Church:</label>
+            <select id="church_id" name="church_id" required>
+                <option value="">Select your church</option>
+                {% for church in churches %}
+                <option value="{{ church.id }}">{{ church.name }}</option>
+                {% endfor %}
+            </select>
             <input type="submit" value="Submit">
         </form>
     </div>
-    <!-- Rest of your script and body -->
+
+    <!-- Scripts -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
