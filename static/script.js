@@ -1,6 +1,9 @@
 /* -------------------- EVENT POP UP ANIMATION -------------------- */
 
 function openPopup(element) {
+  const overlay = document.getElementById('overlay');
+    overlay.style.display = 'block';
+
   document.getElementById('popupTitle').textContent = element.dataset.title;
   if (element.dataset.allDay === 'true') {
       document.getElementById('popupStart').textContent = 'Start Date: ' + element.dataset.startTime;
@@ -18,6 +21,9 @@ function openPopup(element) {
 }
 
 function closePopup() {
+  const overlay = document.getElementById('overlay');
+    overlay.style.display = 'none';
+    
   const popup = document.getElementById('eventPopup');
   popup.classList.remove('show'); // Hide the popup
   popup.style.display = 'none'; // Ensure it's no longer visible

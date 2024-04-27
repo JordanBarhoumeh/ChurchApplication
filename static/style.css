@@ -175,10 +175,20 @@ h1 {
   background-color: #efefef; /* Lighter shade on hover for interactive feel */
 }
 
-/* Overlay */
 .overlay {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Adjust based on your z-index management */
 }
+
+.overlay.show {
+  display: block; /* Block display to prevent interaction */
+}
+
 
 /* Popup */
 .popup {
