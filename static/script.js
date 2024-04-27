@@ -11,40 +11,18 @@ function openPopup(element) {
   }
   document.getElementById('popupDescription').textContent = element.dataset.description;
 
-  const overlay = document.getElementById('overlay');
   const popup = document.getElementById('eventPopup');
-
-  // Ensure overlay and popup are displayed before adding 'show' class
-  overlay.style.display = 'block';
-  popup.style.display = 'block';
-
-  // Delay the addition of 'show' class slightly to trigger transition
-  setTimeout(() => {
-      overlay.classList.add('show');
-      popup.classList.add('show');
-  }, 10);
-
+  popup.style.display = 'block'; // Show the popup
+  popup.classList.add('show'); // Ensure any associated styles with 'show' are still applied
   document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
 }
 
 function closePopup() {
-  const overlay = document.getElementById('overlay');
   const popup = document.getElementById('eventPopup');
-
-  // Remove 'show' class first to trigger opacity transition
-  overlay.classList.remove('show');
-  popup.classList.remove('show');
-
-  setTimeout(() => {
-      overlay.style.display = 'none'; // Hide after transition
-      popup.style.display = 'none'; // Hide after transition
-  }, 500); // Delay should match transition duration
-
-  document.body.style.overflow = ''; // Allow scrolling on the body
+  popup.classList.remove('show'); // Hide the popup
+  popup.style.display = 'none'; // Ensure it's no longer visible
+  document.body.style.overflow = ''; // Allow scrolling on the body again
 }
-
-
-
 
 
 
