@@ -30,7 +30,6 @@
         
         <!-- Church Selection Form -->
         <form action="/set_church" method="post">
-            <label for="church_id">Select Your Church:</label>
             <select id="church_id" name="church_id" required>
                 <option value="">Select your church</option>
                 {% for church in churches %}
