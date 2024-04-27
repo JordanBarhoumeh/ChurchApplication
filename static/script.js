@@ -1,9 +1,6 @@
 /* -------------------- EVENT POP UP ANIMATION -------------------- */
 
 function openPopup(element) {
-  const overlay = document.getElementById('overlay');
-    overlay.style.display = 'block';
-
   document.getElementById('popupTitle').textContent = element.dataset.title;
   if (element.dataset.allDay === 'true') {
       document.getElementById('popupStart').textContent = 'Start Date: ' + element.dataset.startTime;
@@ -14,29 +11,36 @@ function openPopup(element) {
   }
   document.getElementById('popupDescription').textContent = element.dataset.description;
 
+  const overlay = document.getElementById('overlay');
   const popup = document.getElementById('eventPopup');
-  popup.style.display = 'block'; // Show the popup
-  popup.classList.add('show'); // Ensure any associated styles with 'show' are still applied
+  overlay.classList.add('show');
+  popup.classList.add('show');
   document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
 }
 
 function closePopup() {
   const overlay = document.getElementById('overlay');
-    overlay.style.display = 'none';
-    
   const popup = document.getElementById('eventPopup');
-  popup.classList.remove('show'); // Hide the popup
-  popup.style.display = 'none'; // Ensure it's no longer visible
+  overlay.classList.remove('show');
+  popup.classList.remove('show');
   document.body.style.overflow = ''; // Allow scrolling on the body again
 }
 
 
 
-/* -------------------- NEW BURGER MENU ANIMATION -------------------- */
+
+/* -------------------- NEW BURGER MENU ANIMATION + EVENT LISTENER -------------------- */
 
 document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.querySelector('.hamburger');
   const mobileNav = document.querySelector('.mobile-nav');
+
+  const eventItems = document.querySelectorAll('.event-item');
+  eventItems.forEach(item => {
+      item.addEventListener('click', function() {
+          openPopup(this);
+      });
+  });
 
   if (hamburger && mobileNav) {
     hamburger.addEventListener('click', function () {
