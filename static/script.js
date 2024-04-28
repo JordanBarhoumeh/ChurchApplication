@@ -111,3 +111,23 @@ document.getElementById('sendNotificationForm').addEventListener('submit', async
     });
   }, delay * 1000);
 });
+
+
+
+
+function selectChurch(churchId) {
+  localStorage.setItem('lastSelectedChurch', churchId);
+  window.location.href = `/church_main/${churchId}`; // Redirect to church main page
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const lastSelectedChurch = localStorage.getItem('lastSelectedChurch');
+  if (lastSelectedChurch) {
+      window.location.href = `/church_main/${lastSelectedChurch}`; // Redirect to saved church
+  }
+});
+
+function logout() {
+  localStorage.removeItem('lastSelectedChurch'); // Clear saved church on logout
+  window.location.href = '/login'; // Redirect to login or home page
+}
