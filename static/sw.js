@@ -1,6 +1,13 @@
-self.addEventListener('notificationclick', function(event) {
-    event.notification.close();
-    // Perform action on click, like opening a URL or handling specific data
-    event.waitUntil(clients.openWindow('/some-url'));
-  });
-  
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      // Check if the response exists in cache
+      if (response) {
+        // Return cached data if it's there
+        return response;
+      }
+      // Fetch from network if it's not in cache
+      return fetch(event.request);
+    })
+  );
+});
