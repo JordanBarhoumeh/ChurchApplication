@@ -68,7 +68,7 @@
         <div>End: {{ event.end_time.strftime('%d %B %Y %I:%M %p') }}</div>
         {% endif %}
       </div>
-      <button onclick="openNotificationOptions('{{ event.id }}')">Notify Me</button>
+      <button onclick="notificationOptionsPopup('{{ event.id }}')">Notify Me</button>
       {% else %}
       <p>No upcoming events found.</p>
       {% endfor %}
