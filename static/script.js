@@ -89,3 +89,25 @@ document.getElementById('enableNotifications').addEventListener('click', functio
 
 /* --------------------  -------------------- */
 
+document.getElementById('notificationForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const eventId = this.eventId.value;
+  const notificationTimes = Array.from(this.querySelectorAll('input[name="notificationTime"]:checked'), input => parseInt(input.value));
+
+  // Assuming notification scheduling logic is in the service worker
+  notificationTimes.forEach(time => {
+      const when = new Date(Date.now() + time * 1000).toISOString();
+      navigator.serviceWorker.ready.then(registration => {
+          registration.showNotification('Event Reminder', {
+              tag: `event-${eventId}-${time}`,  // Unique tag for this notification
+              body: `Reminder for event on ${when}`,
+              showTrigger: new TimestampTrigger(new Date().getTime() + time * 1000),  // Set for the future
+              data: {url: window.location.href},  // Data to navigate to on click
+              requireInteraction: true
+          });
+      });
+  });
+
+  closeNotificationOptions();  // Close the modal after setting notifications
+});
+
