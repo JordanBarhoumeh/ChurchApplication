@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template, redirect, url_for, flash
+from flask import Flask, jsonify, request, render_template, redirect, url_for, flash, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask import jsonify
 from datetime import datetime
@@ -167,7 +167,13 @@ def delete_event(event_id):
 
 
 
-
+@app.route('/sw.js')
+def serve_sw():
+    response = send_from_directory(app.static_folder, 'sw.js')
+    # Set the appropriate headers for Service Worker
+    response.headers['Service-Worker-Allowed'] = '/'
+    response.headers['Cache-Control'] = 'no-cache'
+    return response
 
 
 
