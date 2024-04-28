@@ -88,3 +88,26 @@ document.getElementById('enableNotifications').addEventListener('click', functio
 
 
 /* --------------------  -------------------- */
+
+document.getElementById('subscribe').addEventListener('click', async () => {
+  const registration = await navigator.serviceWorker.getRegistration();
+  const permission = await Notification.requestPermission();
+  if (permission === 'granted') {
+    console.log('Subscribed to notifications');
+  }
+});
+
+document.getElementById('sendNotificationForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const message = document.getElementById('notification').value;
+  const delay = parseInt(document.getElementById('delay').value, 10);
+  const requireInteraction = document.getElementById('requireInteraction').checked;
+
+  const registration = await navigator.serviceWorker.getRegistration();
+  setTimeout(() => {
+    registration.showNotification('Notification', {
+      body: message,
+      requireInteraction: requireInteraction
+    });
+  }, delay * 1000);
+});
