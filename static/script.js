@@ -88,25 +88,3 @@ document.getElementById('enableNotifications').addEventListener('click', functio
 
 
 /* --------------------  -------------------- */
-
-function notificationOptionsPopup(eventId) {
-  document.getElementById('eventId').value = eventId; // Set the event ID in the hidden input
-  const notificationPopup = document.getElementById('notificationOptionsPopup');
-  notificationPopup.style.display = 'block'; // Show the notification options popup
-}
-
-function closeNotificationOptions() {
-  const notificationPopup = document.getElementById('notificationOptionsPopup');
-  notificationPopup.style.display = 'none'; // Hide the notification options popup
-}
-
-document.getElementById('notificationForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const eventId = document.getElementById('eventId').value;
-  const notificationTimes = Array.from(document.querySelectorAll('input[name="notificationTime"]:checked'), input => parseInt(input.value));
-
-  // Assuming you have a mechanism to schedule these notifications
-  console.log('Setting notifications for event ID:', eventId, 'at times:', notificationTimes);
-
-  closeNotificationOptions(); // Close the modal after settings
-});
