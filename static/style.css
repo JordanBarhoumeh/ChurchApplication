@@ -150,7 +150,7 @@ h1 {
   max-width: 900px; /* Adjust this value as needed for your design */
   margin: 0 auto; /* This centers the container if it's smaller than the full width */
   padding: 10px; /* Adds space inside the container */
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 /* Error page specific styles */
