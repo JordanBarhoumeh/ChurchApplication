@@ -165,18 +165,6 @@ def delete_event(event_id):
     return redirect(url_for('admin_settings', church_id=church_id))
 
 
-
-
-@app.route('/sw.js')
-def serve_sw():
-    response = send_from_directory(app.static_folder, 'sw.js')
-    # Set the appropriate headers for Service Worker
-    response.headers['Service-Worker-Allowed'] = '/'
-    response.headers['Cache-Control'] = 'no-cache'
-    return response
-
-
-
 @app.route('/')
 def home():
     return render_template('welcome.html')
