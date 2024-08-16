@@ -52,20 +52,6 @@
         <a href="{{ url_for('logout') }}" class="move-button">Logout</a>
 
 
-        <!--Notification Testing-->
-        <button id="subscribe">Subscribe to Notifications</button>
-    </div>
-
-    <form id="sendNotificationForm">
-      <input type="text" id="notification" placeholder="Notification message">
-      <input type="number" id="delay" placeholder="Delay in seconds">
-      <label>
-        <input type="checkbox" id="requireInteraction"> Require Interaction
-      </label>
-      <button type="submit">Send Notification</button>
-    </form>
-    
-
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
