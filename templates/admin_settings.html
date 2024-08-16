@@ -7,7 +7,7 @@
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
-    <title>Admin Settings</title>
+    <title>Admin Settings - {{ church.name }}</title>
     <link
       href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"
       rel="stylesheet"
@@ -28,7 +28,7 @@
   <body>
     <div class="header">
       <h1>Admin Settings</h1>
-      <p class="location">{{ church.location }}</p>
+      <p class="location">{{ church.name }}</p>
       <button class="hamburger" aria-label="Toggle navigation">
         <div class="bar"></div>
       </button>
