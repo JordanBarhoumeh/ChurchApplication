@@ -1,31 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <title>Admin Settings</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-</head>
-<body>
+    <link
+      href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
     <div class="header">
-        <h1>Admin Settings</h1>
-        <!-- Your navigation toggle button -->
-
-            <!-- Hamburger Menu -->
-      <nav class="mobile-nav">
-        <a href="{{ url_for('church_main', church_id=church.id) }}" class="move-button">Home</a>
-
-        <a href="{{ url_for('calendar', church_id=church.id) }}" class="move-button">Calendar</a>
-
-        <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="move-button">Upcoming Events</a>
-
-        <a href="{{ url_for('service_books', church_id=church.id) }}" class="move-button">Service Books</a>
-
-        <a href="{{ url_for('settings', church_id=church.id) }}" class="move-button">Settings</a> 
-
-        <a href="{{ url_for('logout') }}" class="move-button">Select Church</a>
-      </nav>
+      <h1>{{ church.name }}</h1>
+      <p class="location">{{ church.location }}</p>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <div class="bar"></div>
+      </button>
     </div>
+
+    <!-- Hamburger Menu -->
+    <nav class="mobile-nav">
+      <a href="{{ url_for('church_main', church_id=church.id) }}" class="move-button">Home</a>
+
+      <a href="{{ url_for('calendar', church_id=church.id) }}" class="move-button">Calendar</a>
+
+      <a href="{{ url_for('upcoming_events', church_id=church.id) }}" class="move-button">Upcoming Events</a>
+
+      <a href="{{ url_for('service_books', church_id=church.id) }}" class="move-button">Service Books</a>
+
+      <a href="{{ url_for('settings', church_id=church.id) }}" class="move-button">Settings</a> 
+
+      <a href="{{ url_for('logout') }}" class="move-button">Select Church</a>
+    </nav>
 
 
     <div class="church-info" style="padding-top: 20px">
@@ -98,5 +120,5 @@
 
     <!-- Your scripts -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+  </body>
 </html>
