@@ -102,10 +102,10 @@
         {% if upcoming_events %}
             {% for event in upcoming_events %}
             <div class="event">
-                <h4>{{ event.event_title }}</h4>
-                <p>{{ event.description }}</p>
-                <p>Starts on: {{ event.start_time.strftime('%Y-%m-%d %H:%M') }}</p>
                 <form action="{{ url_for('delete_event', event_id=event.id) }}" method="post">
+                    <h4>{{ event.event_title }}</h4>
+                    <p>{{ event.description }}</p>
+                    <p>Starts on: {{ event.start_time.strftime('%Y-%m-%d %H:%M') }}</p>
                     <button type="submit">Delete</button>
                 </form>
             </div>
