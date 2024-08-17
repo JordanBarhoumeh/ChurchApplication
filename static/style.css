@@ -489,6 +489,7 @@ input[type="submit"] {
 
 .centered-content-area,
 .centered-form-area {
+  align-items: center;
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
