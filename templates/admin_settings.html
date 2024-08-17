@@ -95,24 +95,24 @@
     </div>
 
 
-    <div>
-        <div class="church-info" style="padding: 0px">
-            <h2>Manage Upcoming Events</h2>
-        </div>
-        {% if upcoming_events %}
-            {% for event in upcoming_events %}
-            <div class="event">
-                <form action="{{ url_for('delete_event', event_id=event.id) }}" method="post">
-                    <h4>{{ event.event_title }}</h4>
-                    <p>{{ event.description }}</p>
-                    <p>Starts on: {{ event.start_time.strftime('%Y-%m-%d %H:%M') }}</p>
-                    <button type="submit">Delete</button>
-                </form>
-            </div>
-            {% endfor %}
-        {% else %}
-            <p>No upcoming events found.</p>
-        {% endif %}
+    <div class="centered-content-area">
+      <div class="church-info" style="padding: 0px">
+        <h2>Manage Upcoming Events</h2>
+      </div>
+      {% if upcoming_events %}
+        {% for event in upcoming_events %}
+          <div class="event">
+            <form action="{{ url_for('delete_event', event_id=event.id) }}" method="post">
+              <h4>{{ event.event_title }}</h4>
+              <p>{{ event.description }}</p>
+              <p>Starts on: {{ event.start_time.strftime('%Y-%m-%d %H:%M') }}</p>
+              <button type="submit">Delete</button>
+            </form>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No upcoming events found.</p>
+      {% endif %}
     </div>
     
   
