@@ -500,10 +500,11 @@ input[type="submit"] {
 .event-list {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers each event within the container */
+  align-items: center;
 }
 
 .event {
+  display: block; /* Ensure each event is a block-level element */
   width: 100%;
   max-width: 600px;
   background-color: #fff;
@@ -512,7 +513,9 @@ input[type="submit"] {
   padding: 10px;
   margin-bottom: 20px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Keep text left-aligned within centered block */
 }
+
 
 
 .form-group {
